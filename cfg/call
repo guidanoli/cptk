@@ -1,0 +1,23 @@
+#!/bin/bash
+
+file="$1"
+lang="$2"
+shift 2
+cfg/update "$lang"
+lang=$(cfg/get-lang)
+pushd cfg/langs/$lang > /dev/null
+
+if [[ -f $file ]]; then
+	"./$file" "$@"
+else
+	echo "Language '$lang' doesn't support '$file'"
+	read -p "Would you like to add this support (y/n)? " yn
+	case $yn in
+		[Yy]*)
+			printf "#!/bin/bash\n\n# Edit $lang file\n\n\n" > $file
+			vi -c "startinsert" $file +
+			;;
+		*) ;;
+	esac
+fi
+popd > /dev/null

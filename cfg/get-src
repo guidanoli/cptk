@@ -1,0 +1,5 @@
+#!/bin/bash
+
+lang=$(cfg/get-lang)
+
+echo "src/prog.$lang"

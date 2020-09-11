@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Get current language
+
+cat cfg/lang

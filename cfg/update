@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ $# -eq 1 ]; then
+	if ! [ "$1" == "$(cfg/get-lang)" ]; then
+		cfg/set-lang $1
+	fi
+fi

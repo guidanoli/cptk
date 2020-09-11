@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Edit cpp file
+
+mkdir -p src
+vi src/prog.cpp
