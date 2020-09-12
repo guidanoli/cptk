@@ -1,2 +1,11 @@
 #!/bin/bash
-g++ "$1" -o "$2" "${args[@]:2}"
+mkdir -p temp
+tmp=$(mktemp)
+echo "$*" > "$tmp"
+diff "$tmp" temp/flags > /dev/null
+if [[ $? -ne 0 ]]; then
+	cp "$tmp" temp/flags
+fi
+rm "$tmp"
+make
+temp/prog.out

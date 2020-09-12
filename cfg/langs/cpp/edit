@@ -1,6 +1,3 @@
 #!/bin/bash
-
-# Edit cpp file
-
-mkdir -p src
-vi src/prog.cpp
+mktemp -p temp
+vi temp/prog.cpp

@@ -1,23 +1,46 @@
 #!/bin/bash
 
+# Calls file from current language
+# Usage: call <file> [<lang> [options]]
+
+# Save file name
 file="$1"
-lang="$2"
-shift 2
-cfg/update "$lang"
+shift
+
+# If the language is specified,
+# set it as the current one
+if [[ $# -gt 0 ]]; then
+	cfg/set-lang "$1"
+	shift
+fi
+
+# Get current language
 lang=$(cfg/get-lang)
+
+if [[ -z "$lang" ]]; then
+	echo "No language is set yet"
+	exit 1
+fi
+
+# Push current language directory
 pushd cfg/langs/$lang > /dev/null
 
+# If such file exists for that given language,
 if [[ -f $file ]]; then
+	# then run it and pass any additional options
 	"./$file" "$@"
 else
-	echo "Language '$lang' doesn't support '$file'"
-	read -p "Would you like to add this support (y/n)? " yn
-	case $yn in
-		[Yy]*)
-			printf "#!/bin/bash\n\n# Edit $lang file\n\n\n" > $file
-			vi -c "startinsert" $file +
-			;;
-		*) ;;
-	esac
+	# else ask the user if it wants to create it
+	echo "Language '$lang' doesn't have file '$file'"
+	read -p "Would you like to create it (y/n)? " yn
+
+	# if it answers 'y',
+	if [[ $yn =~ y* ]]; then
+		# then create it
+		printf "#!/bin/bash\n\n" > $file
+		vi -c "startinsert" $file +
+	fi
 fi
+
+# Pop directory
 popd > /dev/null

@@ -2,4 +2,6 @@
 
 # Get current language
 
-cat cfg/lang
+if [[ -f cfg/lang ]]; then
+	cat cfg/lang
+fi
