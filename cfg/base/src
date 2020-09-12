@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-export tempdir=temp
-mkdir -p $tempdir
+mkdir -p temp
