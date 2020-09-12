@@ -7,5 +7,4 @@ if [[ $? -ne 0 ]]; then
 	cp "$tmp" temp/flags
 fi
 rm "$tmp"
-make
-temp/prog.out
+make && temp/prog.out

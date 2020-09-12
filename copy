@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# Summary: Copy contents of source code to clipboard
+#
+# Usage: ./copy [LANG {OPTIONS}]
+#
+# If on WSL, uses clip.exe
+# Else, uses xclip.
+
+src=$(./src "$@")
+
+if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+	cat $src | clip.exe
+else
+	xclip -sel c < $src
+fi
