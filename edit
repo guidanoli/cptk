@@ -6,4 +6,10 @@
 #
 # Opens source code in text editor.
 
-vi $(./src "$@")
+src=$(./src "$@")
+
+if [[ -z $src ]]; then
+	exit 1
+else
+	vi $src
+fi

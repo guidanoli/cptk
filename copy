@@ -9,8 +9,13 @@
 
 src=$(./src "$@")
 
-if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-	cat $src | clip.exe
+if [[ -z $src ]]; then
+	echo "Could not get source" >&2
+	exit 1
 else
-	xclip -sel c < $src
+	if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+		cat $src | clip.exe
+	else
+		xclip -sel c < $src
+	fi
 fi

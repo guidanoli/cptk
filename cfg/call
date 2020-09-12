@@ -24,7 +24,7 @@ fi
 lang=$(cfg/get-lang)
 
 if [[ -z "$lang" ]]; then
-	echo "No language is set yet"
+	echo "No language is set yet" >&2
 	exit 1
 fi
 
@@ -40,14 +40,13 @@ if [[ -f $file ]]; then
 	ret=$?
 else
 	# else ask the user if it wants to create it
-	echo "Language '$lang' doesn't have file '$file'"
-	read -p "Would you like to create it (y/n)? " yn
+	echo "Language '$lang' doesn't have file '$file'" >&2
+	read -p "Would you like to create it (y/n)? " yn >&2
 
 	# if it answers 'y',
 	if [[ $yn = y* ]]; then
 		# then create it
 		printf "#!/usr/bin/env bash\n\n" > $file
-		vi -c "startinsert" $file +
 	fi
 fi
 
