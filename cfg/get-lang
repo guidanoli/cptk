@@ -6,6 +6,20 @@
 #
 # Obtains current language, if set
 
+# If the language file exists,
 if [[ -f cfg/lang.cfg ]]; then
-	cat cfg/lang.cfg
+	# Get its content and save it
+	lang=$(cat cfg/lang.cfg)
+else
+	lang=""
 fi
+
+# If language is not set,
+if [[ -z "$lang" ]]; then
+	# then print error message
+	echo "No language is set." >&2
+	echo "Hint: ./src LANGUAGE" >&2
+	exit 1
+fi
+
+echo "$lang"

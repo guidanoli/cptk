@@ -1,19 +1,11 @@
 #!/usr/bin/env bash
 #
-# Summary: Calls file for individual language
+# Summary: Calls base file 
 #
 # Usage: call FILE [LANG {OPTIONS}]
 #
-# Calls FILE for an individual language.
-# 
-# If LANG is ommitted, the current language is
-# assumed, and no additional options are passed.
-
-# Get script directory
-cfgdir=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
-
-# Get repository root
-rootdir=$cfgdir/..
+# If LANG is present, sets it as the current one
+# FILE must be a valid base file
 
 # Save file name
 file="$1"
@@ -29,46 +21,9 @@ fi
 # Get current language
 lang=$(cfg/get-lang)
 
-if [[ -z "$lang" ]]; then
-	echo "No language is set yet" >&2
-	echo "Try running \"./src LANGUAGE\"" >&2
-	exit 1
+if [[ $? -ne 0 ]]; then
+	exit $?
 fi
 
-# Save base directory
-basedir=$(realpath cfg/base)
-
-# Push current language directory
-pushd cfg/langs/$lang > /dev/null
-
-ret=0
-
-# If such file exists for that given language,
-if [[ -f $file ]]; then
-	# source the base file, if existent
-	if [[ -f "$basedir/$file" ]]; then
-		source "$basedir/$file"
-	fi
-
-	# then run it and pass any additional options
-	"./$file" "$@"
-	ret=$?
-else
-	# else ask the user if it wants to create it
-	echo "Language '$lang' doesn't have file '$file'" >&2
-	read -p "Would you like to create it (y/n)? " yn >&2
-
-	# if it answers 'y',
-	if [[ $yn = y* ]]; then
-		# then create it
-		printf "#!/usr/bin/env bash\n\n" > $file
-		chmod +x $file
-		echo "File '$(realpath $file)' was created" >&2
-	fi
-fi
-
-# Pop directory
-popd > /dev/null
-
-# Return error code
-exit $ret
+# Source base file
+source "cfg/base/$file"

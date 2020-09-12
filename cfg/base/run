@@ -1,8 +1,21 @@
 #!/usr/bin/env bash
-source $cfgdir/base/src
-pushd $rootdir > /dev/null
-src=$(./src)
-popd > /dev/null
-if ! [[ -f $src ]] ; then
+#
+# Summary: Run source code
+
+# Make call to src
+src="$(cfg/call src)"
+
+# If call fails,
+if [[ $? -ne 0 ]]; then
+	# then exit with error
+	exit $?
+fi
+
+# If source code exists,
+if [[ -f "$src" ]] ; then
+	# then make subcall
+	cfg/subcall "$file"
+else
+	# else exit with error
 	exit 1
 fi

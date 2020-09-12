@@ -7,15 +7,14 @@
 # If on WSL, uses clip.exe
 # Else, uses xclip.
 
-src=$(./src "$@")
+src="$(./src "$@")"
 
-if [[ -z $src ]]; then
-	echo "Could not get source" >&2
+if [[ -z "$src" || ! ( -f "$src" ) ]]; then
 	exit 1
 else
 	if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-		cat $src | clip.exe
+		cat "$src" | clip.exe
 	else
-		xclip -sel c < $src
+		xclip -sel c < "$src"
 	fi
 fi

@@ -1,2 +1,9 @@
 #!/usr/bin/env bash
-mkdir -p temp
+#
+# Summary: Get source code file path
+
+# Make temporary directory
+mkdir -p "cfg/langs/$lang/temp"
+
+# Make subcall
+cfg/subcall "$file"

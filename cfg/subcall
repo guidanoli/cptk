@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#
+# Summary: Call subfile
+#
+# Usage: cfg/subcall FILE {OPTIONS}
+#
+# Calls FILE for the current language
+
+# Save subfile name
+file="$1"
+shift
+
+# Get current language
+lang="$(cfg/get-lang)"
+
+if [[ $? -ne 0 ]]; then
+	exit $?
+fi
+
+# Push current language directory
+pushd "cfg/langs/$lang" > /dev/null
+
+# If subfile exists
+if [[ -f "$file" ]]; then
+	# then run it and pass any additional options
+	"./$file" "$@"
+else
+	# else ask the user if it wants to create it
+	echo "Language '$lang' doesn't have file '$file'" >&2
+	read -p "Would you like to create it (y/n)? " yn >&2
+
+	# if it answers 'y',
+	if [[ $yn = y* ]]; then
+		# then create it
+		echo "#!/usr/bin/env bash" > "$file"
+		chmod +x "$file"
+		echo "File '$file' was created" >&2
+	fi
+fi
+
+# Pop directory
+popd > /dev/null
