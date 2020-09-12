@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# Summary: Cleans temporary files
+#
+# Usage: ./clean
+#
+# Cleans code, configuration files etc
+
+find cfg/langs -name temp -type d -exec rm -rf {} \; 2>/dev/null
+find cfg -regex '.*\.cfg' -type f -delete

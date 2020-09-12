@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-if ! [[ -f $(./src) ]] ; then
+if ! [[ -f $($rootdir/src) ]] ; then
 	exit 1
 fi

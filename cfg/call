@@ -9,6 +9,12 @@
 # If LANG is ommitted, the current language is
 # assumed, and no additional options are passed.
 
+# Get script directory
+cfgdir=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
+
+# Get repository root
+rootdir=$cfgdir/..
+
 # Save file name
 file="$1"
 shift
@@ -25,6 +31,7 @@ lang=$(cfg/get-lang)
 
 if [[ -z "$lang" ]]; then
 	echo "No language is set yet" >&2
+	echo "Try running \"./src LANGUAGE\"" >&2
 	exit 1
 fi
 
@@ -38,12 +45,11 @@ ret=0
 
 # If such file exists for that given language,
 if [[ -f $file ]]; then
-	# then run the base file, if existent
+	# source the base file, if existent
 	if [[ -f "$basedir/$file" ]]; then
-		if ! "$basedir/$file" "$@" ; then
-			exit $?
-		fi
+		source "$basedir/$file"
 	fi
+
 	# then run it and pass any additional options
 	"./$file" "$@"
 	ret=$?
