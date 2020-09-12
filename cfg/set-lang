@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
-
-# Sets current language
+#
+# Summary: Sets current language
+#
+# Usage: cfg/set-lang [LANG]
+#
+# Sets current language as LANG, if present
 
 if [[ $# -eq 1 ]]; then
 	echo "$1" > cfg/lang

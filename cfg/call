@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
-
-# Calls file from current language
-# Usage: call <file> [<lang> [options]]
+#
+# Summary: Calls file for individual language
+#
+# Usage: call FILE [LANG {OPTIONS}]
+#
+# Calls FILE for an individual language.
+# 
+# If LANG is ommitted, the current language is
+# assumed, and no additional options are passed.
 
 # Save file name
 file="$1"
@@ -25,10 +31,13 @@ fi
 # Push current language directory
 pushd cfg/langs/$lang > /dev/null
 
+ret=0
+
 # If such file exists for that given language,
 if [[ -f $file ]]; then
 	# then run it and pass any additional options
 	"./$file" "$@"
+	ret=$?
 else
 	# else ask the user if it wants to create it
 	echo "Language '$lang' doesn't have file '$file'"
@@ -44,3 +53,6 @@ fi
 
 # Pop directory
 popd > /dev/null
+
+# Return error code
+exit $ret

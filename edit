@@ -1,2 +1,9 @@
 #!/usr/bin/env bash
-cfg/call edit "$@" 
+#
+# Summary: Edits source code
+#
+# Usage: ./edit [LANG {OPTIONS}]
+#
+# Opens source code in text editor.
+
+vi $(./src "$@")

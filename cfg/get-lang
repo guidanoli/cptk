@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
-
-# Get current language
+#
+# Summary: Get current language
+#
+# Usage: cfg/get-lang
+#
+# Obtains current language, if set
 
 if [[ -f cfg/lang ]]; then
 	cat cfg/lang

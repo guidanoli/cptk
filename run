@@ -1,2 +1,12 @@
 #!/usr/bin/env bash
-cfg/call run "$@" 
+#
+# Summary: Run code
+#
+# Usage: ./run [LANG {OPTIONS}]
+#
+# Calls individual run script for the language
+#
+# If LANG is ommitted, the current language is
+# assumed, and no additional options are passed.
+
+cfg/call run "$@"
