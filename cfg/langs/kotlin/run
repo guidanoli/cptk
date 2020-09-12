@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+jarfile=$tempdir/prog.jar
+kotlinc $(./src) -include-runtime -d $jarfile
+java -jar $jarfile

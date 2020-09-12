@@ -60,6 +60,11 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 
 * Ruby interpreter
 
+### Kotlin
+
+* Kotlin compiler
+* JDK
+
 ## Contribution
 
 If you have a language that you'd like to be added in the cfg/langs folder, don't hesitate to send a PR request.

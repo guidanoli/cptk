@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
-if ! [[ -f $($rootdir/src) ]] ; then
+source $cfgdir/base/src
+pushd $rootdir > /dev/null
+src=$(./src)
+popd > /dev/null
+if ! [[ -f $src ]] ; then
 	exit 1
 fi
