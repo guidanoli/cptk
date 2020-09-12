@@ -28,6 +28,9 @@ if [[ -z "$lang" ]]; then
 	exit 1
 fi
 
+# Save base directory
+basedir=$(realpath cfg/base)
+
 # Push current language directory
 pushd cfg/langs/$lang > /dev/null
 
@@ -35,6 +38,12 @@ ret=0
 
 # If such file exists for that given language,
 if [[ -f $file ]]; then
+	# then run the base file, if existent
+	if [[ -f "$basedir/$file" ]]; then
+		if ! "$basedir/$file" "$@" ; then
+			exit $?
+		fi
+	fi
 	# then run it and pass any additional options
 	"./$file" "$@"
 	ret=$?

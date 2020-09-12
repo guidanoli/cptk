@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-mkdir -p temp
 tmp=$(mktemp)
 echo "$*" > "$tmp"
 diff "$tmp" temp/flags.cfg > /dev/null

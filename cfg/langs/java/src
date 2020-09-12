@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
-
-mkdir -p temp
 echo $(realpath temp/Prog.java)

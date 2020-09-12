@@ -36,10 +36,25 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 * bash
 * vim
 
-### C/C++ support
+### C
 
 * make
 * diff
+* C compiler
+
+### C++
+
+* make
+* diff
+* C++ compiler
+
+### Python
+
+* Python interpreter
+
+### Java
+
+* JDK
 
 ## Contribution
 

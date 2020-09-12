@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 javafile=$(./src)
 javac "$javafile"
 pushd temp > /dev/null
