@@ -9,4 +9,4 @@
 # If LANG is ommitted, the current language is
 # assumed, and no additional options are passed.
 
-cfg/call src "$@" 
+bin/call src "$@" 

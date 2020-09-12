@@ -3,7 +3,7 @@
 # Summary: Get source code file path
 
 # Make temporary directory
-mkdir -p "cfg/langs/$lang/temp"
+mkdir -p "bin/langs/$lang/temp"
 
 # Make subcall
-cfg/subcall "$file"
+bin/subcall "$file"

@@ -6,5 +6,5 @@
 #
 # Cleans code, configuration files etc
 
-find cfg/langs -name temp -type d -exec rm -rf {} \; 2>/dev/null
-find cfg -regex '.*\.cfg' -type f -delete
+find bin/langs -name temp -type d -exec rm -rf {} \; 2>/dev/null
+find bin -regex '.*\.dat' -type f -delete

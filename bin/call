@@ -14,16 +14,16 @@ shift
 # If the language is specified,
 # set it as the current one
 if [[ $# -gt 0 ]]; then
-	cfg/set-lang "$1"
+	bin/set-lang "$1"
 	shift
 fi
 
 # Get current language
-lang=$(cfg/get-lang)
+lang=$(bin/get-lang)
 
 if [[ $? -ne 0 ]]; then
 	exit $?
 fi
 
 # Source base file
-source "cfg/base/$file"
+source "bin/base/$file"

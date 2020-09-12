@@ -3,7 +3,7 @@
 # Summary: Run source code
 
 # Make call to src
-src="$(cfg/call src)"
+src="$(bin/call src)"
 
 # If call fails,
 if [[ $? -ne 0 ]]; then
@@ -14,7 +14,7 @@ fi
 # If source code exists,
 if [[ -f "$src" ]] ; then
 	# then make subcall
-	cfg/subcall "$file"
+	bin/subcall "$file"
 else
 	# else exit with error
 	exit 1

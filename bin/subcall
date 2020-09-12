@@ -2,7 +2,7 @@
 #
 # Summary: Call subfile
 #
-# Usage: cfg/subcall FILE {OPTIONS}
+# Usage: bin/subcall FILE {OPTIONS}
 #
 # Calls FILE for the current language
 
@@ -11,14 +11,14 @@ file="$1"
 shift
 
 # Get current language
-lang="$(cfg/get-lang)"
+lang="$(bin/get-lang)"
 
 if [[ $? -ne 0 ]]; then
 	exit $?
 fi
 
 # Push current language directory
-pushd "cfg/langs/$lang" > /dev/null
+pushd "bin/langs/$lang" > /dev/null
 
 # If subfile exists
 if [[ -f "$file" ]]; then

@@ -2,14 +2,14 @@
 #
 # Summary: Get current language
 #
-# Usage: cfg/get-lang
+# Usage: bin/get-lang
 #
 # Obtains current language, if set
 
 # If the language file exists,
-if [[ -f cfg/lang.cfg ]]; then
+if [[ -f bin/lang.dat ]]; then
 	# Get its content and save it
-	lang=$(cat cfg/lang.cfg)
+	lang=$(cat bin/lang.dat)
 else
 	lang=""
 fi

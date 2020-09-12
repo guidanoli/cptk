@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 tmp=$(mktemp)
 echo "$*" > "$tmp"
-diff "$tmp" temp/flags.cfg > /dev/null
+diff "$tmp" temp/flags.dat > /dev/null
 if [[ $? -ne 0 ]]; then
-	cp "$tmp" temp/flags.cfg
+	cp "$tmp" temp/flags.dat
 fi
 rm "$tmp"
 make && temp/prog.out
