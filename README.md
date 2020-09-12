@@ -16,11 +16,16 @@ What this toolkit promotes is an abstraction for developing with different progr
 
 ## Mechanism
 
-Once you have cloned this repository, you may first set the current language by running `./edit LANG`.
-(You can close the text editor without saving for now)
+Even though powerful, the toolkit only needs to remember one thing: the current programming language.
+With this information, it triggers all the functionalities specific to that programming language.
+For example, running a C++ application involves one list of commands; while running a Python script
+involves a different list. But for the user, these are abstracted away into a single command: `./run`.
 
-Now that the current language is set to LANG, the next time you want to edit the code in this language, you can omit it from the command (`./edit`).
-This implicitness applies to the other commands too: `./run` and `./src`.
+**The current programming language is the one that was last made explicit in a command.**
+
+These commands can also take additional arguments. For example, compiling a C++ application may take custom compiler flags as in `./run cpp -O2`. Note that when additional arguments are present, the programming language name must be explicit, even when it is the default.
+
+After cloning this repository, you need to define the programming language for the first time, by running, for example, `./src LANGUAGE`.
 
 ## Dependencies
 
