@@ -6,6 +6,6 @@
 #
 # Obtains current language, if set
 
-if [[ -f cfg/lang ]]; then
-	cat cfg/lang
+if [[ -f cfg/lang.cfg ]]; then
+	cat cfg/lang.cfg
 fi

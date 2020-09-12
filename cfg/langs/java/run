@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+javafile=$(./src)
+javac "$javafile"
+pushd temp > /dev/null
+classfile=$(echo $(basename "$javafile") | cut -f 1 -d '.')
+java "$classfile"
+popd > /dev/null

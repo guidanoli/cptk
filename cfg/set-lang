@@ -7,6 +7,6 @@
 # Sets current language as LANG, if present
 
 if [[ $# -eq 1 ]]; then
-	echo "$1" > cfg/lang
+	echo "$1" > cfg/lang.cfg
 	mkdir -p "cfg/langs/$1"
 fi

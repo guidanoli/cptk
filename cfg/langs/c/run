@@ -2,9 +2,9 @@
 mkdir -p temp
 tmp=$(mktemp)
 echo "$*" > "$tmp"
-diff "$tmp" temp/flags > /dev/null
+diff "$tmp" temp/flags.cfg > /dev/null
 if [[ $? -ne 0 ]]; then
-	cp "$tmp" temp/flags
+	cp "$tmp" temp/flags.cfg
 fi
 rm "$tmp"
 make
