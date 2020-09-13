@@ -7,15 +7,17 @@ src="$(bin/call src)"
 
 # If call fails,
 if [[ $? -ne 0 ]]; then
-	# then exit with error
-	exit $?
+	# then exit
+	ret=$?
+	echo "Internal call to src failed." >&2
+	exit $ret
 fi
 
 # If source code exists,
 if [[ -f "$src" ]] ; then
 	# then make subcall
-	bin/subcall "$file"
+	bin/subcall "$file" "$@"
 else
-	# else exit with error
-	exit 1
+	# else exit
+	source bin/err/1
 fi

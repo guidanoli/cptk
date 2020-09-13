@@ -35,6 +35,7 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 
 * bash
 * vim
+* xclip (POSIX) or clip (WSL)
 
 ### C
 
@@ -55,6 +56,7 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 ### Java
 
 * JDK
+* make
 
 ### Ruby
 
@@ -62,8 +64,9 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 
 ### Kotlin
 
-* Kotlin compiler
 * JDK
+* Kotlin compiler
+* make
 
 ### Perl
 

@@ -2,19 +2,25 @@
 #
 # Summary: Copy contents of source code to clipboard
 #
-# Usage: ./copy [LANG {OPTIONS}]
+# Usage: bin/bash/clip {OPTIONS}
 #
-# If on WSL, uses clip.exe
+# If on WSL, uses clip.
 # Else, uses xclip.
 
-src="$(./src "$@")"
+# Make call to src
+src="$(bin/call src "$lang" "$@")"
 
+# If source is missing,
 if [[ -z "$src" || ! ( -f "$src" ) ]]; then
-	exit 1
+	# then exit
+	source bin/err/1
 else
+	# else, if running on WSL,
 	if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+		# run clip.exe
 		cat "$src" | clip.exe
 	else
+		# else, run xclip
 		xclip -sel c < "$src"
 	fi
 fi

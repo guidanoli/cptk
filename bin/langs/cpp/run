@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 tmp=$(mktemp)
 echo "$*" > "$tmp"
-diff "$tmp" temp/flags.dat > /dev/null
-if [[ $? -ne 0 ]]; then
+if [[ -f temp/flags.dat ]]; then
+	diff "$tmp" temp/flags.dat > /dev/null
+	if [[ $? -ne 0 ]]; then
+		cp "$tmp" temp/flags.dat
+	fi
+else
 	cp "$tmp" temp/flags.dat
 fi
 rm "$tmp"

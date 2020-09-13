@@ -6,4 +6,4 @@
 mkdir -p "bin/langs/$lang/temp"
 
 # Make subcall
-bin/subcall "$file"
+bin/subcall "$file" "$@"

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-javafile=$(./src)
-javac "$javafile"
+set -e
+make temp/Prog.class
 pushd temp > /dev/null
-classfile=$(echo $(basename "$javafile") | cut -f 1 -d '.')
-java "$classfile"
+java Prog
 popd > /dev/null

@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 #
-# Summary: Edits source code
+# Summary: Copy contents of source code to clipboard
 #
-# Usage: ./edit [LANG {OPTIONS}]
-#
-# Opens source code in text editor.
+# Usage: ./clip [LANG {OPTIONS}]
 #
 # If LANG is ommitted, the current language is
 # assumed, and no additional options are passed.
 
-bin/call edit "$@"
+bin/call clip "$@"

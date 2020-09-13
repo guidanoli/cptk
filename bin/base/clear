@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Summary: Removes temporary files from the current language
+#
+# Usage: bin/base/clear
+
+rm -rf bin/langs/$lang/temp

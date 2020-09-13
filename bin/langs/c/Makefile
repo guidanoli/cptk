@@ -1,4 +1,5 @@
-CFLAGS=$(file < temp/flags.dat)
+FLAGSFILE=temp/flags.dat
+CFLAGS=$(shell cat ${FLAGSFILE})
 
-temp/prog.out: temp/prog.c temp/flags.dat
+temp/prog.out: temp/prog.c ${FLAGSFILE}
 	${CC} $< -o $@ $(CFLAGS)

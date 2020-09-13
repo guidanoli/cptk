@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# Summary: Edits source code of the current language
+#
+# Usage: bin/base/edit {OPTIONS}
+#
+# Opens source code in text editor.
+
+src="$(bin/call src "$lang" "$@")"
+
+if [[ $? -ne 0 ]]; then
+	ret=$?
+	echo "Internal call to src failed." >&2
+	exit $ret
+else
+	vi "$src"
+fi

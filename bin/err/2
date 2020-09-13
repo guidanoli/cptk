@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+echo "No language is set." >&2
+echo "Hint: ./src LANGUAGE" >&2
+exit 2
