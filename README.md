@@ -40,13 +40,11 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 ### C
 
 * make
-* diff
 * C compiler
 
 ### C++
 
 * make
-* diff
 * C++ compiler
 
 ### Python
