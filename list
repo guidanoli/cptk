@@ -7,4 +7,4 @@
 # Lists the names of all available languages
 # which could be used in the other commands
 
-ls -1 bin/langs
+ls -1 lib

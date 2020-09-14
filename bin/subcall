@@ -18,7 +18,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Push current language directory
-pushd "bin/langs/$lang" > /dev/null
+pushd "lib/$lang" > /dev/null
 
 # If subfile exists
 if [[ -f "$file" ]]; then

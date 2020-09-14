@@ -3,10 +3,10 @@
 # Summary: Get source code file path
 
 # Make temporary directory
-mkdir -p "bin/langs/$lang/temp"
+mkdir -p "lib/$lang/temp"
 
 # Add prefix to path
-printf "bin/langs/$lang/"
+printf "lib/$lang/"
 
 # Make subcall
 bin/subcall "$file" "$@"

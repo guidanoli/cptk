@@ -9,5 +9,5 @@
 if [[ $# -eq 1 ]]; then
 	mkdir -p etc
 	echo "$1" > etc/lang.dat
-	mkdir -p "bin/langs/$1"
+	mkdir -p "lib/$1"
 fi

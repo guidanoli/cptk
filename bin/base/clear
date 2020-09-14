@@ -4,4 +4,4 @@
 #
 # Usage: bin/base/clear
 
-rm -rf bin/langs/$lang/temp
+rm -rf lib/$lang/temp
