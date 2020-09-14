@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 set -e
 make temp/Prog.class
-pushd temp > /dev/null
-java Prog
-popd > /dev/null
+java -cp temp Prog
