@@ -9,4 +9,4 @@ mkdir -p "lib/$lang/temp"
 printf "lib/$lang/"
 
 # Make subcall
-bin/subcall "$file" "$@"
+libexec/subcall "$file" "$@"

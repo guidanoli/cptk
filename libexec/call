@@ -14,16 +14,16 @@ shift
 # If the language is specified,
 # set it as the current one
 if [[ $# -gt 0 ]]; then
-	bin/set-lang "$1"
+	libexec/set-lang "$1"
 	shift
 fi
 
 # Get current language
-lang=$(bin/get-lang)
+lang=$(libexec/get-lang)
 
 if [[ $? -ne 0 ]]; then
 	exit $?
 fi
 
 # Source base file
-source "bin/base/$file"
+source "libexec/base/$file"

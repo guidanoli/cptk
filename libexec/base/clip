@@ -2,18 +2,18 @@
 #
 # Summary: Copy contents of source code to clipboard
 #
-# Usage: bin/base/clip {OPTIONS}
+# Usage: libexec/base/clip {OPTIONS}
 #
 # If on WSL, uses clip.
 # Else, uses xclip.
 
 # Make call to src
-src="$(bin/call src "$lang" "$@")"
+src="$(libexec/call src "$lang" "$@")"
 
 # If source is missing,
 if [[ -z "$src" || ! ( -f "$src" ) ]]; then
 	# then exit
-	source bin/err/1
+	source libexec/err/1
 else
 	# else, if running on WSL,
 	if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then

@@ -2,6 +2,6 @@
 #
 # Summary: Removes temporary files from the current language
 #
-# Usage: bin/base/clear
+# Usage: libexec/base/clear
 
 rm -rf lib/$lang/temp

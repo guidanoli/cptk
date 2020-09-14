@@ -3,7 +3,7 @@
 # Summary: Run source code
 
 # Make call to src
-src="$(bin/call src)"
+src="$(libexec/call src)"
 
 # If call fails,
 if [[ $? -ne 0 ]]; then
@@ -16,8 +16,8 @@ fi
 # If source code exists,
 if [[ -f "$src" ]] ; then
 	# then make subcall
-	bin/subcall "$file" "$@"
+	libexec/subcall "$file" "$@"
 else
 	# else exit
-	source bin/err/1
+	source libexec/err/1
 fi

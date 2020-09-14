@@ -7,4 +7,4 @@
 # If LANG is ommitted, the current language is
 # assumed, and no additional options are passed.
 
-bin/call clip "$@"
+libexec/call clip "$@"

@@ -2,7 +2,7 @@
 #
 # Summary: Get current language
 #
-# Usage: bin/get-lang
+# Usage: libexec/get-lang
 #
 # Obtains current language, if set
 
@@ -20,7 +20,7 @@ fi
 # If language is not set,
 if [[ -z "$lang" ]]; then
 	# then exit
-	source bin/err/2
+	source libexec/err/2
 fi
 
 echo "$lang"

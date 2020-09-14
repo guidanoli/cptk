@@ -2,7 +2,7 @@
 #
 # Summary: Sets current language
 #
-# Usage: bin/set-lang [LANG]
+# Usage: libexec/set-lang [LANG]
 #
 # Sets current language as LANG, if present
 

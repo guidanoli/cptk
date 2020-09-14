@@ -2,7 +2,7 @@
 #
 # Summary: Call subfile
 #
-# Usage: bin/subcall FILE {OPTIONS}
+# Usage: libexec/subcall FILE {OPTIONS}
 #
 # Calls FILE for the current language
 
@@ -11,7 +11,7 @@ file="$1"
 shift
 
 # Get current language
-lang="$(bin/get-lang)"
+lang="$(libexec/get-lang)"
 
 if [[ $? -ne 0 ]]; then
 	exit $?

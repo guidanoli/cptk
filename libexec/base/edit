@@ -2,11 +2,11 @@
 #
 # Summary: Edits source code of the current language
 #
-# Usage: bin/base/edit {OPTIONS}
+# Usage: libexec/base/edit {OPTIONS}
 #
 # Opens source code in text editor.
 
-src="$(bin/call src "$lang" "$@")"
+src="$(libexec/call src "$lang" "$@")"
 
 if [[ $? -ne 0 ]]; then
 	ret=$?
