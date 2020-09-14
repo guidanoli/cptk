@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
-set -e
-make temp/Prog.class
-java -cp temp Prog
+make run

@@ -3,5 +3,10 @@ SOURCEFILE=$(shell ./src)
 BINFILE=$(shell ./bin)
 CSFLAGS=$(shell cat ${FLAGSFILE})
 
+.PHONY: run
+
+run: ${BINFILE}
+	$<
+
 ${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}
 	mcs -out:$@ $< $(CSFLAGS)
