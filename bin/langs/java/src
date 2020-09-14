@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo $(realpath temp/Prog.java)
+echo temp/Prog.java

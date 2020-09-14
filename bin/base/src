@@ -5,5 +5,8 @@
 # Make temporary directory
 mkdir -p "bin/langs/$lang/temp"
 
+# Add prefix to path
+printf "bin/langs/$lang/"
+
 # Make subcall
 bin/subcall "$file" "$@"
