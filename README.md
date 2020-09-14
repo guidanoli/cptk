@@ -47,16 +47,16 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 * C++ compiler
 * make
 
-### Python
+### Python :snake:
 
 * Python interpreter
 
-### Java
+### Java :coffee:
 
 * JDK
 * make
 
-### Ruby
+### Ruby :gem:
 
 * Ruby interpreter
 
@@ -66,7 +66,7 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 * JDK
 * make
 
-### Perl
+### Perl :camel:
 
 * Perl interpreter
 
