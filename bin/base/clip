@@ -2,7 +2,7 @@
 #
 # Summary: Copy contents of source code to clipboard
 #
-# Usage: bin/bash/clip {OPTIONS}
+# Usage: bin/base/clip {OPTIONS}
 #
 # If on WSL, uses clip.
 # Else, uses xclip.

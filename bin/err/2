@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 echo "No language is set." >&2
-echo "Hint: ./src LANGUAGE" >&2
+echo "Run ./list to list all available languages." >&2
+echo "Run ./src LANG to set LANG as the current language." >&2
 exit 2
