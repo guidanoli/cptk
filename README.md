@@ -49,7 +49,7 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 
 ### C#
 
-* C# compiler
+* Mono C# compiler
 * make
 
 ### Python :snake:
