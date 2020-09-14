@@ -7,6 +7,7 @@
 # Sets current language as LANG, if present
 
 if [[ $# -eq 1 ]]; then
-	echo "$1" > bin/lang.dat
+	mkdir -p etc
+	echo "$1" > etc/lang.dat
 	mkdir -p "bin/langs/$1"
 fi
