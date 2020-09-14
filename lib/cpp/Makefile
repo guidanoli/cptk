@@ -6,7 +6,7 @@ CXXFLAGS=$(shell cat ${FLAGSFILE})
 .PHONY: run
 
 run: ${BINFILE}
-	$<
+	"$<"
 
 ${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}
-	${CXX} $< -o $@ $(CXXFLAGS)
+	${CXX} "$<" -o "$@" $(CXXFLAGS)

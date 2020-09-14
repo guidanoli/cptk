@@ -1,2 +1,30 @@
 #!/usr/bin/env bash
-echo temp/Prog.java
+#
+# Summary: Get Java source file relative path
+#
+# Usage: ./src [CLASSNAME]
+#
+# Prints Java source file path relative to Java scripts directory
+# If CLASSNAME is absent, uses "Main" by default
+
+# Save class name file
+classnamefile=temp/classname.dat
+
+# If CLASSNAME is present,
+if [[ $# -gt 0 ]]; then
+	# then store it in a file
+	echo "$1" > "$classnamefile"
+	shift
+fi
+
+# If there is a custom class name file,
+if [[ -f "$classnamefile" ]]; then
+	# then use the name in it as the class name
+	classname="$(cat "$classnamefile")"
+else
+	# else use the default name
+	classname="Main"
+fi
+
+# Print the source file relative path
+echo "temp/$classname.java"

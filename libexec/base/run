@@ -3,7 +3,7 @@
 # Summary: Run source code
 
 # Make call to src
-src="$(libexec/call src)"
+src="$(libexec/call src "$lang" "$@")"
 
 # If call fails,
 if [[ $? -ne 0 ]]; then

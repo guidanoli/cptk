@@ -6,7 +6,7 @@ CSFLAGS=$(shell cat ${FLAGSFILE})
 .PHONY: run
 
 run: ${BINFILE}
-	$<
+	"$<"
 
 ${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}
-	mcs -out:$@ $< $(CSFLAGS)
+	mcs -out:"$@" "$<" $(CSFLAGS)

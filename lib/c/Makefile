@@ -6,7 +6,7 @@ CFLAGS=$(shell cat ${FLAGSFILE})
 .PHONY: run
 
 run: ${BINFILE}
-	$<
+	"$<"
 
 ${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}
-	${CC} $< -o $@ $(CFLAGS)
+	${CC} "$<" -o "$@" $(CFLAGS)

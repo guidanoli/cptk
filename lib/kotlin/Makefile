@@ -4,7 +4,7 @@ BINFILE=$(shell ./bin)
 .PHONY: run
 
 run: ${BINFILE}
-	java -jar $<
+	java -jar "$<"
 
 ${BINFILE}: ${SOURCEFILE}
-	kotlinc $< -include-runtime -d $@
+	kotlinc "$<" -include-runtime -d "$@"

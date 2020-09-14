@@ -1,10 +1,10 @@
 SOURCEFILE=$(shell ./src)
-BINFILE=$(shell ./bin)
+BINFILE=$(addsuffix .class, $(basename ${SOURCEFILE}))
 
 .PHONY: run
 
 run: ${BINFILE}
-	java -cp $(dir $<) $(basename $(notdir $<))
+	java -cp "$(dir $<)" "$(basename $(notdir $<))"
 
 ${BINFILE}: ${SOURCEFILE}
-	javac $<
+	javac "$<"
