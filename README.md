@@ -39,13 +39,13 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 
 ### C
 
-* make
 * C compiler
+* make
 
 ### C++
 
-* make
 * C++ compiler
+* make
 
 ### Python
 
@@ -62,8 +62,8 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 
 ### Kotlin
 
-* JDK
 * Kotlin compiler
+* JDK
 * make
 
 ### Perl
@@ -72,4 +72,4 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 
 ## Contribution
 
-If you have a language that you'd like to be added, don't hesitate to send a PR request.
+If you have a language that you'd like to be added, don't hesitate to send a pull request.
