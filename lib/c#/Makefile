@@ -1,6 +1,6 @@
 FLAGSFILE=temp/flags.dat
 SOURCEFILE=$(shell ./src)
-CFLAGS=$(shell cat ${FLAGSFILE})
+CSFLAGS=$(shell cat ${FLAGSFILE})
 
 temp/prog.out: ${SOURCEFILE} ${FLAGSFILE}
-	${CC} $< -o $@ $(CFLAGS)
+	mcs -out:$@ $< $(CSFLAGS)

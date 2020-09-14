@@ -1,2 +1,4 @@
-temp/Prog.class: temp/Prog.java
+SOURCEFILE=$(shell ./src)
+
+temp/Prog.class: ${SOURCEFILE}
 	javac $<

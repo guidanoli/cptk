@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e
+if [[ ! ( -f temp/flags.dat ) || \
+        ( "$*" != "$(cat temp/flags.dat)" ) ]]; then
+	echo "$*" > temp/flags.dat
+fi
+make
+temp/prog.out

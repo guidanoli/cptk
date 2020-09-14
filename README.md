@@ -47,6 +47,11 @@ If you're using any _POSIX_ distribution, you're most likely good to go.
 * C++ compiler
 * make
 
+### C#
+
+* C# compiler
+* make
+
 ### Python
 
 * Python interpreter
