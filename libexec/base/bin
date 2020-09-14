@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #
-# Summary: Get source code file path of the current language
+# Summary: Get binary file path of the current language
 
 # Make temporary directory
 mkdir -p "lib/$lang/temp"
 
 # Make subcall
-src="$(libexec/subcall "$file" "$@")"
+bin="$(libexec/subcall "$file" "$@")"
 
 # If call subfails,
 if [[ $? -ne 0 ]]; then
@@ -15,5 +15,5 @@ if [[ $? -ne 0 ]]; then
 	echo "Internal call to bin failed." >&2
 	exit $?
 else
-	echo "lib/$lang/$src"
+	echo "lib/$lang/$bin"
 fi

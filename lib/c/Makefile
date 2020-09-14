@@ -1,6 +1,7 @@
 FLAGSFILE=temp/flags.dat
 SOURCEFILE=$(shell ./src)
+BINFILE=$(shell ./bin)
 CFLAGS=$(shell cat ${FLAGSFILE})
 
-temp/prog.out: ${SOURCEFILE} ${FLAGSFILE}
+${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}
 	${CC} $< -o $@ $(CFLAGS)

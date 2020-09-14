@@ -1,4 +1,5 @@
 SOURCEFILE=$(shell ./src)
+BINFILE=$(shell ./bin)
 
-temp/prog.jar: ${SOURCEFILE}
+${BINFILE}: ${SOURCEFILE}
 	kotlinc $< -include-runtime -d $@

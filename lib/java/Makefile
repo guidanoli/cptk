@@ -1,4 +1,5 @@
 SOURCEFILE=$(shell ./src)
+BINFILE=$(shell ./bin)
 
-temp/Prog.class: ${SOURCEFILE}
+${BINFILE}: ${SOURCEFILE}
 	javac $<

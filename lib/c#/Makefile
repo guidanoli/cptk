@@ -1,6 +1,7 @@
 FLAGSFILE=temp/flags.dat
 SOURCEFILE=$(shell ./src)
+BINFILE=$(shell ./bin)
 CSFLAGS=$(shell cat ${FLAGSFILE})
 
-temp/prog.out: ${SOURCEFILE} ${FLAGSFILE}
+${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}
 	mcs -out:$@ $< $(CSFLAGS)

@@ -13,30 +13,45 @@ shift
 # Get current language
 lang="$(libexec/get-lang)"
 
+# If error occurred,
 if [[ $? -ne 0 ]]; then
+	# then exit
 	exit $?
 fi
 
-# Push current language directory
-pushd "lib/$lang" > /dev/null
+# Save language directory
+langdir="lib/$lang"
 
 # If subfile exists
-if [[ -f "$file" ]]; then
+if [[ -f "$langdir/$file" ]]; then
+
+	# Push current language directory
+	pushd "$langdir" > /dev/null
+
 	# then run it and pass any additional options
 	"./$file" "$@"
+
+	# Save error code
+	ret=$?
+
+	# Pop directory
+	popd > /dev/null
+
+	# Exit with error code
+	exit $ret
 else
 	# else ask the user if it wants to create it
-	echo "Language '$lang' doesn't have file '$file'" >&2
+	echo "Language '$lang' doesn't have file '$file'." >&2
 	read -p "Would you like to create it (y/n)? " yn >&2
 
 	# if it answers 'y',
 	if [[ $yn = y* ]]; then
 		# then create it
-		echo "#!/usr/bin/env bash" > "$file"
-		chmod +x "$file"
-		echo "File '$file' was created" >&2
+		echo "#!/usr/bin/env bash" > "$langdir/$file"
+		chmod +x "$langdir/$file"
+		echo "File '$file' was created." >&2
+	else
+		# if not, exit
+		source libexec/err/3
 	fi
 fi
-
-# Pop directory
-popd > /dev/null
