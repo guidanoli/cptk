@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Summary: Write input to source code
+#
+# Usage: libexec/base/cat {OPTIONS}
+
+# Make call to src
+src="$(libexec/call src "$lang" "$@")"
+
+# Write to src
+cat > "$src"
