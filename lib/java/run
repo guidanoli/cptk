@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-make run
+make run -s

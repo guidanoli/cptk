@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-if [[ ! ( -f temp/flags.dat ) || \
-        ( "$*" != "$(cat temp/flags.dat)" ) ]]; then
-	echo "$*" > temp/flags.dat
-fi
-make run
+echo "$*" > temp/flags.dat.new
+make update-flags -s
+make run -s

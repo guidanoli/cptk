@@ -1,9 +1,17 @@
 FLAGSFILE=temp/flags.dat
+NEWFLAGSFILE=$(addsuffix .new, ${FLAGSFILE})
 SOURCEFILE=$(shell ./src)
 BINFILE=$(shell ./bin)
 CSFLAGS=$(shell cat ${FLAGSFILE})
 
-.PHONY: run
+.PHONY: run update-flags
+
+update-flags:
+	if [ -f "${NEWFLAGSFILE}" ]; then \
+		if ! diff ${NEWFLAGSFILE} ${FLAGSFILE} > /dev/null ; then \
+			mv "${NEWFLAGSFILE}" "${FLAGSFILE}"; \
+		fi \
+	fi
 
 run: ${BINFILE}
 	"$<"
