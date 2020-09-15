@@ -7,7 +7,7 @@ CFLAGS=$(shell cat ${FLAGSFILE})
 .PHONY: run update-flags
 
 update-flags:
-	if (! [ -f "${FLAGSFILE}" ] || (([ -f "${FLAGSFILE}" ]) && \
+	if ([ -f "${NEWFLAGSFILE}" ] && (! [ -f "${FLAGSFILE}" ] || \
 	   (! diff ${NEWFLAGSFILE} ${FLAGSFILE} > /dev/null))); then \
 		mv "${NEWFLAGSFILE}" "${FLAGSFILE}"; \
 	fi

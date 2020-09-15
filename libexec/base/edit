@@ -6,12 +6,8 @@
 #
 # Opens source code in text editor.
 
+# Make call to src 
 src="$(libexec/call src "$lang" "$@")"
 
-if [[ $? -ne 0 ]]; then
-	ret=$?
-	echo "Internal call to src failed." >&2
-	exit $ret
-else
-	vi "$src"
-fi
+# Edit source code
+vi "$src"

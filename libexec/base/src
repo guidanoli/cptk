@@ -8,12 +8,5 @@ mkdir -p "lib/$lang/temp"
 # Make subcall
 src="$(libexec/subcall "$file" "$@")"
 
-# If call subfails,
-if [[ $? -ne 0 ]]; then
-	# then exit
-	ret=$?
-	echo "Internal call to bin failed." >&2
-	exit $?
-else
-	echo "lib/$lang/$src"
-fi
+# Print source code file path
+echo "lib/$lang/$src"

@@ -6,8 +6,19 @@
 #
 # Sets current language as LANG, if present
 
-if [[ $# -eq 1 ]]; then
-	mkdir -p etc
-	echo "$1" > etc/lang.dat
-	mkdir -p "lib/$1"
+# If LANG is present
+if [[ $# -gt 0 ]]; then
+	# Save it in lang
+	lang="$1"
+	shift
+
+	# If there a folder with this name
+	if [[ -d "lib/$lang" ]]; then
+		# then set it as the current language
+		mkdir -p etc
+		echo "$lang" > etc/lang.dat
+	else
+		# else, exit
+		source libexec/err/4
+	fi
 fi

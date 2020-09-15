@@ -5,14 +5,6 @@
 # Make call to src
 src="$(libexec/call src "$lang" "$@")"
 
-# If call fails,
-if [[ $? -ne 0 ]]; then
-	# then exit
-	ret=$?
-	echo "Internal call to src failed." >&2
-	exit $ret
-fi
-
 # If source code exists,
 if [[ -f "$src" ]] ; then
 	# then make subcall

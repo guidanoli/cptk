@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# Summary: Removes all temporary files
+#
+# Usage: ./clearall {OPTIONS}
+#
+# Removes code and configuration files from
+# all the available languages
+
+current=$(libexec/get-lang 2>/dev/null)
+
+for lang in $(./list);
+do
+	./clear "$lang" "$@"
+done
+
+libexec/set-lang "$current"
