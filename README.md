@@ -23,7 +23,7 @@ involves a different list. But for the user, these are abstracted away into a si
 
 **The current programming language is the one that was last made explicit in a command.**
 
-These commands can also take additional arguments. For example, compiling a C++ application may take custom compiler flags as in `./run cpp -O2`. Note that when additional arguments are present, the programming language name must be explicit, even when it is the default.
+These commands can also take additional arguments. For example, compiling a C++ application may take custom compiler flags as in `./run c++ -O2`. Note that when additional arguments are present, the programming language name must be explicit, even when it is the default.
 
 After cloning this repository, you need to define the programming language for the first time, by running, for example, `./src LANGUAGE`.
 
