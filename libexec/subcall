@@ -22,27 +22,15 @@ langdir="lib/$lang"
 # If subfile exists
 if [[ -f "$langdir/$file" ]]; then
 
-	# Push current language directory
+	# then, push current language directory
 	pushd "$langdir" > /dev/null
 
-	# then run it and pass any additional options
+	# run it and pass any additional options
 	"./$file" "$@"
 
-	# Pop directory
+	# and pop directory
 	popd > /dev/null
 else
-	# else ask the user if it wants to create it
-	echo "Language '$lang' doesn't have file '$file'." >&2
-	read -p "Would you like to create it (y/n)? " yn >&2
-
-	# if it answers 'y',
-	if [[ $yn = y* ]]; then
-		# then create it
-		echo "#!/usr/bin/env bash" > "$langdir/$file"
-		chmod +x "$langdir/$file"
-		echo "File '$file' was created." >&2
-	else
-		# if not, exit
-		source libexec/err/3
-	fi
+	# else, exit
+	source libexec/err/3
 fi
