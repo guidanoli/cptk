@@ -2,7 +2,7 @@
 #
 # Summary: Calls base file 
 #
-# Usage: call FILE [LANG {OPTIONS}]
+# Usage: libexec/call FILE [LANG {OPTIONS}]
 #
 # If LANG is present, sets it as the current one
 # FILE must be a valid base file
