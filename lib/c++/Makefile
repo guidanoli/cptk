@@ -16,4 +16,4 @@ run: ${BINFILE}
 	"$<"
 
 ${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}
-	${CXX} "$<" -o "$@" $(CXXFLAGS)
+	${CXX} "$<" -o "$@" -lm -O2 $(CXXFLAGS)
