@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Summary: Run code in debug mode
+#
+# Usage: ./rund [LANG {OPTIONS}]
+#
+# Calls individual rund script for the language
+#
+# If LANG is ommitted, the current language is
+# assumed, and no additional options are passed.
+
+libexec/call rund "$@"

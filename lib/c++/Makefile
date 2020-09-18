@@ -4,7 +4,7 @@ SOURCEFILE=$(shell ./src)
 BINFILE=$(shell ./bin)
 CXXFLAGS=$(shell cat ${FLAGSFILE})
 
-.PHONY: run update-flags
+.PHONY: run rund update-flags
 
 update-flags:
 	if ([ -f "${NEWFLAGSFILE}" ] && (! [ -f "${FLAGSFILE}" ] || \
@@ -14,6 +14,9 @@ update-flags:
 
 run: ${BINFILE}
 	"$<"
+
+rund: ${BINFILE}
+	gdb "$<"
 
 ${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}
 	${CXX} "$<" -o "$@" -lm -O2 $(CXXFLAGS)
