@@ -19,4 +19,4 @@ rund: ${BINFILE}
 	gdb "$<"
 
 ${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}
-	${CC} "$<" -o "$@" -lm -O2 $(CFLAGS)
+	gcc "$<" -o "$@" -lm -O2 $(CFLAGS)
