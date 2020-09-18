@@ -29,51 +29,30 @@ After cloning this repository, you need to define the programming language for t
 
 ## Dependencies
 
-If you're using any _POSIX_ distribution, you're most likely good to go.
+### Core dependencies
 
-### Base scripts
+* [bash](https://www.gnu.org/software/bash/)
 
-* bash
-* vim
-* xclip (POSIX) or clip (WSL)
+### Peripherals dependencies
 
-### C
+* **Editing**: [vim](https://www.vim.org/)
+* **Clipboard**: [xclip](https://linux.die.net/man/1/xclip) or [clip.exe](https://docs.microsoft.com/en-us/windows/wsl/about)
 
-* C compiler
-* make
+### Languages dependencies
 
-### C++
+Since the project deals with a bunch of different languages, it's quite natural the need to have some software pre-installed on your machine.
+Since you're most likely to work with only a few portion of them, the following table should summarize which are the dependencies that apply to your usage.
 
-* C++ compiler
-* make
-
-### C#
-
-* Mono C# compiler
-* make
-
-### Python :snake:
-
-* Python interpreter
-
-### Java :coffee:
-
-* JDK
-* make
-
-### Ruby :gem:
-
-* Ruby interpreter
-
-### Kotlin
-
-* Kotlin compiler
-* JDK
-* make
-
-### Perl :camel:
-
-* Perl interpreter
+| Programming Language | Compiling and running | Debugging |
+| :- | :- | :- |
+| c | [gcc](https://gcc.gnu.org/), [make](https://www.gnu.org/software/make/) | [gdb](https://www.gnu.org/software/gdb/) |
+| c++ | [g++](https://gcc.gnu.org/), [make](https://www.gnu.org/software/make/) | [gdb](https://www.gnu.org/software/gdb/) |
+| c# | [mcs](https://www.mono-project.com/), [make](https://www.gnu.org/software/make/) | |
+| python | [python](https://www.python.org/) | |
+| java | [javac](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html), [java](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html), [make](https://www.gnu.org/software/make/) | |
+| ruby | [ruby](https://www.ruby-lang.org/en/) | |
+| kotlin | [kotlinc](https://kotlinlang.org/docs/tutorials/command-line.html), [java](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html), [make](https://www.gnu.org/software/make/) | |
+| perl | [perl](https://www.perl.org/) | |
 
 ## Contribution
 
