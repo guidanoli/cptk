@@ -47,12 +47,12 @@ Since you're most likely to work with only a few portion of them, the following 
 | :- | :- | :- |
 | c | [gcc], [make] | [gdb] |
 | c++ | [g++], [make] | [gdb] |
-| c# | [mcs], [make] | [gdb](1) |
-| go | [go], [make] | Not supported |
+| c# | [mcs], [make] | [gdb] (1) |
+| go | [go], [make] | |
 | java | [javac], [java], [make] | [jdb] |
-| kotlin | [kotlinc], [java], [make] | Not supported |
-| pascal | [fpc], [make] | Not supported |
-| perl | [perl] | Not supported |
+| kotlin | [kotlinc], [java], [make] |  |
+| pascal | [fpc], [make] | |
+| perl | [perl] | |
 | python | [python] | [pdb] |
 | ruby | [ruby] | (2) |
 
