@@ -49,7 +49,7 @@ Since you're most likely to work with only a few portion of them, the following 
 | c++ | [g++], [make] | [gdb] |
 | c# | [mcs], [make] | |
 | go | [go], [make] | |
-| java | [javac], [java], [make] | |
+| java | [javac], [java], [make] | [jdb] |
 | kotlin | [kotlinc], [java], [make] | |
 | pascal | [fpc], [make] | |
 | perl | [perl] | |
@@ -69,6 +69,7 @@ If you have a language that you'd like to be added, don't hesitate to send a pul
 [go]: https://golang.org/
 [java]: https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html
 [javac]: https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html
+[jdb]: https://docs.oracle.com/javase/7/docs/technotes/tools/windows/jdb.htm
 [kotlinc]: https://kotlinlang.org/docs/tutorials/command-line.html
 [make]: https://www.gnu.org/software/make/
 [mcs]: https://www.mono-project.com/
