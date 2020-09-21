@@ -47,7 +47,7 @@ Since you're most likely to work with only a few portion of them, the following 
 | :- | :- | :- |
 | c | [gcc], [make] | [gdb] |
 | c++ | [g++], [make] | [gdb] |
-| c# | [mcs], [make] | |
+| c# | [mcs], [make] | [gdb](1) |
 | go | [go], [make] | |
 | java | [javac], [java], [make] | [jdb] |
 | kotlin | [kotlinc], [java], [make] | |
@@ -55,6 +55,8 @@ Since you're most likely to work with only a few portion of them, the following 
 | perl | [perl] | |
 | python | [python] | [pdb] |
 | ruby | [ruby] | |
+
+(1) Read [this article](https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb) for more information on debugging C# applications with gdb
 
 ## Contribution
 
