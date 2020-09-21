@@ -47,7 +47,7 @@ Since you're most likely to work with only a few portion of them, the following 
 | :- | :- | :- |
 | c | [gcc], [make] | [gdb] |
 | c++ | [g++], [make] | [gdb] |
-| c# | [mcs], [make] | [gdb](1) |
+| c# | [mcs], [make] | [gdb] (1) |
 | go | [go], [make] | |
 | java | [javac], [java], [make] | [jdb] |
 | kotlin | [kotlinc], [java], [make] | |
