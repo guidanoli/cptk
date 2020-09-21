@@ -52,7 +52,7 @@ Since you're most likely to work with only a few portion of them, the following 
 | java | [javac], [java], [make] | :heavy_check_mark: [jdb] |
 | kotlin | [kotlinc], [java], [make] | :x: |
 | pascal | [fpc], [make] | :x: |
-| perl | [perl] | :x: |
+| perl | [perl] | :heavy_check_mark: |
 | python | [python] | :heavy_check_mark: |
 | ruby | [ruby] | :heavy_check_mark: |
 
