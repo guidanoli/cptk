@@ -31,12 +31,12 @@ After cloning this repository, you need to define the programming language for t
 
 ### Core dependencies
 
-* [bash](https://www.gnu.org/software/bash/)
+* [bash]
 
 ### Peripherals dependencies
 
-* **Editing**: [vim](https://www.vim.org/)
-* **Clipboard**: [xclip](https://linux.die.net/man/1/xclip) or [clip.exe](https://docs.microsoft.com/en-us/windows/wsl/about)
+* **Editing**: [vim]
+* **Clipboard**: [xclip] or [clip.exe]
 
 ### Languages dependencies
 
@@ -45,17 +45,36 @@ Since you're most likely to work with only a few portion of them, the following 
 
 | Programming Language | Compiling and running | Debugging |
 | :- | :- | :- |
-| c | [gcc](https://gcc.gnu.org/), [make](https://www.gnu.org/software/make/) | [gdb](https://www.gnu.org/software/gdb/) |
-| c++ | [g++](https://gcc.gnu.org/), [make](https://www.gnu.org/software/make/) | [gdb](https://www.gnu.org/software/gdb/) |
-| c# | [mcs](https://www.mono-project.com/), [make](https://www.gnu.org/software/make/) | |
-| go | [go](https://golang.org/), [make](https://www.gnu.org/software/make/) | |
-| java | [javac](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html), [java](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html), [make](https://www.gnu.org/software/make/) | |
-| kotlin | [kotlinc](https://kotlinlang.org/docs/tutorials/command-line.html), [java](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html), [make](https://www.gnu.org/software/make/) | |
-| pascal | [fpc](https://www.freepascal.org/), [make](https://www.gnu.org/software/make/) | |
-| perl | [perl](https://www.perl.org/) | |
-| python | [python](https://www.python.org/) | [pdb](https://docs.python.org/3/library/pdb.html) |
-| ruby | [ruby](https://www.ruby-lang.org/en/) | |
+| c | [gcc], [make] | [gdb] |
+| c++ | [g++], [make] | [gdb] |
+| c# | [mcs], [make] | |
+| go | [go], [make] | |
+| java | [javac], [java], [make] | |
+| kotlin | [kotlinc], [java], [make] | |
+| pascal | [fpc], [make] | |
+| perl | [perl] | |
+| python | [python] | [pdb] |
+| ruby | [ruby] | |
 
 ## Contribution
 
 If you have a language that you'd like to be added, don't hesitate to send a pull request.
+
+[bash]: https://www.gnu.org/software/bash/
+[clip.exe]: https://docs.microsoft.com/en-us/windows/wsl/about
+[fpc]: https://www.freepascal.org/
+[g++]: https://gcc.gnu.org/
+[gcc]: https://gcc.gnu.org/
+[gdb]: https://www.gnu.org/software/gdb/
+[go]: https://golang.org/
+[java]: https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html
+[javac]: https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html
+[kotlinc]: https://kotlinlang.org/docs/tutorials/command-line.html
+[make]: https://www.gnu.org/software/make/
+[mcs]: https://www.mono-project.com/
+[perl]: https://www.perl.org/
+[pdb]: https://docs.python.org/3/library/pdb.html
+[python]: https://www.python.org/
+[ruby]: https://www.ruby-lang.org/en/
+[vim]: https://www.vim.org/
+[xclip]: https://linux.die.net/man/1/xclip
