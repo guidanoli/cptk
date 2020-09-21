@@ -51,7 +51,7 @@ Since you're most likely to work with only a few portion of them, the following 
 | go | [go], [make] | :heavy_check_mark: [gdb] [(2)] |
 | java | [javac], [java], [make] | :heavy_check_mark: [jdb] |
 | kotlin | [kotlinc], [java], [make] | :x: |
-| pascal | [fpc], [make] | :x: |
+| pascal | [fpc], [make] | :heavy_check_mark: [gdb] [(3)] |
 | perl | [perl] | :heavy_check_mark: |
 | python | [python] | :heavy_check_mark: |
 | ruby | [ruby] | :heavy_check_mark: |
@@ -62,6 +62,7 @@ If you have a language that you'd like to be added, don't hesitate to send a pul
 
 [(1)]: https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb
 [(2)]: https://golang.org/doc/gdb
+[(3)]: https://www.freepascal.org/docs-html/user/userse54.html#x165-17200010.2
 [bash]: https://www.gnu.org/software/bash/
 [clip.exe]: https://docs.microsoft.com/en-us/windows/wsl/about
 [fpc]: https://www.freepascal.org/
