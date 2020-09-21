@@ -48,15 +48,16 @@ Since you're most likely to work with only a few portion of them, the following 
 | c | [gcc], [make] | [gdb] |
 | c++ | [g++], [make] | [gdb] |
 | c# | [mcs], [make] | [gdb](1) |
-| go | [go], [make] | |
+| go | [go], [make] | Not supported |
 | java | [javac], [java], [make] | [jdb] |
-| kotlin | [kotlinc], [java], [make] | |
-| pascal | [fpc], [make] | |
-| perl | [perl] | |
+| kotlin | [kotlinc], [java], [make] | Not supported |
+| pascal | [fpc], [make] | Not supported |
+| perl | [perl] | Not supported |
 | python | [python] | [pdb] |
-| ruby | [ruby] | |
+| ruby | [ruby] | (2) |
 
 (1) Read [this article](https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb) for more information on debugging C# applications with gdb
+(2) Uses ruby standard debug library
 
 ## Contribution
 
