@@ -53,7 +53,7 @@ Since you're most likely to work with only a few portion of them, the following 
 | kotlin | [kotlinc], [java], [make] | :x: |
 | pascal | [fpc], [make] | :x: |
 | perl | [perl] | :x: |
-| python | [python] | :heavy_check_mark: [pdb] |
+| python | [python] | :heavy_check_mark: |
 | ruby | [ruby] | :heavy_check_mark: |
 
 (1) Read [this article](https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb) for more information on debugging C# applications with gdb
@@ -76,7 +76,6 @@ If you have a language that you'd like to be added, don't hesitate to send a pul
 [make]: https://www.gnu.org/software/make/
 [mcs]: https://www.mono-project.com/
 [perl]: https://www.perl.org/
-[pdb]: https://docs.python.org/3/library/pdb.html
 [python]: https://www.python.org/
 [ruby]: https://www.ruby-lang.org/en/
 [vim]: https://www.vim.org/
