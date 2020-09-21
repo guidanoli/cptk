@@ -48,7 +48,7 @@ Since you're most likely to work with only a few portion of them, the following 
 | c | [gcc], [make] | :heavy_check_mark: [gdb] |
 | c++ | [g++], [make] | :heavy_check_mark: [gdb] |
 | c# | [mcs], [make] | :heavy_check_mark: [gdb] (1) |
-| go | [go], [make] | :x: |
+| go | [go], [make] | :heavy_check_mark: [gdb] (2) |
 | java | [javac], [java], [make] | :heavy_check_mark: [jdb] |
 | kotlin | [kotlinc], [java], [make] | :x: |
 | pascal | [fpc], [make] | :x: |
@@ -57,6 +57,7 @@ Since you're most likely to work with only a few portion of them, the following 
 | ruby | [ruby] | :heavy_check_mark: |
 
 (1) Read [this article](https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb) for more information on debugging C# applications with gdb
+(2) Read [this article](https://golang.org/doc/gdb) for more information on debugging Go programs with gdb
 
 ## Contribution
 
