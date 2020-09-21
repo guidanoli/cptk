@@ -48,6 +48,7 @@ Since you're most likely to work with only a few portion of them, the following 
 | c | [gcc](https://gcc.gnu.org/), [make](https://www.gnu.org/software/make/) | [gdb](https://www.gnu.org/software/gdb/) |
 | c++ | [g++](https://gcc.gnu.org/), [make](https://www.gnu.org/software/make/) | [gdb](https://www.gnu.org/software/gdb/) |
 | c# | [mcs](https://www.mono-project.com/), [make](https://www.gnu.org/software/make/) | |
+| go | [go](https://golang.org/) | |
 | java | [javac](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html), [java](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html), [make](https://www.gnu.org/software/make/) | |
 | kotlin | [kotlinc](https://kotlinlang.org/docs/tutorials/command-line.html), [java](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html), [make](https://www.gnu.org/software/make/) | |
 | pascal | [fpc](https://www.freepascal.org/), [make](https://www.gnu.org/software/make/) | |
