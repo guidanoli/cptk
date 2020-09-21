@@ -16,7 +16,7 @@ run: ${BINFILE}
 	"$<"
 
 rund: ${BINFILE}
-	gdb mono --ex='run --debug "$<"'
+	gdb --args mono --debug "$<"
 
 ${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}
 	mcs -out:"$@" "$<" $(CSFLAGS)
