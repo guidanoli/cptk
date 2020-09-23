@@ -9,7 +9,7 @@
 # If LANG is present
 if [[ $# -gt 0 ]]; then
 	# Save it in lang
-	lang="$1"
+	lang="${1,,}"
 	shift
 
 	# If there a folder with this name
