@@ -49,6 +49,7 @@ Since you're most likely to work with only a few portion of them, the following 
 | c++ | [g++], [make] | :heavy_check_mark: [gdb] |
 | c# | [mcs], [make] | :heavy_check_mark: [gdb] [(1)] |
 | go | [go], [make] | :heavy_check_mark: [gdb] [(2)] |
+| haskell | [ghc], [make] | :x: |
 | java | [javac], [java], [make] | :heavy_check_mark: [jdb] |
 | kotlin | [kotlinc], [java], [make] | :x: |
 | pascal | [fpc], [make] | :heavy_check_mark: [gdb] [(3)] |
@@ -69,6 +70,7 @@ If you have a language that you'd like to be added, don't hesitate to send a pul
 [g++]: https://gcc.gnu.org/
 [gcc]: https://gcc.gnu.org/
 [gdb]: https://www.gnu.org/software/gdb/
+[ghc]: https://www.haskell.org/ghc/
 [go]: https://golang.org/
 [java]: https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html
 [javac]: https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html
