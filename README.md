@@ -49,9 +49,9 @@ Since you're most likely to work with only a few portion of them, the following 
 | c++ | [g++], [make] | :heavy_check_mark: [gdb] |
 | c# | [mcs], [make] | :heavy_check_mark: [gdb] [(1)] |
 | go | [go], [make] | :heavy_check_mark: [gdb] [(2)] |
-| haskell | [ghc], [make] | :x: |
+| haskell | [ghc], [make] | :heavy_check_mark: [gdb] [(4)] |
 | java | [javac], [java], [make] | :heavy_check_mark: [jdb] |
-| kotlin | [kotlinc], [java], [make] | :heavy_check_mark: [gdb] [(4)] |
+| kotlin | [kotlinc], [java], [make] | :x: |
 | pascal | [fpc], [make] | :heavy_check_mark: [gdb] [(3)] |
 | perl | [perl] | :heavy_check_mark: |
 | python | [python] | :heavy_check_mark: |
