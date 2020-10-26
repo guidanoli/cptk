@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# Summary: Save temp folder to project folder
+
+# Get project folder path
+prjfolder="etc/projects/$lang/$1"
+shift
+
+# Make project folder
+mkdir -p $prjfolder
+
+# Temporary folder
+tempfolder="lib/$lang/temp"
+
+# If temporary folder exists,
+# copy its contents to the project folder
+if [[ -d $tempfolder ]]; then
+    cp -a "$tempfolder/." "$prjfolder"
+fi

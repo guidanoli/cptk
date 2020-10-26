@@ -4,7 +4,7 @@
 #
 # Usage: ./rund [LANG {OPTIONS}]
 #
-# Calls individual rund script for the language
+# Call individual rund script for the language
 #
 # If LANG is ommitted, the current language is
 # assumed, and no additional options are passed.

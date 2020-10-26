@@ -4,7 +4,7 @@
 #
 # Usage: ./src [LANG {OPTIONS}]
 #
-# Calls individual source script for the language.
+# Call individual source script for the language.
 #
 # If LANG is ommitted, the current language is
 # assumed, and no additional options are passed.

@@ -4,7 +4,7 @@
 #
 # Usage: ./run [LANG {OPTIONS}]
 #
-# Calls individual run script for the language
+# Call individual run script for the language
 #
 # If LANG is ommitted, the current language is
 # assumed, and no additional options are passed.

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# Summary: List all saved projects
+#
+# Usage: ./prjlist [LANG]
+#
+# List the names of all saved projects that
+# could be loaded
+
+libexec/call prjlist "$@"

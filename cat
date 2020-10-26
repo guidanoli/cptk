@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: Writes input to source code
+# Summary: Write input to source code
 #
 # Usage: ./cat [LANG {OPTIONS}]
 #

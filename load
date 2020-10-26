@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Summary: Load project
+#
+# Usage: ./load LANG prjname
+#
+# Load source code and configuration files.
+
+libexec/call load "$@"

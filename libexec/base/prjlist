@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Summary: List all saved projects
+
+# Get language project folder
+langprjfolder="etc/projects/$lang"
+
+# If folder exists, list all subdirectories
+if [[ -d "$langprjfolder" ]]; then
+    ls -1 "$langprjfolder"
+fi

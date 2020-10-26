@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Summary: Save project
+#
+# Usage: ./save LANG prjname
+#
+# Save source code and configuration files.
+
+libexec/call save "$@"
