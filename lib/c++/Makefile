@@ -19,4 +19,4 @@ rund: ${BINFILE}
 	gdb "$<"
 
 ${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}
-	g++ "$<" -o "$@" -lm -O2 $(CXXFLAGS)
+	g++ "$<" -o "$@" -lm $(CXXFLAGS)
