@@ -51,6 +51,7 @@ Since you're most likely to work with only a few portion of them, the following 
 | go | [go], [make] | :heavy_check_mark: [gdb] [(2)] |
 | haskell | [ghc], [make] | :heavy_check_mark: [gdb] [(4)] |
 | java | [javac], [java], [make] | :heavy_check_mark: [jdb] |
+| js | [node] | :heavy_check_mark: [node-inspect] |
 | kotlin | [kotlinc], [java], [make] | :x: |
 | pascal | [fpc], [make] | :heavy_check_mark: [gdb] [(3)] |
 | perl | [perl] | :heavy_check_mark: |
@@ -98,6 +99,8 @@ If you have a language that you'd like to be added, don't hesitate to send a pul
 [kotlinc]: https://kotlinlang.org/docs/tutorials/command-line.html
 [make]: https://www.gnu.org/software/make/
 [mcs]: https://www.mono-project.com/
+[node]: https://nodejs.org/en/
+[node-inspect]: https://github.com/nodejs/node-inspect
 [perl]: https://www.perl.org/
 [python]: https://www.python.org/
 [ruby]: https://www.ruby-lang.org/en/
