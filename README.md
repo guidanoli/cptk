@@ -33,11 +33,6 @@ After cloning this repository, you need to define the programming language for t
 
 * [bash]
 
-### Peripherals dependencies
-
-* **Editing**: [vim]
-* **Clipboard**: [xclip] or [clip.exe]
-
 ### Languages dependencies
 
 Since the project deals with a bunch of different languages, it's quite natural the need to have some software pre-installed on your machine.
@@ -62,13 +57,14 @@ Since you're most likely to work with only a few portion of them, the following 
 
 All the commands are summarized in the table below. For more information on each command, such as extra arguments, read the documentation in each file.
 
-| Command | Description |
-| :- | :- |
+| Command | Description | Additional dependencies |
+| :- | :- | :- |
 | `bin` | Get binary file path |
 | `cat` | Write stdin to source file |
 | `clear` | Clear temporary files for the current language |
 | `clearall` | Clear temporary files for all languages |
-| `clip` | Copy source file to clipboard |
+| `clip` | Copy source file to clipboard | [xclip] or [clip.exe] |
+| `edit` | Edit source file | [vim] |
 | `list` | List all available languages |
 | `load` | Load a saved project of a specific language |
 | `prjlist` | List all projects of a specific language |
@@ -79,7 +75,7 @@ All the commands are summarized in the table below. For more information on each
 
 ## Contribution
 
-If you have a language that you'd like to be added, don't hesitate to send a pull request.
+If you have a language or feature that you'd like to be added, don't hesitate to send a pull request.
 
 [(1)]: https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb
 [(2)]: https://golang.org/doc/gdb
