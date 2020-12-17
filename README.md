@@ -16,16 +16,11 @@ What this toolkit promotes is an abstraction for developing with different progr
 
 ## Mechanism
 
-Even though powerful, the toolkit only needs to remember one thing: the current programming language.
-With this information, it triggers all the functionalities specific to that programming language.
-For example, running a C++ application involves one list of commands; while running a Python script
-involves a different list. But for the user, these are abstracted away into a single command: `./run`.
+The toolkit is controlled through a set of commands that manipulate projects and source files.
+You can think of it as a console interface of a very simple IDE, which lets you edit and run programs, save and load projects.
+The current language and configurations for each language are stored internally, and if not specified, are assumed by default.
 
-**The current programming language is the one that was last made explicit in a command.**
-
-These commands can also take additional arguments. For example, compiling a C++ application may take custom compiler flags as in `./run c++ -std=c++17`. Note that when additional arguments are present, the programming language name must be explicit, even when it is the default.
-
-After cloning this repository, you need to define the programming language for the first time, by running, for example, `./src LANGUAGE`.
+These commands can also take additional arguments. For example, compiling a C++17 application may take custom compiler flags like `-std=c++17`. Note that when additional arguments are present, the programming language name must be explicit, even when it is the default.
 
 ## Dependencies
 
@@ -53,9 +48,20 @@ Since you're most likely to work with only a few portion of them, the following 
 | python | [python] | :heavy_check_mark: |
 | ruby | [ruby] | :heavy_check_mark: |
 
-## Contribution
+## Setup
 
-If you have a language or feature that you'd like to be added, don't hesitate to send a pull request.
+First, clone this repository somewhere, e.g. `$HOME`.
+Then, append the following lines to your `.bashrc` file.
+Replace `c++` with the programming language of your liking.
+
+```sh
+export PATH="$HOME/competitive/bin:$PATH"
+cplat init c++
+```
+
+## Usage
+
+Run `cplat help` for more information.
 
 [(1)]: https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb
 [(2)]: https://golang.org/doc/gdb
