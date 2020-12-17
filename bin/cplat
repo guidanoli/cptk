@@ -7,7 +7,7 @@
 # cplat command [[language] options]
 
 # Get base directory
-basedir=$(dirname "${BASH_SOURCE[0]}")
+basedir=$(dirname $(dirname "${BASH_SOURCE[0]}"))
 
 # If no command is passed
 if [[ $# -eq 0 ]]; then

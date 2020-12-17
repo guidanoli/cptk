@@ -53,26 +53,6 @@ Since you're most likely to work with only a few portion of them, the following 
 | python | [python] | :heavy_check_mark: |
 | ruby | [ruby] | :heavy_check_mark: |
 
-## Commands
-
-All the commands are summarized in the table below. For more information on each command, such as extra arguments, read the documentation in each file.
-
-| Command | Description | Additional dependencies |
-| :- | :- | :- |
-| `bin` | Get binary file path |
-| `cat` | Write stdin to source file |
-| `clear` | Clear temporary files for the current language |
-| `clearall` | Clear temporary files for all languages |
-| `clip` | Copy source file to clipboard | [xclip] or [clip.exe] |
-| `edit` | Edit source file | [vim] |
-| `list` | List all available languages |
-| `load` | Load a saved project of a specific language |
-| `prjlist` | List all projects of a specific language |
-| `run` | Run program of the current language |
-| `rund` | Run program of the current language on debug mode |
-| `save` | Save current program as a project |
-| `src` | Get source file path |
-
 ## Contribution
 
 If you have a language or feature that you'd like to be added, don't hesitate to send a pull request.
