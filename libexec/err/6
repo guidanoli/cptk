@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 echo "Error: Missing command." >&2
-echo "Run 'cplat help' for the list of commands" >&2
 exit 6

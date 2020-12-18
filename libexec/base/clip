@@ -7,20 +7,20 @@
 # If on WSL, uses clip.
 # Else, uses xclip.
 
-# Make call to src
-src="$(libexec/call src "$lang" "$@")"
+# Make call to path
+path="$(libexec/call path "$lang" "$@")"
 
 # If source is missing,
-if [[ -z "$src" || ! ( -f "$src" ) ]]; then
+if [[ -z "$path" || ! ( -f "$path" ) ]]; then
 	# then exit
 	source libexec/err/1
 else
 	# else, if running on WSL,
 	if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 		# run clip.exe
-		cat "$src" | clip.exe
+		cat "$path" | clip.exe
 	else
 		# else, run xclip
-		xclip -sel c < "$src"
+		xclip -sel c < "$path"
 	fi
 fi

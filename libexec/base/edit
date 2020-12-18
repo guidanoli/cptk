@@ -6,8 +6,8 @@
 #
 # Opens source code in text editor.
 
-# Make call to src 
-src="$(libexec/call src "$lang" "$@")"
+# Make call to path 
+path="$(libexec/call path "$lang" "$@")"
 
 # Edit source code
-vi "$src"
+vi "$path"

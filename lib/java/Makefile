@@ -1,12 +1,12 @@
-SOURCEFILE=$(shell ./src)
+SOURCEFILE=$(shell ./path)
 BINFILE=$(addsuffix .class, $(basename ${SOURCEFILE}))
 
-.PHONY: run rund
+.PHONY: run debug
 
 run: ${BINFILE}
 	java -classpath "$(dir $<)" "$(basename $(notdir $<))"
 
-rund: ${BINFILE}
+debug: ${BINFILE}
 	jdb -classpath "$(dir $<)" "$(basename $(notdir $<))"
 
 ${BINFILE}: ${SOURCEFILE}

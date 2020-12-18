@@ -1,4 +1,4 @@
-# Competitive Programming Language-Agnostic Toolkit
+# Competitive Programming Toolkit
 
 ![](media/competitive.gif)
 
@@ -16,11 +16,11 @@ What this toolkit promotes is an abstraction for developing with different progr
 
 ## Mechanism
 
-The toolkit is controlled through a set of commands that manipulate projects and source files.
+The toolkit is controlled through a set of commands given to the `cpt` main script.
 You can think of it as a console interface of a very simple IDE, which lets you edit and run programs, save and load projects.
-The current language and configurations for each language are stored internally, and if not specified, are assumed by default.
+The current language and configurations for each language are stored internally, and if not specified, the most recently set are assumed.
 
-These commands can also take additional arguments. For example, compiling a C++17 application may take custom compiler flags like `-std=c++17`. Note that when additional arguments are present, the programming language name must be explicit, even when it is the default.
+The commands can also take additional arguments. For example, compiling a C++17 application may take custom compiler flags such as `-std=c++17`. Note that when additional arguments are present, the programming language name must be explicit, even when it is the default.
 
 ## Dependencies
 
@@ -30,8 +30,8 @@ These commands can also take additional arguments. For example, compiling a C++1
 
 ### Languages dependencies
 
-Since the project deals with a bunch of different languages, it's quite natural the need to have some software pre-installed on your machine.
-Since you're most likely to work with only a few portion of them, the following table should summarize which are the dependencies that apply to your usage.
+Since the toolkit deals with a bunch of different languages, it's quite natural the need to have some software pre-installed on your machine.
+Since you're most likely going to work with only a few portion of them, the following table should summarize which softwares you really need.
 
 | Programming Language | Compiling and running | Debugging |
 | :- | :- | :- |
@@ -56,12 +56,12 @@ Replace `c++` with the programming language of your liking.
 
 ```sh
 export PATH="$HOME/competitive/bin:$PATH"
-cplat init c++
+cpt init c++
 ```
 
 ## Usage
 
-Run `cplat help` for more information.
+Run `cpt help` for more information.
 
 [(1)]: https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb
 [(2)]: https://golang.org/doc/gdb

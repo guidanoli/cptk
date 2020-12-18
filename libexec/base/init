@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Summary: initializes a language
+#
+# Usage: libexec/base/init LANG

@@ -1,10 +1,10 @@
 FLAGSFILE=temp/flags.dat
 NEWFLAGSFILE=$(addsuffix .new, ${FLAGSFILE})
-SOURCEFILE=$(shell ./src)
-BINFILE=$(shell ./bin)
+SOURCEFILE=$(shell ./path)
+BINFILE=$(shell ./xpath)
 CXXFLAGS=$(shell cat ${FLAGSFILE})
 
-.PHONY: run rund update-flags
+.PHONY: run debug update-flags
 
 update-flags:
 	if ([ -f "${NEWFLAGSFILE}" ] && (! [ -f "${FLAGSFILE}" ] || \
@@ -15,7 +15,7 @@ update-flags:
 run: ${BINFILE}
 	"$<"
 
-rund: ${BINFILE}
+debug: ${BINFILE}
 	gdb "$<"
 
 ${BINFILE}: ${SOURCEFILE} ${FLAGSFILE}

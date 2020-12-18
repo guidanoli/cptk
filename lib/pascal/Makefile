@@ -1,12 +1,12 @@
-SOURCEFILE=$(shell ./src)
+SOURCEFILE=$(shell ./path)
 BINFILE=$(basename ${SOURCEFILE})
 
-.PHONY: run rund
+.PHONY: run debug
 
 run: ${BINFILE}
 	"$<"
 
-rund: ${BINFILE}
+debug: ${BINFILE}
 	gdb "$<"
 
 ${BINFILE}: ${SOURCEFILE}

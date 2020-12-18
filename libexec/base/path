@@ -6,7 +6,7 @@
 mkdir -p "lib/$lang/temp"
 
 # Make subcall
-src="$(libexec/subcall "$file" "$@")"
+path="$(libexec/subcall "$file" "$@")"
 
 # Print source code file path
-echo "lib/$lang/$src"
+echo "$PWD/lib/$lang/$path"

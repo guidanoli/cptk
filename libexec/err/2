@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 echo "Error: No language is set." >&2
-echo "Run ./list to list all available languages." >&2
-echo "Run ./src LANG to set LANG as the current language." >&2
+echo "Hint: Run '$programname init <language>' to set one." >&2
 exit 2

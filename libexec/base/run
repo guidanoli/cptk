@@ -2,11 +2,11 @@
 #
 # Summary: Run source code
 
-# Make call to src
-src="$(libexec/call src "$lang" "$@")"
+# Make call to path
+path="$(libexec/call path "$lang" "$@")"
 
 # If source code exists,
-if [[ -f "$src" ]] ; then
+if [[ -f "$path" ]] ; then
 	# then make subcall
 	libexec/subcall "$file" "$@"
 else

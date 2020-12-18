@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 echo "Error: Unknown language '$lang'." >&2
-echo "Run ./list to list all available languages." >&2
 exit 4

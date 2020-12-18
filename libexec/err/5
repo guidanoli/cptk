@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-echo "Error: Unknown $lang project '$prj'." >&2
-echo "Run './prjlist $lang' to list all saved $lang projects." >&2
+echo "Error: Unknown project '$prj' for language '$lang'." >&2
+echo "Hint: Run '$programname list $lang' to list all." >&2
 exit 5

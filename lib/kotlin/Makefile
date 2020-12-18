@@ -1,5 +1,5 @@
-SOURCEFILE=$(shell ./src)
-BINFILE=$(shell ./bin)
+SOURCEFILE=$(shell ./path)
+BINFILE=$(shell ./xpath)
 
 .PHONY: run
 

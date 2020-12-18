@@ -2,7 +2,7 @@
 #
 # Summary: Get Java source file relative path
 #
-# Usage: ./src [CLASSNAME]
+# Usage: ./path [CLASSNAME]
 #
 # Prints Java source file path relative to Java scripts directory
 # If CLASSNAME is absent, uses "Main" by default
