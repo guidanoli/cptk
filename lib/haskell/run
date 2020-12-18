@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-echo "$*" > temp/flags.dat.new
+echo "${HSFLAGS}" > temp/flags.dat.new
 make update-flags -s
 make run -s

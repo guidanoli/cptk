@@ -16,7 +16,7 @@ What this toolkit promotes is an abstraction for developing with different progr
 
 ## Mechanism
 
-The toolkit is controlled through a set of commands given to the `cpt` main script.
+The toolkit is controlled through a set of commands given to the `cptk` main script.
 You can think of it as a console interface of a very simple IDE, which lets you edit and run programs, save and load projects.
 The current language and configurations for each language are stored internally, and if not specified, the most recently set are assumed.
 
@@ -56,12 +56,12 @@ Replace `c++` with the programming language of your liking.
 
 ```sh
 export PATH="$HOME/competitive/bin:$PATH"
-cpt init c++
+cptk init c++
 ```
 
 ## Usage
 
-Run `cpt help` for more information.
+Run `cptk help` for more information.
 
 [(1)]: https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb
 [(2)]: https://golang.org/doc/gdb

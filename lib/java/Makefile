@@ -1,4 +1,4 @@
-SOURCEFILE=$(shell ./path)
+SOURCEFILE=temp/$(shell ./path)
 BINFILE=$(addsuffix .class, $(basename ${SOURCEFILE}))
 
 .PHONY: run debug

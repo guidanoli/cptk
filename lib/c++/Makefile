@@ -1,7 +1,7 @@
 FLAGSFILE=temp/flags.dat
 NEWFLAGSFILE=$(addsuffix .new, ${FLAGSFILE})
-SOURCEFILE=$(shell ./path)
-BINFILE=$(shell ./xpath)
+SOURCEFILE=temp/$(shell ./path)
+BINFILE=temp/$(shell ./xpath)
 CXXFLAGS=$(shell cat ${FLAGSFILE})
 
 .PHONY: run debug update-flags

@@ -1,19 +1,14 @@
 #!/usr/bin/env bash
 #
 # Summary: Get Java source file relative path
-#
-# Usage: ./path [CLASSNAME]
-#
-# Prints Java source file path relative to Java scripts directory
-# If CLASSNAME is absent, uses "Main" by default
 
 # Save class name file
 classnamefile=temp/classname.dat
 
-# If CLASSNAME is present,
-if [[ $# -gt 0 ]]; then
+# If JAVACLASS is set,
+if [[ ! -z "$JAVACLASS" ]]; then
 	# then store it in a file
-	echo "$1" > "$classnamefile"
+	echo "$JAVACLASS" > "$classnamefile"
 	shift
 fi
 
@@ -27,4 +22,4 @@ else
 fi
 
 # Print the source file relative path
-echo "temp/$classname.java"
+echo "$classname.java"

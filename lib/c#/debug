@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-echo "$* -debug" > temp/flags.dat.new
+echo "${CSFLAGS} -debug" > temp/flags.dat.new
 make update-flags -s
 make debug -s

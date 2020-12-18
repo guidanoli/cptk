@@ -9,4 +9,4 @@ mkdir -p "lib/$lang/temp"
 path="$(libexec/subcall "$file" "$@")"
 
 # Print source code file path
-echo "$PWD/lib/$lang/$path"
+echo "$PWD/lib/$lang/temp/$path"
