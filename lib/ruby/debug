@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-ruby -r debug $(./path)
+ruby -r debug temp/$(./path)

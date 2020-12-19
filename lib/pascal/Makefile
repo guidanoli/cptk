@@ -1,5 +1,5 @@
 SOURCEFILE=temp/$(shell ./path)
-BINFILE=temp/$(basename ${SOURCEFILE})
+BINFILE=$(basename ${SOURCEFILE})
 
 .PHONY: run debug
 

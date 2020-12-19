@@ -55,13 +55,13 @@ Then, append the following lines to your `.bashrc` file.
 Replace `c++` with the programming language of your liking.
 
 ```sh
-export PATH="$HOME/competitive/bin:$PATH"
+export PATH="$PATH:$HOME/.competitive/bin"
 cptk init c++
 ```
 
 ## Usage
 
-Run `cptk help` for more information.
+Run `cptk` for more information.
 
 [(1)]: https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb
 [(2)]: https://golang.org/doc/gdb
