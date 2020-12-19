@@ -2,6 +2,9 @@
 #
 # Summary: Run source code
 
+# Exit on error
+set -e
+
 # Make call to path
 path=$(libexec/base/path)
 

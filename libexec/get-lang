@@ -11,7 +11,7 @@ if [[ -f etc/lang ]]; then
 	# Get its content and save it
 	lang=$(cat etc/lang)
 else
-	lang=""
+	lang=
 fi
 
 # If language is not set,

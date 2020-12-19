@@ -2,6 +2,9 @@
 #
 # Summary: Get source code file path of the current language
 
+# Exit on error
+set -e
+
 # Get language
 lang=$(libexec/get-lang)
 

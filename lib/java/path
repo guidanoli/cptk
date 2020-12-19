@@ -15,10 +15,10 @@ fi
 # If there is a custom class name file,
 if [[ -f "$classnamefile" ]]; then
 	# then use the name in it as the class name
-	classname="$(cat "$classnamefile")"
+	classname=$(cat "$classnamefile")
 else
 	# else use the default name
-	classname="Main"
+	classname=Main
 fi
 
 # Print the source file relative path

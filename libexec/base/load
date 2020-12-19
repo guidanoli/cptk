@@ -4,6 +4,9 @@
 #
 # Usage: libexec/base/load <project>
 
+# Exit on error
+set -e
+
 if [[ $# -gt 0 ]]; then
 
 	# Get project name

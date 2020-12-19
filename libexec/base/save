@@ -4,6 +4,9 @@
 #
 # Usage: libexec/base/save <project>
 
+# Exit on error
+set -e
+
 # Check if <project> is present
 if [[ $# -gt 0 ]]; then
 

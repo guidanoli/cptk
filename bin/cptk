@@ -6,7 +6,7 @@ set -e
 # Program variables
 export programpath=$(readlink -f "${BASH_SOURCE[0]}")
 export programname=$(basename "$programpath")
-export programroot=$(dirname $(dirname "$programpath"))
+export programroot=$(dirname "$(dirname "$programpath")")
 export programtitle="Competitive Programming Toolkit"
 export programversion="0.1-dev"
 
@@ -40,7 +40,7 @@ if [[ $# -eq 0 || "$1" == "--help" ]]; then
 	echo "CFLAGS             c compiler flags"
 	echo "CPPFLAGS           c++ compiler flags"
 	echo "CSFLAGS            c# compiler flags"
-	echo "EDITOR             program editor (default: vim)"
+	echo "EDITOR             program editor (default: vi)"
 	echo "HSFLAGS            haskell compiler flags"
 	echo "JAVACLASS          java class name"
 	echo ""
@@ -53,7 +53,7 @@ elif [[ "$1" == "--version" ]]; then
 else
 
 	# Save command
-	command="$1"
+	command=$1
 	shift
 
 	# If base command exists

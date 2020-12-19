@@ -5,8 +5,11 @@
 # If on WSL, uses clip.
 # Else, uses xclip.
 
+# Exit on error
+set -e
+
 # Get program path
-path="$(libexec/base/path)"
+path=$(libexec/base/path)
 
 # If source is missing,
 if [[ ! -f "$path" ]]; then

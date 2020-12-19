@@ -2,8 +2,11 @@
 #
 # Summary: Edits source code of program
 
+# Exit on error
+set -e
+
 # Make call to path 
-path="$(libexec/base/path)"
+path=$(libexec/base/path)
 
 # Edit source code
-"${EDITOR:-vim}" "$path"
+"${EDITOR:-vi}" "$path"

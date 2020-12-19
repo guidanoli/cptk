@@ -8,14 +8,14 @@
 set -e
 
 # Save command
-command="$1"
+command=$1
 shift
 
 # Get current language
-lang="$(libexec/get-lang)"
+lang=$(libexec/get-lang)
 
 # Save language directory
-langdir="lib/$lang"
+langdir=lib/$lang
 
 # If subfile exists
 if [[ -f "$langdir/$command" ]]; then

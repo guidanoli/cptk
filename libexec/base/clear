@@ -2,6 +2,9 @@
 #
 # Summary: Removes temporary files from the current language
 
+# Exit on error
+set -e
+
 # Get language
 lang=$(libexec/get-lang)
 

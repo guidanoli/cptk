@@ -10,7 +10,7 @@
 if [[ $# -gt 0 ]]; then
 
 	# Save language in lower case
-	lang="${1,,}"
+	lang=${1,,}
 	shift
 
 	# If there is a folder with this name
