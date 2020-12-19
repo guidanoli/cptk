@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 #
-# Summary: Call subfile
+# Summary: Make a subcall to a language command
 #
-# Usage: libexec/subcall FILE {OPTIONS}
-#
-# Calls FILE for the current language
+# Usage: libexec/subcall <command> [<options>]
 
 # Exit on failure
 set -e
 
-# Save subfile name
-file="$1"
+# Save command
+command="$1"
 shift
 
 # Get current language
@@ -20,13 +18,13 @@ lang="$(libexec/get-lang)"
 langdir="lib/$lang"
 
 # If subfile exists
-if [[ -f "$langdir/$file" ]]; then
+if [[ -f "$langdir/$command" ]]; then
 
-	# then, push current language directory
+	# then, push current lang directory
 	pushd "$langdir" > /dev/null
 
 	# run it and pass any additional options
-	"./$file" "$@"
+	"./$command" "$@"
 
 	# and pop directory
 	popd > /dev/null

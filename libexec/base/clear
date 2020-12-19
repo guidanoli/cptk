@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
 # Summary: Removes temporary files from the current language
-#
-# Usage: libexec/base/clear
 
-rm -rf lib/$lang/temp
+# Get language
+lang=$(libexec/get-lang)
+
+rm -rf "lib/$lang/temp"

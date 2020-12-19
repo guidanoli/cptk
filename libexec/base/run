@@ -3,12 +3,12 @@
 # Summary: Run source code
 
 # Make call to path
-path="$(libexec/call path "$lang" "$@")"
+path=$(libexec/base/path)
 
 # If source code exists,
 if [[ -f "$path" ]] ; then
 	# then make subcall
-	libexec/subcall "$file" "$@"
+	libexec/subcall run "$@"
 else
 	# else exit
 	source libexec/err/1

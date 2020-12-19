@@ -61,14 +61,13 @@ cptk init c++
 
 ## Usage
 
-Run `cptk` for more information.
+Run `cptk --help` for more information.
 
 [(1)]: https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb
 [(2)]: https://golang.org/doc/gdb
 [(3)]: https://www.freepascal.org/docs-html/user/userse54.html#x165-17200010.2
 [(4)]: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/debug-info.html
 [bash]: https://www.gnu.org/software/bash/
-[clip.exe]: https://docs.microsoft.com/en-us/windows/wsl/about
 [fpc]: https://www.freepascal.org/
 [g++]: https://gcc.gnu.org/
 [gcc]: https://gcc.gnu.org/
@@ -85,5 +84,3 @@ Run `cptk` for more information.
 [perl]: https://www.perl.org/
 [python]: https://www.python.org/
 [ruby]: https://www.ruby-lang.org/en/
-[vim]: https://www.vim.org/
-[xclip]: https://linux.die.net/man/1/xclip

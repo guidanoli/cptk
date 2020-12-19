@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #
-# Summary: initializes a language
+# Summary: sets a language
 #
-# Usage: libexec/base/init LANG
+# Usage: libexec/base/init <language>
+
+source libexec/set-lang

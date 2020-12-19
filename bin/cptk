@@ -1,43 +1,54 @@
 #!/usr/bin/env bash
 
+# Exit on error
+set -e
+
 # Program variables
 export programpath=$(readlink -f "${BASH_SOURCE[0]}")
 export programname=$(basename "$programpath")
 export programroot=$(dirname $(dirname "$programpath"))
+export programtitle="Competitive Programming Toolkit"
+export programversion="0.1-dev"
 
 # If missing command
-if [[ $# -eq 0 ]]; then
+if [[ $# -eq 0 || "$1" == "--help" ]]; then
 
 	# print usage information
-	echo "Competitive Programming Toolkit"
+	echo "$programtitle"
 	echo ""
-	echo "Usage: $programname <command> [<language> [<arguments>]]"
+	echo "Usage: $programname <command>"
+	echo "       $programname --help"
+	echo "       $programname --version"
 	echo ""
-	echo "If <language> is ommitted, the last mentioned language is used."
-	echo "These are all the available commands"
+	echo "Commands"
+	echo "--------"
 	echo ""
-	echo "command    description                        arguments"
-	echo "-------    -----------                        ---------"
-	echo "clear      clear temporary files"
-	echo "clip       copy program to clipboard"
-	echo "debug      debug program"
-	echo "edit       edit program with vim"
-	echo "init       set current language"
-	echo "list       list all projects"
-	echo "load       load project                       project name"
-	echo "path       print program path"
-	echo "run        run program"
-	echo "save       save project                       project name"
+	echo "clear              clear temporary files"
+	echo "clip               copy program to clipboard"
+	echo "debug              debug program"
+	echo "edit               edit program with vim"
+	echo "init <language>    set current language"
+	echo "list               list all projects"
+	echo "load <project>     load project"
+	echo "path               print program path"
+	echo "run                run program"
+	echo "save <project>     save project"
 	echo ""
-	echo "Language-specific environment variables"
+	echo "Environment variables"
+	echo "---------------------"
 	echo ""
-	echo "language    environment variable    description"
-	echo "--------    --------------------    -----------"
-	echo "c           CFLAGS                  gcc flags"
-	echo "c++         CPPFLAGS                g++ flags"
-	echo "c#          CSFLAGS                 mcs flags"
-	echo "haskell     HSFLAGS                 ghc flags"
-	echo "java        JAVACLASS               class name"
+	echo "CFLAGS             c compiler flags"
+	echo "CPPFLAGS           c++ compiler flags"
+	echo "CSFLAGS            c# compiler flags"
+	echo "EDITOR             program editor (default: vim)"
+	echo "HSFLAGS            haskell compiler flags"
+	echo "JAVACLASS          java class name"
+	echo ""
+
+elif [[ "$1" == "--version" ]]; then
+
+	# print version
+	echo "$programversion"
 
 else
 
@@ -48,17 +59,18 @@ else
 	# If base command exists
 	if [[ -f "$programroot/libexec/base/$command" ]]; then
 
-		# then push base directory
+		# then push root directory
 		pushd "$programroot" > /dev/null
 
-		# run the command and pass any additional options
-		libexec/call "$command" "$@" 
+		# source the base command
+		source "libexec/base/$command"
 
 		# and pop directory
 		popd > /dev/null
+
 	else
 		# else exit
-		source "$programroot/libexec/err/7"
+		source "$programroot/libexec/err/6"
 	fi
 
 fi

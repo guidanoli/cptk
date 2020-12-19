@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-echo "${CFLAGS} -O2" > temp/flags.dat.new
+echo "${CFLAGS} -O2" > temp/flags.new
 make update-flags -s
 make run -s

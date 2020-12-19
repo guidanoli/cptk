@@ -1,4 +1,4 @@
-FLAGSFILE=temp/flags.dat
+FLAGSFILE=temp/flags
 NEWFLAGSFILE=$(addsuffix .new, ${FLAGSFILE})
 SOURCEFILE=temp/$(shell ./path)
 BINFILE=temp/$(shell ./xpath)

@@ -2,6 +2,9 @@
 #
 # Summary: List all saved projects
 
+# Get language
+lang=$(libexec/get-lang)
+
 # Get language project folder
 langprjfolder="etc/projects/$lang"
 

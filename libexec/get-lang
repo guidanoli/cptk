@@ -6,13 +6,10 @@
 #
 # Obtains current language, if set
 
-# Save language file location
-langfile="etc/lang.dat"
-
 # If the language file exists,
-if [[ -f "$langfile" ]]; then
+if [[ -f etc/lang ]]; then
 	# Get its content and save it
-	lang=$(cat "$langfile")
+	lang=$(cat etc/lang)
 else
 	lang=""
 fi

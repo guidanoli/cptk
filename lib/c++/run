@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-echo "${CPPFLAGS} -O2" > temp/flags.dat.new
+echo "${CPPFLAGS} -O2" > temp/flags.new
 make update-flags -s
 make run -s

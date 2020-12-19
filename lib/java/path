@@ -3,7 +3,7 @@
 # Summary: Get Java source file relative path
 
 # Save class name file
-classnamefile=temp/classname.dat
+classnamefile=temp/classname
 
 # If JAVACLASS is set,
 if [[ ! -z "$JAVACLASS" ]]; then

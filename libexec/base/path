@@ -2,11 +2,16 @@
 #
 # Summary: Get source code file path of the current language
 
+# Get language
+lang=$(libexec/get-lang)
+
+temporaryfolder=lib/$lang/temp
+
 # Make temporary directory
-mkdir -p "lib/$lang/temp"
+mkdir -p "$temporaryfolder"
 
 # Make subcall
-path="$(libexec/subcall "$file" "$@")"
+path=$(libexec/subcall path "$@")
 
 # Print source code file path
-echo "$PWD/lib/$lang/temp/$path"
+echo "$PWD/$temporaryfolder/$path"

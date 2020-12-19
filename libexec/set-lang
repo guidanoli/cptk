@@ -2,23 +2,32 @@
 #
 # Summary: Sets current language
 #
-# Usage: libexec/set-lang [LANG]
+# Usage: libexec/set-lang <language>
 #
-# Sets current language as LANG, if present
+# <language> is case-insensitive
 
-# If LANG is present
+# Check if <language> is present
 if [[ $# -gt 0 ]]; then
-	# Save it in lang
+
+	# Save language in lower case
 	lang="${1,,}"
 	shift
 
-	# If there a folder with this name
-	if [[ -d "lib/$lang" ]]; then
+	# If there is a folder with this name
+	if [[ ! -z "$lang" && -d "lib/$lang" ]]; then
+
 		# then set it as the current language
 		mkdir -p etc
-		echo "$lang" > etc/lang.dat
+		echo "$lang" > etc/lang
 	else
 		# else, exit
 		source libexec/err/4
 	fi
+
+else
+
+	# else, exit
+	argname='<language>'
+	source libexec/err/7
+
 fi

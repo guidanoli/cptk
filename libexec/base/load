@@ -1,22 +1,37 @@
 #!/usr/bin/env bash
 #
 # Summary: Load project folder into temp folder
+#
+# Usage: libexec/base/load <project>
 
-# Get project name
-prj=$1
-shift
+if [[ $# -gt 0 ]]; then
 
-# Get project folder path
-prjfolder="etc/projects/$lang/$prj"
+	# Get project name
+	project=$1
+	shift
 
-# Check if project folder exists
-if ! [[ -d "$prjfolder" ]]; then
-    # If not, exit
-    source libexec/err/5
+	# Get language
+	lang=$(libexec/get-lang)
+
+	# Get project folder path
+	projectfolder=etc/projects/$lang/$project
+
+	# Check if project folder exists
+	if ! [[ -d "$projectfolder" ]]; then
+	    # If not, exit
+	    source libexec/err/5
+	fi
+
+	# Temporary folder
+	tempfolder=lib/$lang/temp
+
+	# Copy the project folder contents to the temp folder
+	cp -a "$projectfolder/." "$tempfolder"
+
+else
+
+	# else, exit
+	argname='<project>'
+	source libexec/err/7
+
 fi
-
-# Temporary folder
-tempfolder="lib/$lang/temp"
-
-# Copy the project folder contents to the temp folder
-cp -a "$prjfolder/." "$tempfolder"

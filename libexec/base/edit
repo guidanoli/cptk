@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 #
-# Summary: Edits source code of the current language
-#
-# Usage: libexec/base/edit {OPTIONS}
-#
-# Opens source code in text editor.
+# Summary: Edits source code of program
 
 # Make call to path 
-path="$(libexec/call path "$lang" "$@")"
+path="$(libexec/base/path)"
 
 # Edit source code
-vi "$path"
+"${EDITOR:-vim}" "$path"
