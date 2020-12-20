@@ -1,11 +1,28 @@
 #!/usr/bin/env bash
 #
 # Summary: Removes temporary files from the current language
+#
+# Usage: libexec/base/clear [--all]
 
 # Exit on error
 set -e
 
-# Get language
-lang=$(libexec/get-lang)
+if [[ $# -gt 0 && "$1" == "--all" ]]; then
 
-rm -rf "lib/$lang/temp"
+	# For every language
+	for lang in $(ls lib -1); do
+
+		# Remove temporary folder
+		rm -rf "lib/$lang/temp"
+
+	done
+
+else
+
+	# Get language
+	lang=$(libexec/get-lang)
+
+	# Remove temporary folder
+	rm -rf "lib/$lang/temp"
+
+fi

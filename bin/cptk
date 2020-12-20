@@ -23,7 +23,7 @@ if [[ $# -eq 0 || "$1" == "--help" ]]; then
 	echo "Commands"
 	echo "--------"
 	echo ""
-	echo "clear              clear temporary files"
+	echo "clear [--all]      clear temporary files"
 	echo "clip               copy program to clipboard"
 	echo "debug              debug program"
 	echo "edit               edit program with vim"
