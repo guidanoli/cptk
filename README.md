@@ -1,7 +1,5 @@
 # Competitive Programming Toolkit
 
-![](media/competitive.gif)
-
 ## Description
 
 A toolkit for language-agnostic competitive programming, focused on _POSIX_ systems.
