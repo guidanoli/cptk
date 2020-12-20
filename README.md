@@ -48,13 +48,17 @@ Since you're most likely going to work with only a few portion of them, the foll
 
 ## Setup
 
-First, clone this repository somewhere, e.g. `$HOME`.
-Then, append the following lines to your `.bashrc` file.
-Replace `c++` with the programming language of your liking.
+1. **Check out this repository where you want it installed**. A good place is `~/.cptk` (but you could install it anywhere else).
 
 ```sh
-export PATH="$PATH:$HOME/.competitive/bin"
-cptk init c++
+git clone https://github.com/guidanoli/cptk.git ~/.cptk
+```
+
+2. **Edit your shell profile if you want to access the `cptk` command-line utility**. You can replace `c++` with another programming language of your liking.
+
+```sh
+echo 'export PATH="$PATH:$HOME/.cptk/bin"' >> ~/.bashrc
+echo 'cptk init c++' >> ~/.bashrc
 ```
 
 ## Usage
