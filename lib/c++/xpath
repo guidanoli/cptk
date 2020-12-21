@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo prog.out
+echo "$tempdir/prog.out"

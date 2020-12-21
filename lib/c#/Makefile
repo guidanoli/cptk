@@ -1,7 +1,7 @@
-FLAGSFILE=temp/flags
+FLAGSFILE=${tempdir}/flags
 NEWFLAGSFILE=$(addsuffix .new, ${FLAGSFILE})
-SOURCEFILE=temp/$(shell ./path)
-BINFILE=temp/$(shell ./xpath)
+SOURCEFILE=$(shell ./path)
+BINFILE=$(shell ./xpath)
 CSFLAGS=$(shell cat ${FLAGSFILE})
 
 .PHONY: run debug update-flags

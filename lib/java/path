@@ -3,7 +3,7 @@
 # Summary: Get Java source file relative path
 
 # Save class name file
-classnamefile=temp/classname
+classnamefile=$tempdir/classname
 
 # If JAVACLASS is set,
 if [[ ! -z "$JAVACLASS" ]]; then
@@ -22,4 +22,4 @@ else
 fi
 
 # Print the source file relative path
-echo "$classname.java"
+echo "$tempdir/$classname.java"

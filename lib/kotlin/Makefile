@@ -1,5 +1,5 @@
-SOURCEFILE=temp/$(shell ./path)
-BINFILE=temp/$(shell ./xpath)
+SOURCEFILE=$(shell ./path)
+BINFILE=$(shell ./xpath)
 
 .PHONY: run
 
