@@ -14,13 +14,22 @@ shift
 # Get current language
 lang=$(libexec/get-lang)
 
-# Save language directory
+# Save the language directory
+# (where all the scripts are)
 langdir=lib/$lang
+
+# Export temporary directory,
+# relative to the language directory
+# (where all the temp files are)
+export tempdir=temp
+
+# Make temporary directory
+mkdir -p "$langdir/$tempdir"
 
 # If subfile exists
 if [[ -f "$langdir/$command" ]]; then
 
-	# then, push current lang directory
+	# then, push current language directory
 	pushd "$langdir" > /dev/null
 
 	# run it and pass any additional options
