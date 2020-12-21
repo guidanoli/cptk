@@ -13,6 +13,9 @@ if [[ -f "$path" ]] ; then
 	# then make subcall
 	libexec/subcall run
 else
+	# Get language
+	lang=$(libexec/get-lang)
+
 	# else exit
 	source libexec/err/1
 fi

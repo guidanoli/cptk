@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo prog.js
+echo "$tempdir/prog.js"

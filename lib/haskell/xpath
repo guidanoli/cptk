@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo "$tempdir/prog.out"
+./path | cut -f 1 -d '.'
