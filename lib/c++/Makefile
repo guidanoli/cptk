@@ -1,10 +1,14 @@
 FLAGSFILE=${tempdir}/flags
 NEWFLAGSFILE=$(addsuffix .new, ${FLAGSFILE})
-SOURCEFILE=$(shell ./path)
+SOURCEFILE=${tempdir}/prog.cpp
 BINFILE=$(addsuffix .out, $(basename ${SOURCEFILE}))
 CXXFLAGS=$(shell cat ${FLAGSFILE})
 
-.PHONY: run debug update-flags
+.PHONY: path run debug update-flags
+
+path:
+	echo "${SOURCEFILE}"
+
 
 update-flags:
 	if ([ -f "${NEWFLAGSFILE}" ] && (! [ -f "${FLAGSFILE}" ] || \

@@ -1,10 +1,13 @@
 FLAGSFILE=${tempdir}/flags
 NEWFLAGSFILE=$(addsuffix .new, ${FLAGSFILE})
-SOURCEFILE=$(shell ./path)
+SOURCEFILE=${tempdir}/prog.c
 BINFILE=$(addsuffix .out, $(basename ${SOURCEFILE}))
 CFLAGS=$(shell cat ${FLAGSFILE})
 
-.PHONY: run debug update-flags
+.PHONY: path run debug update-flags
+
+path:
+	echo "${SOURCEFILE}"
 
 update-flags:
 	if ([ -f "${NEWFLAGSFILE}" ] && (! [ -f "${FLAGSFILE}" ] || \

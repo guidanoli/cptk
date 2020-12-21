@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo "$tempdir/prog.pas"
+make path -s

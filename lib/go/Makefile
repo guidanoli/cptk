@@ -1,7 +1,10 @@
-SOURCEFILE=$(shell ./path)
+SOURCEFILE=${tempdir}/prog.go
 BINFILE=$(addsuffix .out, $(basename ${SOURCEFILE}))
 
-.PHONY: run debug
+.PHONY: path run debug
+
+path:
+	echo "${SOURCEFILE}"
 
 run: ${BINFILE}
 	"$<"
