@@ -11,16 +11,10 @@ set -e
 # Get program path
 path=$(libexec/base/path)
 
-# If source is missing,
-if [[ ! -f "$path" ]]; then
+# If program exists,
+if [[ -f "$path" ]]; then
 
-	# Get language
-	lang=$(libexec/get-lang)
-	
-	# then exit
-	source libexec/err/1
-else
-	# else, if running on WSL,
+	# if running on WSL,
 	if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 		# run clip.exe
 		clip.exe < "$path"
@@ -28,4 +22,8 @@ else
 		# else, run xclip
 		xclip -sel c < "$path"
 	fi
+else
+	# else, exit
+	lang=$(libexec/get-lang)
+	source libexec/err/1
 fi

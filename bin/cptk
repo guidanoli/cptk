@@ -7,16 +7,21 @@ set -e
 export programpath=$(readlink -f "${BASH_SOURCE[0]}")
 export programname=$(basename "$programpath")
 export programroot=$(dirname "$(dirname "$programpath")")
-export programtitle="Competitive Programming Toolkit"
 export programversion="0.1-dev"
 
-# If missing command
-if [[ $# -eq 0 || "$1" == "--help" ]]; then
+if [[ $# -eq 0 ]]; then
+
+	# print minimal usage information
+	echo "Usage: $programname <command> [...]"
+	echo "       $programname --help"
+	echo "       $programname --version"
+	echo ""
+	echo "Run '$programname --help' for more usage information"
+
+elif [[ "$1" == "--help" ]]; then
 
 	# print usage information
-	echo "$programtitle"
-	echo ""
-	echo "Usage: $programname <command>"
+	echo "Usage: $programname <command> [...]"
 	echo "       $programname --help"
 	echo "       $programname --version"
 	echo ""
@@ -40,10 +45,9 @@ if [[ $# -eq 0 || "$1" == "--help" ]]; then
 	echo "CFLAGS             c compiler flags"
 	echo "CPPFLAGS           c++ compiler flags"
 	echo "CSFLAGS            c# compiler flags"
-	echo "EDITOR             program editor (default: vi)"
+	echo "EDITOR             text editor (default: vi)"
 	echo "HSFLAGS            haskell compiler flags"
 	echo "JAVACLASS          java class name"
-	echo ""
 
 elif [[ "$1" == "--version" ]]; then
 
@@ -56,14 +60,20 @@ else
 	command=$1
 	shift
 
-	# If base command exists
-	if [[ -f "$programroot/libexec/base/$command" ]]; then
+	# Get base directory
+	basedir=$programroot/libexec/base
+
+	# Get command path
+	commandpath=$basedir/$command
+
+	# If base command exists and is in the base directory
+	if [[ -f "$commandpath" && "$(dirname "$commandpath")" == "$basedir" ]]; then
 
 		# then push root directory
 		pushd "$programroot" > /dev/null
 
 		# source the base command
-		source "libexec/base/$command"
+		source "$commandpath"
 
 		# and pop directory
 		popd > /dev/null

@@ -7,7 +7,15 @@
 # Exit on error
 set -e
 
-if [[ $# -gt 0 && "$1" == "--all" ]]; then
+if [[ $# -eq 0 ]]; then
+
+	# Get language
+	lang=$(libexec/get-lang)
+
+	# Remove temporary folder
+	rm -rf "lib/$lang/temp"
+
+elif [[ "$1" == "--all" ]]; then
 
 	# For every language
 	for lang in $(ls lib -1); do
@@ -19,10 +27,7 @@ if [[ $# -gt 0 && "$1" == "--all" ]]; then
 
 else
 
-	# Get language
-	lang=$(libexec/get-lang)
-
-	# Remove temporary folder
-	rm -rf "lib/$lang/temp"
+	# Unknown argument
+	source libexec/err/8
 
 fi

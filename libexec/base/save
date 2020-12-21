@@ -8,7 +8,7 @@
 set -e
 
 # Check if <project> is present
-if [[ $# -gt 0 ]]; then
+if [[ $# -eq 1 ]]; then
 
 	# Get language
 	lang=$(libexec/get-lang)
@@ -29,10 +29,15 @@ if [[ $# -gt 0 ]]; then
 	    cp -a "$tempfolder/." "$prjfolder"
 	fi
 
-else
+elif [[ $# -eq 0 ]]; then
 
 	# else, exit
 	argname='<project>'
 	source libexec/err/7
+
+else
+
+	# Unknown argument
+	source libexec/err/8
 
 fi

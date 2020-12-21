@@ -8,10 +8,10 @@ set -e
 # Make call to path
 path=$(libexec/base/path)
 
-# If source code exists,
+# If program exists,
 if [[ -f "$path" ]] ; then
 	# then make subcall
-	libexec/subcall run "$@"
+	libexec/subcall run
 else
 	# else exit
 	source libexec/err/1

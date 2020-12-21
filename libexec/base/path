@@ -8,13 +8,14 @@ set -e
 # Get language
 lang=$(libexec/get-lang)
 
+# Get temporary folder
 temporaryfolder=lib/$lang/temp
 
 # Make temporary directory
 mkdir -p "$temporaryfolder"
 
 # Make subcall
-path=$(libexec/subcall path "$@")
+path=$(libexec/subcall path)
 
 # Print source code file path
 echo "$PWD/$temporaryfolder/$path"

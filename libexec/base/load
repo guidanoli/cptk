@@ -7,7 +7,7 @@
 # Exit on error
 set -e
 
-if [[ $# -gt 0 ]]; then
+if [[ $# -eq 1 ]]; then
 
 	# Get project name
 	project=$1
@@ -20,7 +20,7 @@ if [[ $# -gt 0 ]]; then
 	projectfolder=etc/projects/$lang/$project
 
 	# Check if project folder exists
-	if ! [[ -d "$projectfolder" ]]; then
+	if [[ ! -d "$projectfolder" ]]; then
 	    # If not, exit
 	    source libexec/err/5
 	fi
@@ -31,10 +31,15 @@ if [[ $# -gt 0 ]]; then
 	# Copy the project folder contents to the temp folder
 	cp -a "$projectfolder/." "$tempfolder"
 
-else
+elif [[ $# -eq 0 ]]; then
 
-	# else, exit
+	# Exit
 	argname='<project>'
 	source libexec/err/7
+
+else
+
+	# Unknown argument
+	source libexec/err/8
 
 fi
