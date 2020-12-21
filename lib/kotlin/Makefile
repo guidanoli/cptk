@@ -1,5 +1,5 @@
 SOURCEFILE=$(shell ./path)
-BINFILE=$(shell ./xpath)
+BINFILE=$(addsuffix .jar, $(basename ${SOURCEFILE}))
 
 .PHONY: run
 

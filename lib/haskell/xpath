@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-./path | cut -f 1 -d '.'

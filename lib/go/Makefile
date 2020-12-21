@@ -1,5 +1,5 @@
 SOURCEFILE=$(shell ./path)
-BINFILE=$(shell ./xpath)
+BINFILE=$(addsuffix .out, $(basename ${SOURCEFILE}))
 
 .PHONY: run debug
 
