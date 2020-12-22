@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+set -e
+
+# write_helloworld <lang> <program>
+write_helloworld() {
+	cptk init "$1"
+	printf "$2\n" > `cptk path`
+	cptk save helloworld
+}
+
+write_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'
+write_helloworld c++ '#include <iostream>\nint main() { std::cout << "Hello, World!" << std::endl; }'
+write_helloworld c# 'class Hello { static void Main(string[] args) { System.Console.WriteLine("Hello, World!"); } }'
+write_helloworld go 'package main\nimport "fmt"\nfunc main() { fmt.Println("Hello, World!") }'
+write_helloworld haskell 'main = putStrLn "Hello, World!"'
+write_helloworld java 'class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }'
+write_helloworld js 'console.log("Hello, World!");'
+write_helloworld kotlin 'fun main() { println("Hello, World!") }'
+write_helloworld pascal 'program Hello; begin writeln ("Hello, World!"); end.'
+write_helloworld perl 'print("Hello, World!\n");'
+write_helloworld python 'print("Hello, World!")'
+write_helloworld ruby 'puts "Hello, World!"'
+
+# test_helloworld <lang>
+test_helloworld() {
+	cptk init "$1"
+	cptk load helloworld
+	cptk run | grep 'Hello, World!' > /dev/null
+}
+
+for lang in `ls -1 lib`; do
+	echo "[ TEST ] $lang"
+	test_helloworld "$lang"
+done
+
+echo "Success"

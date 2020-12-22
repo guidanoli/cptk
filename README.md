@@ -65,6 +65,10 @@ echo 'cptk init c++' >> ~/.bashrc
 
 Run `cptk --help` for more information.
 
+## Tests
+
+After installing all the dependcies, you can execute the test scripts in the `tests` directory from the repository root.
+
 [(1)]: https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb
 [(2)]: https://golang.org/doc/gdb
 [(3)]: https://www.freepascal.org/docs-html/user/userse54.html#x165-17200010.2
