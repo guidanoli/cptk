@@ -4,9 +4,11 @@ set -e
 
 # write_helloworld <lang> <program>
 write_helloworld() {
+	echo "[ SETUP ] $1"
 	cptk init "$1"
 	printf "$2\n" > `cptk path`
 	cptk save helloworld
+	echo "" > `cptk path`
 }
 
 write_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'
@@ -22,16 +24,11 @@ write_helloworld perl 'print("Hello, World!\n");'
 write_helloworld python 'print("Hello, World!")'
 write_helloworld ruby 'puts "Hello, World!"'
 
-# test_helloworld <lang>
-test_helloworld() {
-	cptk init "$1"
-	cptk load helloworld
-	cptk run | grep 'Hello, World!' > /dev/null
-}
-
 for lang in `ls -1 lib`; do
 	echo "[ TEST ] $lang"
-	test_helloworld "$lang"
+	cptk init "$lang"
+	cptk load helloworld
+	cptk run | grep 'Hello, World!' > /dev/null
 done
 
 echo "Success"

@@ -67,7 +67,7 @@ Run `cptk --help` for more information.
 
 ## Tests
 
-After installing all the dependcies, you can execute the test scripts in the `tests` directory from the repository root.
+After installing all the dependencies, you can execute the test scripts in the `tests` directory from the repository root.
 
 [(1)]: https://www.mono-project.com/docs/debug+profile/debug/#debugging-with-gdb
 [(2)]: https://golang.org/doc/gdb
