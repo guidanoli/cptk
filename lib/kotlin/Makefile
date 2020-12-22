@@ -1,10 +1,7 @@
-SOURCEFILE=${tempdir}/prog.kt
+SOURCEFILE=$(shell ./path)
 BINFILE=$(addsuffix .jar, $(basename ${SOURCEFILE}))
 
-.PHONY: path run
-
-path:
-	echo "${SOURCEFILE}"
+.PHONY: run
 
 run: ${BINFILE}
 	java -jar "$<"

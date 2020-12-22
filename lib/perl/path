@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo "$tempdir/prog.pl"
+echo temp/prog.pl

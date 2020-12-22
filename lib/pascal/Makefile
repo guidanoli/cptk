@@ -1,10 +1,7 @@
-SOURCEFILE=${tempdir}/prog.pas
+SOURCEFILE=$(shell ./path)
 BINFILE=$(basename ${SOURCEFILE})
 
-.PHONY: path run debug
-
-path:
-	echo "${SOURCEFILE}"
+.PHONY: run debug
 
 run: ${BINFILE}
 	"$<"

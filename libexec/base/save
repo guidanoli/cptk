@@ -14,20 +14,17 @@ if [[ $# -eq 1 ]]; then
 	lang=$(libexec/get-lang)
 
 	# Get project folder path
-	prjfolder=etc/projects/$lang/$1
+	projectfolder=etc/projects/$lang/$1
 	shift
 
-	# Make project folder
-	mkdir -p "$prjfolder"
+	# Get program path
+	path=$(libexec/base/path)
 
-	# Temporary folder
-	tempfolder=lib/$lang/temp
+	# Make project directory
+	mkdir -p "$projectfolder"
 
-	# If temporary folder exists,
-	# copy its contents to the project folder
-	if [[ -d $tempfolder ]]; then
-	    cp -a "$tempfolder/." "$prjfolder"
-	fi
+	# Copy program to project directory
+	cp -a "$path" "$projectfolder"
 
 elif [[ $# -eq 0 ]]; then
 

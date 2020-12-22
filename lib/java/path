@@ -1,25 +1,2 @@
 #!/usr/bin/env bash
-#
-# Summary: Get Java source file relative path
-
-# Save class name file
-classnamefile=$tempdir/classname
-
-# If JAVACLASS is set,
-if [[ ! -z "$JAVACLASS" ]]; then
-	# then store it in a file
-	echo "$JAVACLASS" > "$classnamefile"
-	shift
-fi
-
-# If there is a custom class name file,
-if [[ -f "$classnamefile" ]]; then
-	# then use the name in it as the class name
-	classname=$(cat "$classnamefile")
-else
-	# else use the default name
-	classname=Main
-fi
-
-# Print the source file relative path
-echo "$tempdir/$classname.java"
+echo "temp/${JAVACLASS:-Main}.java"

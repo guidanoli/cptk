@@ -25,11 +25,8 @@ if [[ $# -eq 1 ]]; then
 	    source libexec/err/5
 	fi
 
-	# Temporary folder
-	tempfolder=lib/$lang/temp
-
-	# Copy the project folder contents to the temp folder
-	cp -a "$projectfolder/." "$tempfolder"
+	# Copy project files to temporary directory
+	cp -a "$projectfolder/." "lib/$lang/temp"
 
 elif [[ $# -eq 0 ]]; then
 

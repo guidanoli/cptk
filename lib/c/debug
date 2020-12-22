@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
-echo "${CFLAGS} -g" > "$tempdir/flags.new"
-make update-flags -s
 make debug -s

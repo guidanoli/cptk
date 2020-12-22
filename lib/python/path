@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo "$tempdir/prog.py"
+echo temp/prog.py
