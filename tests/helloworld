@@ -19,7 +19,7 @@ write_helloworld haskell 'main = putStrLn "Hello, World!"'
 write_helloworld java 'class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }'
 write_helloworld js 'console.log("Hello, World!");'
 write_helloworld kotlin 'fun main() { println("Hello, World!") }'
-write_helloworld pascal 'program Hello; begin writeln ("Hello, World!"); end.'
+write_helloworld pascal "program Hello; begin writeln ('Hello, World!'); end."
 write_helloworld perl 'print("Hello, World!\n");'
 write_helloworld python 'print("Hello, World!")'
 write_helloworld ruby 'puts "Hello, World!"'

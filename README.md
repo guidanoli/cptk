@@ -57,7 +57,7 @@ git clone https://github.com/guidanoli/cptk.git ~/.cptk
 2. **Edit your shell profile if you want to access the `cptk` command-line utility**. You can replace `c++` with another programming language of your liking.
 
 ```sh
-echo 'export PATH="$PATH:$HOME/.cptk/bin"' >> ~/.bashrc
+echo 'export PATH=$PATH:$HOME/.cptk/bin' >> ~/.bashrc
 echo 'cptk init c++' >> ~/.bashrc
 ```
 
