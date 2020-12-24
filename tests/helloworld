@@ -8,7 +8,8 @@ write_helloworld() {
 	cptk init "$1"
 	printf "$2\n" > `cptk path`
 	cptk save helloworld
-	echo "" > `cptk path`
+	cptk clear
+	[ ! -f `cptk path` ]
 }
 
 write_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'

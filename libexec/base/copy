@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 #
 # Summary: Copy contents of source code to clipboard
-#
-# If on WSL, uses clip.
-# Else, uses xclip.
 
 # Exit on error
 set -e
