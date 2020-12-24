@@ -28,7 +28,7 @@ elif [[ "$1" == "--help" ]]; then
 	echo "Commands"
 	echo "--------"
 	echo ""
-	echo "clear [--all]      clear temporary files"
+	echo "clear              clear temporary files"
 	echo "copy               copy program to clipboard"
 	echo "debug              debug program"
 	echo "edit               edit program with vim"

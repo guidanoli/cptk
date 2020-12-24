@@ -2,32 +2,14 @@
 #
 # Summary: Removes temporary files from the current language
 #
-# Usage: libexec/base/clear [--all]
+# Usage: libexec/base/clear
 
 # Exit on error
 set -e
 
-if [[ $# -eq 0 ]]; then
+# Get language
+lang=$(libexec/get-lang)
 
-	# Get language
-	lang=$(libexec/get-lang)
+# Remove temporary folder
+rm -rf "lib/$lang/temp"
 
-	# Remove temporary folder
-	rm -rf "lib/$lang/temp"
-
-elif [[ "$1" == "--all" ]]; then
-
-	# For every language
-	for lang in $(ls lib -1); do
-
-		# Remove temporary folder
-		rm -rf "lib/$lang/temp"
-
-	done
-
-else
-
-	# Unknown argument
-	source libexec/err/8
-
-fi
