@@ -34,5 +34,5 @@ if [[ -f "$langdir/$command" ]]; then
 	popd > /dev/null
 else
 	# else, exit
-	source libexec/err/3
+	source libexec/err/no-language-support
 fi

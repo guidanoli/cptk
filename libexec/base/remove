@@ -22,7 +22,7 @@ if [[ $# -eq 1 ]]; then
 	# Check if project folder exists
 	if [[ ! -d "$projectfolder" ]]; then
 	    # If not, exit
-	    source libexec/err/5
+	    source libexec/err/unknown-project
 	fi
 
 	# Remove folder recursively
@@ -32,11 +32,11 @@ elif [[ $# -eq 0 ]]; then
 
 	# Exit
 	argname='<project>'
-	source libexec/err/7
+	source libexec/err/missing-argument
 
 else
 
 	# Unknown argument
-	source libexec/err/8
+	source libexec/err/unknown-arguments
 
 fi

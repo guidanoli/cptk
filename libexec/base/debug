@@ -17,5 +17,5 @@ else
 	lang=$(libexec/get-lang)
 
 	# else exit
-	source libexec/err/1
+	source libexec/err/no-program
 fi

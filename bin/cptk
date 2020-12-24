@@ -79,7 +79,7 @@ else
 
 	else
 		# else exit
-		source "$programroot/libexec/err/6"
+		source "$programroot/libexec/err/unknown-command"
 	fi
 
 fi

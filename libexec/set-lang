@@ -21,13 +21,13 @@ if [[ $# -gt 0 ]]; then
 		echo "$lang" > etc/lang
 	else
 		# else, exit
-		source libexec/err/4
+		source libexec/err/unknown-language
 	fi
 
 else
 
 	# else, exit
 	argname='<language>'
-	source libexec/err/7
+	source libexec/err/missing-argument
 
 fi

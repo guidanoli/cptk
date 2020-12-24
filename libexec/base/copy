@@ -22,5 +22,5 @@ if [[ -f "$path" ]]; then
 else
 	# else, exit
 	lang=$(libexec/get-lang)
-	source libexec/err/1
+	source libexec/err/no-program
 fi

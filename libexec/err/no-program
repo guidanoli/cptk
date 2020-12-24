@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 echo "Error: No program for language '$lang' has been writen yet." >&2
-echo "Hint: Run '$programname edit $lang' to write one." >&2
+echo "Hint: Run '$programname edit' to write one." >&2
 exit 1

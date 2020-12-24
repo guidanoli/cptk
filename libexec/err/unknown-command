@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-echo "Error: Unknown arguments '$@'." >&2
+echo "Error: Unknown command '$command'." >&2
 echo "Hint: Run '$programname --help' for usage information." >&2
-exit 8
+exit 1

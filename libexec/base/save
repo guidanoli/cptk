@@ -30,11 +30,11 @@ elif [[ $# -eq 0 ]]; then
 
 	# else, exit
 	argname='<project>'
-	source libexec/err/7
+	source libexec/err/missing-argument
 
 else
 
 	# Unknown argument
-	source libexec/err/8
+	source libexec/err/unknown-arguments
 
 fi
