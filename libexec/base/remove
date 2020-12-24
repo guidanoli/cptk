@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#
+# Summary: Remove project folder
+#
+# Usage: libexec/base/remove <project>
+
+# Exit on error
+set -e
+
+if [[ $# -eq 1 ]]; then
+
+	# Get project name
+	project=$1
+	shift
+
+	# Get language
+	lang=$(libexec/get-lang)
+
+	# Get project folder path
+	projectfolder=etc/projects/$lang/$project
+
+	# Check if project folder exists
+	if [[ ! -d "$projectfolder" ]]; then
+	    # If not, exit
+	    source libexec/err/5
+	fi
+
+	# Remove folder recursively
+	rm -rf "$projectfolder"
+
+elif [[ $# -eq 0 ]]; then
+
+	# Exit
+	argname='<project>'
+	source libexec/err/7
+
+else
+
+	# Unknown argument
+	source libexec/err/8
+
+fi

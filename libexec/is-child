@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Summary: Checks if file or directory is child of a directory
+#
+# Usage: libexec/is-child <parent> <child> [<additional arguments to find>]
+
+set -e
+
+[ $# -ge 2 ]
+
+parent=$1
+child=$2
+shift 2
+
+find "$parent" -mindepth 1 -maxdepth 1 "$@" -name "$child" | grep -qz .

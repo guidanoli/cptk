@@ -13,8 +13,8 @@ if [[ $# -gt 0 ]]; then
 	lang=${1,,}
 	shift
 
-	# If there is a folder with this name
-	if [[ ! -z "$lang" && -d "lib/$lang" ]]; then
+	# If there is a folder with this name in 'lib'
+	if libexec/is-child lib "$lang" -type d ; then
 
 		# then set it as the current language
 		mkdir -p etc

@@ -6,10 +6,19 @@ set -e
 write_helloworld() {
 	echo "[ SETUP ] $1"
 	cptk init "$1"
-	printf "$2\n" > `cptk path`
+	tmp=$(tempfile)
+	printf "$2\n" > "$tmp"
+	cp "$tmp" "$(cptk path)"
+	cptk copy
 	cptk save helloworld
+	[ -f "$(cptk path)" ]
 	cptk clear
-	[ ! -f `cptk path` ]
+	[ ! -f "$(cptk path)" ]
+	cptk paste
+	diff "$tmp" "$(cptk path)"
+	cptk clear
+	cptk list | grep -q helloworld
+	rm "$tmp"
 }
 
 write_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'
@@ -25,11 +34,13 @@ write_helloworld perl 'print("Hello, World!\n");'
 write_helloworld python 'print("Hello, World!")'
 write_helloworld ruby 'puts "Hello, World!"'
 
-for lang in `ls -1 lib`; do
+for lang in $(ls -1 lib); do
 	echo "[ TEST ] $lang"
 	cptk init "$lang"
 	cptk load helloworld
-	cptk run | grep 'Hello, World!' > /dev/null
+	cptk run | grep -q 'Hello, World!'
+	cptk remove helloworld
+	cptk list | (! grep -q helloworld)
 done
 
 echo "Success"
