@@ -14,22 +14,13 @@ What this toolkit promotes is an abstraction for developing with different progr
 
 ## Mechanism
 
-The toolkit is controlled through a set of commands given to the `cptk` main script.
-You can think of it as a console interface of a very simple IDE, which lets you edit and run programs, save and open projects.
-The current language and configurations for each language are stored internally, and if not specified, the most recently set are assumed.
-
-The commands can also take additional arguments. For example, compiling a C++17 application may take custom compiler flags such as `-std=c++17`. Note that when additional arguments are present, the programming language name must be explicit, even when it is the default.
+The toolkit is accessed through the `cptk` main script, which provides plenty of commands for manipulating temporary and saved programs (a.k.a. projects).
+You can think of it as a console interface of a very simple integrated development environment, which lets you edit and run programs, as well as save and open projects.
 
 ## Dependencies
 
-### Core dependencies
-
-* [bash]
-
-### Languages dependencies
-
-Since the toolkit deals with a bunch of different languages, it's quite natural the need to have some software pre-installed on your machine.
-Since you're most likely going to work with only a few portion of them, the following table should summarize which softwares you really need.
+Apart from [bash], different sets of dependencies are required for compiling, running and debugging programs of each language.
+Since you'll most likely be working with only a portion of them, the following table is there to present the software you actually need.
 
 | Programming Language | Compiling and running | Debugging |
 | :- | :- | :- |
@@ -54,7 +45,7 @@ Since you're most likely going to work with only a few portion of them, the foll
 git clone https://github.com/guidanoli/cptk.git ~/.cptk
 ```
 
-2. **Edit your shell profile if you want to access the `cptk` command-line utility**. You can replace `cpp` with another programming language of your liking.
+2. **Edit your shell profile if you want to access the `cptk` command-line utility**. You can replace `cpp` with any other programming language of your liking.
 
 ```sh
 echo 'export PATH=$PATH:$HOME/.cptk/bin' >> ~/.bashrc
