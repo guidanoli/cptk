@@ -34,8 +34,8 @@ Since you're most likely going to work with only a few portion of them, the foll
 | Programming Language | Compiling and running | Debugging |
 | :- | :- | :- |
 | c | [gcc], [make] | :heavy_check_mark: [gdb] |
-| c++ | [g++], [make] | :heavy_check_mark: [gdb] |
-| c# | [mcs], [make] | :heavy_check_mark: [gdb] [(1)] |
+| cpp | [g++], [make] | :heavy_check_mark: [gdb] |
+| cs | [mcs], [make] | :heavy_check_mark: [gdb] [(1)] |
 | go | [go], [make] | :heavy_check_mark: [gdb] [(2)] |
 | haskell | [ghc], [make] | :heavy_check_mark: [gdb] [(4)] |
 | java | [javac], [java], [make] | :heavy_check_mark: [jdb] |
@@ -54,11 +54,11 @@ Since you're most likely going to work with only a few portion of them, the foll
 git clone https://github.com/guidanoli/cptk.git ~/.cptk
 ```
 
-2. **Edit your shell profile if you want to access the `cptk` command-line utility**. You can replace `c++` with another programming language of your liking.
+2. **Edit your shell profile if you want to access the `cptk` command-line utility**. You can replace `cpp` with another programming language of your liking.
 
 ```sh
 echo 'export PATH=$PATH:$HOME/.cptk/bin' >> ~/.bashrc
-echo 'cptk init c++' >> ~/.bashrc
+echo 'cptk init cpp' >> ~/.bashrc
 ```
 
 ## Usage

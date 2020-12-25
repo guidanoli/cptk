@@ -22,8 +22,8 @@ write_helloworld() {
 }
 
 write_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'
-write_helloworld c++ '#include <iostream>\nint main() { std::cout << "Hello, World!" << std::endl; }'
-write_helloworld c# 'class Hello { static void Main(string[] args) { System.Console.WriteLine("Hello, World!"); } }'
+write_helloworld cpp '#include <iostream>\nint main() { std::cout << "Hello, World!" << std::endl; }'
+write_helloworld cs 'class Hello { static void Main(string[] args) { System.Console.WriteLine("Hello, World!"); } }'
 write_helloworld go 'package main\nimport "fmt"\nfunc main() { fmt.Println("Hello, World!") }'
 write_helloworld haskell 'main = putStrLn "Hello, World!"'
 write_helloworld java 'class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }'
