@@ -55,8 +55,8 @@ elif [[ "$1" == "--version" ]]; then
 	version="0.1"
 	git_revision=""
 
-	if cd "${BASH_SOURCE%/*}" 2>/dev/null && git remote -v 2>/dev/null | grep -q cptk; then
-	  git_revision="$(git describe --tags HEAD 2>/dev/null || true)"
+	if git -C "$programroot" remote -v 2>/dev/null | grep -q cptk; then
+	  git_revision="$(git -C "$programroot" describe --tags HEAD 2>/dev/null || true)"
 	  git_revision="${git_revision#v}"
 	fi
 
