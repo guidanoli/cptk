@@ -2,7 +2,7 @@
 #
 # Summary: Load project folder into temp folder
 #
-# Usage: libexec/base/load <project>
+# Usage: libexec/base/open <project>
 
 # Exit on error
 set -e

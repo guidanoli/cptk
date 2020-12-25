@@ -37,7 +37,7 @@ write_helloworld ruby 'puts "Hello, World!"'
 for lang in $(ls -1 lib); do
 	echo "[ TEST ] $lang"
 	cptk init "$lang"
-	cptk load helloworld
+	cptk open helloworld
 	cptk run | grep -q 'Hello, World!'
 	cptk remove helloworld
 	cptk list | (! grep -q helloworld)

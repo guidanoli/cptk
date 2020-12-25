@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 echo "Error: Unknown language '$lang'." >&2
+echo "Available languages:" >&2
+ls lib | xargs echo >&2
 exit 1

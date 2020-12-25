@@ -15,7 +15,7 @@ What this toolkit promotes is an abstraction for developing with different progr
 ## Mechanism
 
 The toolkit is controlled through a set of commands given to the `cptk` main script.
-You can think of it as a console interface of a very simple IDE, which lets you edit and run programs, save and load projects.
+You can think of it as a console interface of a very simple IDE, which lets you edit and run programs, save and open projects.
 The current language and configurations for each language are stored internally, and if not specified, the most recently set are assumed.
 
 The commands can also take additional arguments. For example, compiling a C++17 application may take custom compiler flags such as `-std=c++17`. Note that when additional arguments are present, the programming language name must be explicit, even when it is the default.
