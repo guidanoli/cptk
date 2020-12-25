@@ -10,4 +10,4 @@ debug: ${BINFILE}
 	gdb --args mono --debug "$<"
 
 ${BINFILE}: ${SOURCEFILE}
-	mcs -out:"$@" "$<" ${CSFLAGS}
+	mcs ${CSFLAGS} -out:"$@" "$<"

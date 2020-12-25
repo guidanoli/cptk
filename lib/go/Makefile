@@ -10,4 +10,4 @@ debug: ${BINFILE}
 	gdb "$<"
 
 ${BINFILE}: ${SOURCEFILE}
-	go build -o "$@" "$<"
+	go build ${GOFLAGS} -o "$@" "$<"

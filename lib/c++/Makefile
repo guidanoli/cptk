@@ -10,4 +10,4 @@ debug: ${BINFILE}
 	gdb "$<"
 
 ${BINFILE}: ${SOURCEFILE}
-	g++ "$<" -o "$@" -lm ${CPPFLAGS}
+	g++ "$<" ${CPPFLAGS} -o "$@" -lm

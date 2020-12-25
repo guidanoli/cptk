@@ -47,8 +47,16 @@ elif [[ "$1" == "--help" ]]; then
 	echo "CPPFLAGS           c++ compiler flags"
 	echo "CSFLAGS            c# compiler flags"
 	echo "EDITOR             text editor (default: vi)"
-	echo "HSFLAGS            haskell compiler flags"
+	echo "GOFLAGS            go compiler flags"
+	echo "HASKELLFLAGS       haskell compiler flags"
 	echo "JAVACLASS          java class name"
+	echo "JAVAFLAGS          java compiler flags"
+	echo "JSFLAGS            javascript interpreter flags"
+	echo "KOTLINFLAGS        kotlin compiler flags"
+	echo "PASCALFLAGS        pascal compiler flags"
+	echo "PERLFLAGS          perl interpreter flags"
+	echo "PYTHONFLAGS        python interpreter flags"
+	echo "RUBYFLAGS          ruby interpreter flags"
 
 elif [[ "$1" == "--version" ]]; then
 
