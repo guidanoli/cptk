@@ -7,7 +7,6 @@ set -e
 export programpath=$(readlink -f "${BASH_SOURCE[0]}")
 export programname=$(basename "$programpath")
 export programroot=$(dirname "$(dirname "$programpath")")
-export programversion="0.1-dev"
 
 if [[ $# -eq 0 ]]; then
 
@@ -53,8 +52,15 @@ elif [[ "$1" == "--help" ]]; then
 
 elif [[ "$1" == "--version" ]]; then
 
-	# print version
-	echo "$programversion"
+	version="0.1"
+	git_revision=""
+
+	if cd "${BASH_SOURCE%/*}" 2>/dev/null && git remote -v 2>/dev/null | grep -q cptk; then
+	  git_revision="$(git describe --tags HEAD 2>/dev/null || true)"
+	  git_revision="${git_revision#v}"
+	fi
+
+	echo "cptk ${git_revision:-$version}"
 
 else
 
