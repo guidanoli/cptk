@@ -6,23 +6,22 @@ A toolkit for language-agnostic competitive programming, focused on _POSIX_ syst
 
 ## Motivation
 
-Even though C and C++ dominate the competitive programming ecosystem, it's not hard to spot some submissions using Python, Perl, Java, or even Fortran.
-Every language has its pros and cons. Knowing many different languages can not only make you a better programmer but also a better competitor.
+Even though C and C++ dominate the competitive programming ecosystem, it's not hard to spot some submissions using Python, Perl and Java, for instance.
+That's because every language has its pros and cons, so knowing many different languages can not only make you a better programmer but also a better competitor.
 
 The problem is: keeping a polyglot development environment consistent and tidy is oftentimes harder than it may seem.
-What this toolkit promotes is an abstraction for developing with different programming languages at once.
+What this toolkit promotes is an abstraction for developing with different programming languages at once. You can think of it as the console interface of a very simple integrated development environment, which lets you edit and run programs, as well as save and open projects.
 
 ## Mechanism
 
-The toolkit is accessed through the `cptk` main script, which provides plenty of commands for manipulating temporary and saved programs (a.k.a. projects).
-You can think of it as a console interface of a very simple integrated development environment, which lets you edit and run programs, as well as save and open projects.
+The user accesses the toolkit by calling the `cptk` script and passing it any of the available commands, such as `edit` for editing the program of the current language. Some configuration is done by means of environment variables, e.g. `EDITOR` for choosing the text editor.
 
 ## Dependencies
 
-Apart from [bash], different sets of dependencies are required for compiling, running and debugging programs of each language.
-Since you'll most likely be working with only a portion of them, the following table is there to present the software you actually need.
+Apart from [bash], different sets of dependencies are required for running and debugging programs of each language.
+Since you'll most likely be working with only a portion of them, the following table is there to help you determine which software you actually need.
 
-| Programming Language | Compiling and running | Debugging |
+| Programming Language | Running | Debugging |
 | :- | :- | :- |
 | c | [gcc], [make] | :heavy_check_mark: [gdb] |
 | cpp | [g++], [make] | :heavy_check_mark: [gdb] |
@@ -54,7 +53,7 @@ echo 'cptk init cpp' >> ~/.bashrc
 
 ## Usage
 
-Run `cptk --help` for more information.
+Run `cptk --help` for usage information.
 
 ## Tests
 
