@@ -6,19 +6,12 @@ set -e
 write_helloworld() {
 	echo "[ SETUP ] $1"
 	cptk init "$1"
-	tmp=$(tempfile)
-	printf "$2\n" > "$tmp"
-	cp "$tmp" "$(cptk path)"
-	cptk copy
+	printf "$2\n" > "$(cptk path)"
 	cptk save helloworld
 	[ -f "$(cptk path)" ]
 	cptk clear
 	[ ! -f "$(cptk path)" ]
-	cptk paste
-	diff "$tmp" "$(cptk path)"
-	cptk clear
 	cptk list | grep -q helloworld
-	rm "$tmp"
 }
 
 write_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'

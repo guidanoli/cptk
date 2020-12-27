@@ -10,11 +10,11 @@ Even though C and C++ dominate the competitive programming ecosystem, it's not h
 That's because every language has its pros and cons, so knowing many different languages can not only make you a better programmer but also a better competitor.
 
 The problem is: keeping a polyglot development environment consistent and tidy is oftentimes harder than it may seem.
-What this toolkit promotes is an abstraction for developing with different programming languages at once. You can think of it as the console interface of a very simple integrated development environment, which lets you edit and run programs, as well as save and open projects.
+What this toolkit promotes is an abstraction for developing with different programming languages at once. You can think of it as the console interface of a very simple integrated development environment, which lets you run and debug programs, as well as save and open projects.
 
 ## Mechanism
 
-The user accesses the toolkit by calling the `cptk` script and passing it any of the available commands, such as `edit` for editing the program of the current language. Some configuration is done by means of environment variables, e.g. `EDITOR` for choosing the text editor.
+The user accesses the toolkit by calling the `cptk` script and passing it any of the available commands, such as `init` for setting the current language. Some configuration is done by means of environment variables, e.g. `CFLAGS` for C compiler flags.
 
 ## Dependencies
 
