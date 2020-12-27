@@ -57,6 +57,8 @@ elif [[ "$1" == "--help" ]]; then
 	echo "PERLFLAGS          perl interpreter flags"
 	echo "PYTHONFLAGS        python interpreter flags"
 	echo "RUBYFLAGS          ruby interpreter flags"
+	echo ""
+	echo "For full documentation, see: https://github.com/guidanoli/cptk#readme"
 
 elif [[ "$1" == "--version" ]]; then
 

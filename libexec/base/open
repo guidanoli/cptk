@@ -16,17 +16,17 @@ if [[ $# -eq 1 ]]; then
 	# Get language
 	lang=$(libexec/get-lang)
 
-	# Get project folder path
-	projectfolder=etc/projects/$lang/$project
+	# Get projects folder path
+	projectsfolder=etc/projects/$lang
 
-	# Check if project folder exists
-	if [[ ! -d "$projectfolder" ]]; then
-	    # If not, exit
-	    source libexec/err/unknown-project
+	# If project is not in the projects folder
+	if ! libexec/is-child "$projectsfolder" "$project" -type d ; then
+		# then, exit
+		source libexec/err/unknown-project
 	fi
 
 	# Copy project files to temporary directory
-	cp -a "$projectfolder/." "lib/$lang/temp"
+	cp -a "$projectsfolder/$project/." "lib/$lang/temp"
 
 elif [[ $# -eq 0 ]]; then
 
@@ -35,6 +35,9 @@ elif [[ $# -eq 0 ]]; then
 	source libexec/err/missing-argument
 
 else
+
+	# Shift <project>
+	shift
 
 	# Unknown argument
 	source libexec/err/unknown-arguments

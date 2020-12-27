@@ -68,4 +68,17 @@ assert_false 'cptk copy'
 assert_true 'cptk paste'
 assert_true 'cptk copy'
 
+assert_false 'cptk open ""'
+assert_false 'cptk open .'
+assert_false 'cptk open ..'
+
+touch `cptk path`
+assert_false 'cptk save ""'
+assert_false 'cptk save .'
+assert_false 'cptk save ..'
+
+assert_false 'cptk remove ""'
+assert_false 'cptk remove .'
+assert_false 'cptk remove ..'
+
 echo "Success"

@@ -10,21 +10,30 @@ set -e
 # Check if <project> is present
 if [[ $# -eq 1 ]]; then
 
+	# Get project name
+	project=$1
+	shift
+
 	# Get language
 	lang=$(libexec/get-lang)
 
-	# Get project folder path
-	projectfolder=etc/projects/$lang/$1
-	shift
+	# Get projects folder path
+	projectsfolder=etc/projects/$lang
+
+	# Make project directory
+	mkdir -p "$projectsfolder/$project"
+
+	# If project is not in the projects folder
+	if ! libexec/is-child "$projectsfolder" "$project" -type d ; then
+		# then, exit
+		source libexec/err/unknown-project
+	fi
 
 	# Get program path
 	path=$(libexec/base/path)
 
-	# Make project directory
-	mkdir -p "$projectfolder"
-
 	# Copy program to project directory
-	cp -a "$path" "$projectfolder"
+	cp -a "$path" "$projectsfolder/$project"
 
 elif [[ $# -eq 0 ]]; then
 
@@ -33,6 +42,9 @@ elif [[ $# -eq 0 ]]; then
 	source libexec/err/missing-argument
 
 else
+
+	# Shift <project>
+	shift
 
 	# Unknown argument
 	source libexec/err/unknown-arguments

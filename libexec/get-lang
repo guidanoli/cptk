@@ -20,4 +20,10 @@ if [[ -z "$lang" ]]; then
 	source libexec/err/no-language
 fi
 
+# If language is invalid,
+if ! libexec/is-child lib "$lang" -type d ; then
+	# then exit
+	source libexec/err/unknown-language
+fi
+
 echo "$lang"
