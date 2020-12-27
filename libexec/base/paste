@@ -14,5 +14,5 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 	paste.exe > "$path"
 else
 	# else, run xclip
-	xclip -sel c -o > "$path"
+	xclip -selection clipboard -out > "$path"
 fi

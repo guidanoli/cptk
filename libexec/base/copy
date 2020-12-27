@@ -14,10 +14,10 @@ if [[ -f "$path" ]]; then
 	# if running on WSL,
 	if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 		# run clip.exe
-		clip.exe < "$path"
+		cat "$path" | clip.exe
 	else
 		# else, run xclip
-		xclip -sel c < "$path"
+		cat "$path" | xclip -selection clipboard
 	fi
 else
 	# else, exit
