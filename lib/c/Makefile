@@ -10,4 +10,4 @@ debug: ${BINFILE}
 	gdb "$<"
 
 ${BINFILE}: ${SOURCEFILE}
-	gcc "$<" ${CFLAGS}  -o "$@" -lm
+	gcc "$<" ${CFLAGS} -g -o "$@" -lm
