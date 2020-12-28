@@ -13,7 +13,7 @@ if [[ $# -ge 1 ]]; then
 	command=$1
 	shift
 else
-	command=help
+	command=--help
 fi
 
 # Get base directory

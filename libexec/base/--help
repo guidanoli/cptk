@@ -2,20 +2,19 @@
 #
 # Summary: prints usage information
 #
-# Usage: libexec/base/help
+# Usage: libexec/base/--help
 
 echo "Usage: $programname <command> [<args>]"
 echo ""
 echo "Commands"
 echo "--------"
 echo ""
-echo "debug              debug program"
-echo "help               print usage information"
 echo "init <language>    set current language"
 echo "path               print program path"
-echo "root               get $programname root directory"
 echo "run                run program"
-echo "version            print $programname version"
+echo "debug              debug program"
+echo "--help             print usage information"
+echo "--version          print version"
 echo ""
 echo "Environment variables"
 echo "---------------------"

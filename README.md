@@ -53,7 +53,7 @@ echo 'cptk init cpp' >> ~/.bashrc
 
 ## Usage
 
-Run `cptk help` for usage information.
+Run `cptk --help` for usage information.
 
 ## Tests
 

@@ -2,7 +2,7 @@
 #
 # Summary: prints version
 #
-# Usage: libexec/base/version
+# Usage: libexec/base/--version
 
 version="0.1"
 git_revision=""
