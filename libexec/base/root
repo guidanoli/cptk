@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Summary: prints the root directory
+#
+# Usage: libexec/base/root
+
+pwd

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Summary: prints version
+#
+# Usage: libexec/base/version
+
+version="0.1"
+git_revision=""
+
+if git remote -v 2>/dev/null | grep -q cptk; then
+  git_revision="$(git describe --tags HEAD 2>/dev/null || true)"
+  git_revision="${git_revision#v}"
+fi
+
+echo "cptk ${git_revision:-$version}"

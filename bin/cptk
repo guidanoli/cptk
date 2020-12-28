@@ -8,86 +8,30 @@ export programpath=$(readlink -f "${BASH_SOURCE[0]}")
 export programname=$(basename "$programpath")
 export programroot=$(dirname "$(dirname "$programpath")")
 
-if [[ $# -eq 0 ]]; then
-
-	# print minimal usage information
-	echo "Usage: $programname <command> [...]"
-	echo "       $programname --help"
-	echo "       $programname --version"
-	echo ""
-	echo "Run '$programname --help' for more usage information"
-
-elif [[ "$1" == "--help" ]]; then
-
-	# print usage information
-	echo "Usage: $programname <command> [...]"
-	echo "       $programname --help"
-	echo "       $programname --version"
-	echo ""
-	echo "Commands"
-	echo "--------"
-	echo ""
-	echo "init <language>    set current language"
-	echo "path               print program path"
-	echo "run                run program"
-	echo "debug              debug program"
-	echo "clear              clear temporary files"
-	echo ""
-	echo "Environment variables"
-	echo "---------------------"
-	echo ""
-	echo "CFLAGS             c compiler flags"
-	echo "CPPFLAGS           c++ compiler flags"
-	echo "CSFLAGS            c# compiler flags"
-	echo "GOFLAGS            go compiler flags"
-	echo "HASKELLFLAGS       haskell compiler flags"
-	echo "JAVACLASS          java class name"
-	echo "JAVAFLAGS          java compiler flags"
-	echo "JSFLAGS            javascript interpreter flags"
-	echo "KOTLINFLAGS        kotlin compiler flags"
-	echo "PASCALFLAGS        pascal compiler flags"
-	echo "PERLFLAGS          perl interpreter flags"
-	echo "PYTHONFLAGS        python interpreter flags"
-	echo "RUBYFLAGS          ruby interpreter flags"
-	echo ""
-	echo "For full documentation, see: https://github.com/guidanoli/cptk#readme"
-
-elif [[ "$1" == "--version" ]]; then
-
-	version="0.1"
-	git_revision=""
-
-	if git -C "$programroot" remote -v 2>/dev/null | grep -q cptk; then
-	  git_revision="$(git -C "$programroot" describe --tags HEAD 2>/dev/null || true)"
-	  git_revision="${git_revision#v}"
-	fi
-
-	echo "cptk ${git_revision:-$version}"
-
-else
-
-	# Save command
+# Get command
+if [[ $# -ge 1 ]]; then
 	command=$1
 	shift
+else
+	command=help
+fi
 
-	# Get base directory
-	basedir=$programroot/libexec/base
+# Get base directory
+basedir=$programroot/libexec/base
 
-	# If base command exists and is in the base directory
-	if $programroot/libexec/is-child "$basedir" "$command" -type f ; then
+# If base command exists and is in the base directory
+if $programroot/libexec/is-child "$basedir" "$command" -type f ; then
 
-		# then push root directory
-		pushd "$programroot" > /dev/null
+	# then push root directory
+	pushd "$programroot" > /dev/null
 
-		# source the base command
-		source "$basedir/$command"
+	# source the base command
+	source "$basedir/$command"
 
-		# and pop directory
-		popd > /dev/null
+	# and pop directory
+	popd > /dev/null
 
-	else
-		# else exit
-		source "$programroot/libexec/err/unknown-command"
-	fi
-
+else
+	# else exit
+	source "$programroot/libexec/err/unknown-command"
 fi
