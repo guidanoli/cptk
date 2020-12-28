@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 assert_true() {
 	if eval "$1" > /dev/null 2>&1; then
 		echo "[ PASS ] $1"
@@ -20,25 +18,19 @@ assert_false() {
 	fi 
 }
 
-rm -f etc/lang # No language specified
+rm -f etc/lang
 echo "(No language set)"
 
-assert_false 'cptk clear'
 assert_false 'cptk debug'
-assert_false 'cptk list'
-assert_false 'cptk open project'
 assert_false 'cptk path'
-assert_false 'cptk remove project'
 assert_false 'cptk run'
-assert_false 'cptk save project'
 
 assert_true 'cptk init c'
 touch `cptk path`
-assert_true 'cptk save test'
 
 echo "(With language set)"
 
-assert_true 'cptk clear'
+rm `cptk path`
 assert_false 'cptk debug'
 assert_false 'cptk run'
 
@@ -47,29 +39,8 @@ assert_false 'cptk .'
 assert_false 'cptk ..'
 assert_false 'cptk base'
 
-assert_false 'cptk init unexistent_language'
 assert_false 'cptk init'
 assert_false 'cptk init ""'
 assert_false 'cptk init .'
 assert_false 'cptk init ..'
 assert_false 'cptk init lib'
-
-assert_true 'cptk open test'
-assert_true 'cptk remove test'
-assert_false 'cptk remove test'
-assert_false 'cptk open test'
-
-assert_false 'cptk open ""'
-assert_false 'cptk open .'
-assert_false 'cptk open ..'
-
-touch `cptk path`
-assert_false 'cptk save ""'
-assert_false 'cptk save .'
-assert_false 'cptk save ..'
-
-assert_false 'cptk remove ""'
-assert_false 'cptk remove .'
-assert_false 'cptk remove ..'
-
-echo "Success"

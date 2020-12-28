@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# Summary: prints usage information
+#
+# Usage: libexec/base/help
+
+echo "Usage: $programname <command> [<args>]"
+echo ""
+echo "Commands"
+echo "--------"
+echo ""
+echo "debug              debug program"
+echo "help               print usage information"
+echo "init <language>    set current language"
+echo "path               print program path"
+echo "root               get $programname root directory"
+echo "run                run program"
+echo "version            print $programname version"
+echo ""
+echo "Environment variables"
+echo "---------------------"
+echo ""
+echo "CFLAGS             c compiler flags"
+echo "CPPFLAGS           c++ compiler flags"
+echo "CSFLAGS            c# compiler flags"
+echo "GOFLAGS            go compiler flags"
+echo "HASKELLFLAGS       haskell compiler flags"
+echo "JAVACLASS          java class name"
+echo "JAVAFLAGS          java compiler flags"
+echo "JSFLAGS            javascript interpreter flags"
+echo "KOTLINFLAGS        kotlin compiler flags"
+echo "PASCALFLAGS        pascal compiler flags"
+echo "PERLFLAGS          perl interpreter flags"
+echo "PYTHONFLAGS        python interpreter flags"
+echo "RUBYFLAGS          ruby interpreter flags"
+echo ""
+echo "For full documentation, see: https://github.com/guidanoli/cptk#readme"

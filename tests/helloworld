@@ -1,39 +1,26 @@
 #!/usr/bin/env bash
 
-set -e
-
-# write_helloworld <lang> <program>
-write_helloworld() {
-	echo "[ SETUP ] $1"
+# run_helloworld <lang> <program>
+run_helloworld() {
 	cptk init "$1"
 	printf "$2\n" > "$(cptk path)"
-	cptk save helloworld
-	[ -f "$(cptk path)" ]
-	cptk clear
-	[ ! -f "$(cptk path)" ]
-	cptk list | grep -q helloworld
+	if cptk run | grep -q 'Hello, World!' ; then
+		echo "[ PASS ] $1"
+	else
+		echo "[ FAIL ] $1"
+		exit 1
+	fi
 }
 
-write_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'
-write_helloworld cpp '#include <iostream>\nint main() { std::cout << "Hello, World!" << std::endl; }'
-write_helloworld cs 'class Hello { static void Main(string[] args) { System.Console.WriteLine("Hello, World!"); } }'
-write_helloworld go 'package main\nimport "fmt"\nfunc main() { fmt.Println("Hello, World!") }'
-write_helloworld haskell 'main = putStrLn "Hello, World!"'
-write_helloworld java 'class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }'
-write_helloworld js 'console.log("Hello, World!");'
-write_helloworld kotlin 'fun main() { println("Hello, World!") }'
-write_helloworld pascal "program Hello; begin writeln ('Hello, World!'); end."
-write_helloworld perl 'print("Hello, World!\n");'
-write_helloworld python 'print("Hello, World!")'
-write_helloworld ruby 'puts "Hello, World!"'
-
-for lang in $(ls -1 lib); do
-	echo "[ TEST ] $lang"
-	cptk init "$lang"
-	cptk open helloworld
-	cptk run | grep -q 'Hello, World!'
-	cptk remove helloworld
-	cptk list | (! grep -q helloworld)
-done
-
-echo "Success"
+run_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'
+run_helloworld cpp '#include <iostream>\nint main() { std::cout << "Hello, World!" << std::endl; }'
+run_helloworld cs 'class Hello { static void Main(string[] args) { System.Console.WriteLine("Hello, World!"); } }'
+run_helloworld go 'package main\nimport "fmt"\nfunc main() { fmt.Println("Hello, World!") }'
+run_helloworld haskell 'main = putStrLn "Hello, World!"'
+run_helloworld java 'class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }'
+run_helloworld js 'console.log("Hello, World!");'
+run_helloworld kotlin 'fun main() { println("Hello, World!") }'
+run_helloworld pascal "program Hello; begin writeln ('Hello, World!'); end."
+run_helloworld perl 'print("Hello, World!\n");'
+run_helloworld python 'print("Hello, World!")'
+run_helloworld ruby 'puts "Hello, World!"'
