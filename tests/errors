@@ -25,16 +25,11 @@ echo "(No language set)"
 
 assert_false 'cptk clear'
 assert_false 'cptk debug'
-assert_false 'cptk list'
-assert_false 'cptk open project'
 assert_false 'cptk path'
-assert_false 'cptk remove project'
 assert_false 'cptk run'
-assert_false 'cptk save project'
 
 assert_true 'cptk init c'
 touch `cptk path`
-assert_true 'cptk save test'
 
 echo "(With language set)"
 
@@ -53,23 +48,3 @@ assert_false 'cptk init ""'
 assert_false 'cptk init .'
 assert_false 'cptk init ..'
 assert_false 'cptk init lib'
-
-assert_true 'cptk open test'
-assert_true 'cptk remove test'
-assert_false 'cptk remove test'
-assert_false 'cptk open test'
-
-assert_false 'cptk open ""'
-assert_false 'cptk open .'
-assert_false 'cptk open ..'
-
-touch `cptk path`
-assert_false 'cptk save ""'
-assert_false 'cptk save .'
-assert_false 'cptk save ..'
-
-assert_false 'cptk remove ""'
-assert_false 'cptk remove .'
-assert_false 'cptk remove ..'
-
-echo "Success"
