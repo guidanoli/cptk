@@ -18,6 +18,9 @@ assert_false() {
 	fi 
 }
 
+assert_true 'cptk --version'
+assert_true 'cptk --help'
+
 rm -f etc/lang
 echo "(No language set)"
 
