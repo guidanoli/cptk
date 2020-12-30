@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# T <command> [<message>]
+# asserts <command> succeeds
+T() {
+	command=$1
+	shift
+	if [ $# -gt 0 ]; then
+		message=$1
+		shift
+	else
+		message=$command
+	fi
+	if eval "$command" > /dev/null 2>&1; then
+		echo -e "[ \e[1;32mPASS\e[1;0m ] $message"
+	else
+		echo -e "[ \e[1;31mFAIL\e[1;0m ] $message"
+		exit 1
+	fi 
+}
+
+# F <command> [<message>]
+# asserts <command> fails
+F() {
+	if [ $# -gt 1 ]; then
+		T "! $1" "$2"
+	else
+		T "! $1"
+	fi
+}

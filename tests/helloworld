@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
 
+source tests/framework
+
 # run_helloworld <lang> <program>
 run_helloworld() {
 	cptk init "$1"
 	printf "$2\n" > "$(cptk path)"
-	if cptk run | grep -q 'Hello, World!' ; then
-		echo "[ PASS ] $1"
-	else
-		echo "[ FAIL ] $1"
-		exit 1
-	fi
+	T "cptk run | grep -q 'Hello, World!'" "$1"
 }
 
 run_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'

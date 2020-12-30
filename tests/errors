@@ -1,49 +1,38 @@
 #!/usr/bin/env bash
 
-assert_true() {
-	if eval "$1" > /dev/null 2>&1; then
-		echo "[ PASS ] $1"
-	else
-		echo "[ FAIL ] $1"
-		exit 1
-	fi 
-}
+source tests/framework
 
-assert_false() {
-	if ! eval "$1" > /dev/null 2>&1; then
-		echo "[ PASS ] $1"
-	else
-		echo "[ FAIL ] $1"
-		exit 1
-	fi 
-}
+T 'cptk --version'
+T 'cptk --help'
 
-assert_true 'cptk --version'
-assert_true 'cptk --help'
+T 'rm -f etc/lang'
 
-rm -f etc/lang
-echo "(No language set)"
+F 'cptk debug'
+F 'cptk path'
+F 'cptk run'
+F 'cptk clear'
 
-assert_false 'cptk debug'
-assert_false 'cptk path'
-assert_false 'cptk run'
+T 'cptk init c'
+T 'cptk clear'
+T '[ ! -f `cptk path` ]'
+T 'touch `cptk path`'
+T '[ -f `cptk path` ]'
+T 'cptk clear'
+T '[ ! -f `cptk path` ]'
 
-assert_true 'cptk init c'
-touch `cptk path`
+T 'touch `cptk path`'
 
-echo "(With language set)"
+T 'cptk clear'
+F 'cptk debug'
+F 'cptk run'
 
-rm `cptk path`
-assert_false 'cptk debug'
-assert_false 'cptk run'
+F 'cptk ""'
+F 'cptk .'
+F 'cptk ..'
+F 'cptk base'
 
-assert_false 'cptk ""'
-assert_false 'cptk .'
-assert_false 'cptk ..'
-assert_false 'cptk base'
-
-assert_false 'cptk init'
-assert_false 'cptk init ""'
-assert_false 'cptk init .'
-assert_false 'cptk init ..'
-assert_false 'cptk init lib'
+F 'cptk init'
+F 'cptk init ""'
+F 'cptk init .'
+F 'cptk init ..'
+F 'cptk init lib'
