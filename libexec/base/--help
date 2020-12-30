@@ -11,13 +11,13 @@ echo "--------"
 echo ""
 echo "init <language>    set current language"
 echo "path               print program path"
-[ ! -z editcommand ] && \
+command -v editcommand > /dev/null && \
 echo "edit               edit program"
 echo "run                run program"
 echo "debug              debug program"
-[ ! -z copycommand ] && \
+command -v copycommand > /dev/null && \
 echo "copy               copy program"
-[ ! -z pastecommand ] && \
+command -v pastecommand > /dev/null && \
 echo "paste              paste program"
 echo "--help             print usage information"
 echo "--version          print version"
