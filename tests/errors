@@ -7,24 +7,22 @@ T 'cptk --help'
 
 T 'rm -f etc/lang'
 
-F 'cptk debug'
 F 'cptk path'
 F 'cptk run'
+F 'cptk debug'
 F 'cptk clear'
+F 'cptk edit'
+F 'cptk copy'
+F 'cptk paste'
 
 T 'cptk init c'
-T 'cptk clear'
-T '[ ! -f `cptk path` ]'
 T 'touch `cptk path`'
 T '[ -f `cptk path` ]'
 T 'cptk clear'
-T '[ ! -f `cptk path` ]'
-
-T 'touch `cptk path`'
-
-T 'cptk clear'
-F 'cptk debug'
+F '[ -f `cptk path` ]'
 F 'cptk run'
+F 'cptk debug'
+F 'cptk copy'
 
 F 'cptk ""'
 F 'cptk .'
