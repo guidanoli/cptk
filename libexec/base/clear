@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Summary: Remove temporary directory
+#
+# Usage: libexec/base/clear
+
+set -e
+
+# Get language
+lang=$(libexec/get-lang)
+
+# Remove temporary directory
+rm -rf "lib/$lang/temp"

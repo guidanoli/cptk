@@ -22,7 +22,7 @@ fi
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 	# Windows Subsystem for Linux
 	if hascommand clip.exe ; then
-		copycommand() { clip.exe > "$1" ; }
+		copycommand() { clip.exe < "$1" ; }
 	fi
 	if hascommand powershell.exe ; then
 		pastecommand() { powershell.exe -command Get-Clipboard > "$1" ; }

@@ -11,14 +11,15 @@ echo "--------"
 echo ""
 echo "init <language>    set current language"
 echo "path               print program path"
-command -v editcommand > /dev/null && \
+hascommand editcommand && \
 echo "edit               edit program"
 echo "run [<flags>]      run program"
 echo "debug [<flags>]    debug program"
-command -v copycommand > /dev/null && \
+hascommand copycommand && \
 echo "copy               copy program"
-command -v pastecommand > /dev/null && \
+hascommand pastecommand && \
 echo "paste              paste program"
+echo "clear              delete program"
 echo "--help             print usage information"
 echo "--version          print version"
 echo ""
