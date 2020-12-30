@@ -14,7 +14,7 @@ What this toolkit promotes is an abstraction for developing with different progr
 
 ## Mechanism
 
-The user accesses the toolkit by calling the `cptk` script and passing it any of the available commands, such as `init` for setting the current language. Some configuration is done by means of environment variables, e.g. `CFLAGS` for C compiler flags.
+The user accesses the toolkit by calling the `cptk` script and passing it any of the available commands, such as `init` for setting the current language.
 
 ## Dependencies
 
@@ -35,6 +35,14 @@ Since you'll most likely be working with only a portion of them, the following t
 | perl | [perl] | :heavy_check_mark: |
 | python | [python] | :heavy_check_mark: |
 | ruby | [ruby] | :heavy_check_mark: |
+
+Some commands require additional software too:
+
+| Command | Dependencies |
+| :- | :- |
+| edit | [vi] |
+| copy | [clip.exe], [xclip] or [pbcopy] |
+| paste | [powershell.exe], [xclip] or [pbpaste] |
 
 ## Setup
 
@@ -64,6 +72,7 @@ After installing all the dependencies, you can execute the test scripts in the `
 [(3)]: https://www.freepascal.org/docs-html/user/userse54.html#x165-17200010.2
 [(4)]: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/debug-info.html
 [bash]: https://www.gnu.org/software/bash/
+[clip.exe]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/clip 
 [fpc]: https://www.freepascal.org/
 [g++]: https://gcc.gnu.org/
 [gcc]: https://gcc.gnu.org/
@@ -77,6 +86,11 @@ After installing all the dependencies, you can execute the test scripts in the `
 [make]: https://www.gnu.org/software/make/
 [mcs]: https://www.mono-project.com/
 [node]: https://nodejs.org/en/
+[pbcopy]: http://mirror.informatimago.com/next/developer.apple.com/documentation/Darwin/Reference/ManPages/man1/pbcopy.1.html
+[pbpaste]: http://mirror.informatimago.com/next/developer.apple.com/documentation/Darwin/Reference/ManPages/man1/pbpaste.1.html
 [perl]: https://www.perl.org/
+[powershell.exe]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/powershell
 [python]: https://www.python.org/
 [ruby]: https://www.ruby-lang.org/en/
+[vi]: http://ex-vi.sourceforge.net/
+[xclip]: https://github.com/astrand/xclip
