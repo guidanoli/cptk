@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# Summary: Copy contents of program
+
+# Exit on error
+set -e
+
+# Get program path
+path=$(libexec/base/path)
+
+# If program exists
+if [ -f "$path" ] ; then
+	# then copy it
+	copycommand "$path"
+else
+	# Get language
+	lang=$(libexec/get-lang)
+
+	# else, exit
+	source libexec/err/no-program
+fi

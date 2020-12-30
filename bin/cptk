@@ -8,6 +8,28 @@ export programpath=$(readlink -f "${BASH_SOURCE[0]}")
 export programname=$(basename "$programpath")
 export programroot=$(dirname "$(dirname "$programpath")")
 
+# Text editor
+if [ ! -z "$EDITOR" ] && command -v "$EDITOR" &> /dev/null ; then
+	editcommand() { "$EDITOR" "$@" ; }
+elif command -v vi &> /dev/null ; then
+	editcommand() { vi -O "$@" ; }
+fi
+
+# Copy/Paste commands
+if command -v xclip &> /dev/null && xclip -sel c -o &> /dev/null ; then
+	# Systems using X11
+	copycommand () { xclip -sel -c < "$1" ; }
+	pastecommand () { xclip -sel -c -o > "$1" ; }
+else
+	# Systems using WSL
+	if command -v powershell.exe &> /dev/null ; then
+		pastecommand () { powershell.exe -command Get-Clipboard > "$1" ; }
+	fi
+	if command -v clip.exe &> /dev/null ; then
+		copycommand () { clip.exe > "$1" ; }
+	fi
+fi
+
 # Get command
 if [[ $# -ge 1 ]]; then
 	command=$1

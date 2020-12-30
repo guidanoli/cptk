@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Summary: Paste contents of clipboard to program
+
+# Exit on error
+set -e
+
+# Get program path
+path=$(libexec/base/path)
+
+# Paste to program
+pastecommand "$path"
