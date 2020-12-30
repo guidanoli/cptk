@@ -10,4 +10,4 @@ debug: ${BINFILE}
 	jdb -classpath "$(dir $<)" "$(basename $(notdir $<))"
 
 ${BINFILE}: ${SOURCEFILE}
-	javac "$<" -g ${JAVAFLAGS}
+	javac "$<" -g $FLAGS

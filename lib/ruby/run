@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-ruby $RUBYFLAGS "$(./path)"
+ruby $FLAGS "$(./path)"

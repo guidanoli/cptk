@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 #
 # Summary: Run source code in debug mode
+#
+# Usage: libexec/base/debug [<flags>]
 
 # Exit on error
 set -e
 
 # Make call to path
 path=$(libexec/base/path)
+
+# Save flags
+export FLAGS=$@
 
 # If source code exists,
 if [[ -f "$path" ]] ; then

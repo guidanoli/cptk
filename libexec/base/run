@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 #
 # Summary: Run source code
+#
+# Usage: libexec/base/run [<flags>]
 
 # Exit on error
 set -e
 
 # Make call to path
 path=$(libexec/base/path)
+
+# Save flags
+export FLAGS=$@
 
 # If program exists,
 if [[ -f "$path" ]] ; then

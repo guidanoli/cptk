@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-python ${PYTHONFLAGS} -m pdb "$(./path)"
+python $FLAGS -m pdb "$(./path)"

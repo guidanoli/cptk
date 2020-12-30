@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-ruby $RUBYFLAGS -r debug "$(./path)"
+ruby $FLAGS -r debug "$(./path)"

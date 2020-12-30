@@ -10,4 +10,4 @@ debug: ${BINFILE}
 	gdb "$<"
 
 ${BINFILE}: ${SOURCEFILE}
-	ghc "$<" -g ${HASKELLFLAGS}
+	ghc "$<" -g $FLAGS

@@ -7,4 +7,4 @@ run: ${BINFILE}
 	java -jar "$<"
 
 ${BINFILE}: ${SOURCEFILE}
-	kotlinc "$<" ${KOTLINFLAGS} -include-runtime -d "$@"
+	kotlinc "$<" $FLAGS -include-runtime -d "$@"
