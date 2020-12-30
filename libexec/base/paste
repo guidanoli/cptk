@@ -8,5 +8,11 @@ set -e
 # Get program path
 path=$(libexec/base/path)
 
-# Paste to program
-pastecommand "$path"
+# If paste command is supported
+if hascommand pastecommand ; then
+	# then, paste to program
+	pastecommand "$path"
+else
+	# else, exit
+	source libexec/err/no-command-support
+fi
