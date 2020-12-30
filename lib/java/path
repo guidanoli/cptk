@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo "temp/${JAVACLASS:-Main}.java"
+echo "temp/Main.java"

@@ -12,9 +12,7 @@ export programroot=$(dirname "$(dirname "$programpath")")
 hascommand() { command -v "$1" &> /dev/null ; }
 
 # Text editor
-if [ ! -z "$EDITOR" ] && hascommand "$EDITOR" ; then
-	editcommand() { "$EDITOR" "$@" ; }
-elif hascommand vi ; then
+if hascommand vi ; then
 	editcommand() { vi -O "$@" ; }
 fi
 
@@ -30,9 +28,11 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 else
 	# Other systems
 	if hascommand xclip ; then
+		# Systems that use X11
 		copycommand() { xclip -sel -c < "$1" ; }
 		pastecommand() { xclip -sel -c -o > "$1" ; }
 	else
+		# Mac OS
 		if hascommand pbcopy ; then
 			copycommand() { pbcopy < "$1" ; }
 		fi
