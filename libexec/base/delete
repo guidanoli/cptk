@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# Summary: Remove program
+# Summary: Delete program
 #
-# Usage: libexec/base/clear
+# Usage: libexec/base/delete
 
 set -e
 

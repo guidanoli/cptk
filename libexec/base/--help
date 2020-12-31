@@ -17,7 +17,7 @@ hascommand copycommand && \
 echo "  copy               copy program"
 hascommand pastecommand && \
 echo "  paste              paste program"
-echo "  clear              delete program"
+echo "  delete             delete program"
 echo "  --help             print usage information"
 echo "  --version          print version"
 echo ""
