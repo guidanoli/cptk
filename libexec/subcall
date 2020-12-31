@@ -23,9 +23,6 @@ if [[ $# -gt 0 ]]; then
 	# (where all the scripts are)
 	langdir=lib/$lang
 
-	# Make temporary directory
-	mkdir -p "$langdir/temp"
-
 	# If command is a file in the language directory
 	if libexec/is-child "$langdir" "$command" -type f ; then
 

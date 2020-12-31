@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 #
-# Summary: Remove temporary directory
+# Summary: Remove program
 #
 # Usage: libexec/base/clear
 
 set -e
 
-# Get language
-lang=$(libexec/get-lang)
+# Get program path
+path=$(libexec/base/path)
 
-# Remove temporary directory
-rm -rf "lib/$lang/temp"
+# Remove program
+rm -f "$path"

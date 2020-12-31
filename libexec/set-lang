@@ -19,6 +19,10 @@ if [[ $# -gt 0 ]]; then
 		# then set it as the current language
 		mkdir -p etc
 		echo "$lang" > etc/lang
+
+		# and make temporary directory
+		mkdir -p "lib/$lang/temp"
+
 	else
 		# else, exit
 		source libexec/err/unknown-language

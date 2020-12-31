@@ -8,6 +8,9 @@ set -e
 # Get program path
 path=$(libexec/base/path)
 
+# Make sure program can be written
+mkdir -p "$(dirname "$path")"
+
 # If paste command is supported
 if hascommand pastecommand ; then
 	# then, paste to program

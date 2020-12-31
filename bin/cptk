@@ -23,7 +23,9 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 		copycommand() { clip.exe < "$1" ; }
 	fi
 	if hascommand powershell.exe ; then
-		pastecommand() { powershell.exe -command Get-Clipboard > "$1" ; }
+		# For some reason, Powershell prints one extra line, so sed delets it
+		# Also, tr removes carriage returns
+		pastecommand() { powershell.exe -command Get-Clipboard | sed '$d' | tr -d '\r' > "$1" ; }
 	fi
 else
 	# Other systems
