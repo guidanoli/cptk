@@ -17,7 +17,10 @@ hascommand copycommand && \
 echo "  copy               copy program"
 hascommand pastecommand && \
 echo "  paste              paste program"
-echo "  delete             delete program"
+echo "  save <name>        save program"
+echo "  list               list saved programs"
+echo "  open <name>        open saved program"
+echo "  remove <name>      remove saved program"
 echo "  --help             print usage information"
 echo "  --version          print version"
 echo ""
