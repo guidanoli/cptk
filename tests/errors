@@ -61,4 +61,13 @@ F 'cptk save'
 F 'cptk load'
 F 'cptk remove'
 
+F 'cptk save algo/assim'
+F 'cptk save algo/'
+F 'cptk save /'
+F 'cptk save ""'
+F 'cptk save .'
+F 'cptk save ..'
+T 'cptk save ...'
+T 'cptk remove ...'
+
 END

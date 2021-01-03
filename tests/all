@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+T tests/is-name
+T tests/errors
+T tests/helloworld
+
+END
