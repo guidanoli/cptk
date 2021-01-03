@@ -21,20 +21,20 @@ The user accesses the toolkit by calling the `cptk` script and passing it any of
 Apart from [bash], different sets of dependencies are required for running and debugging programs of each language.
 Since you'll most likely be working with only a portion of them, the following table is there to help you determine which software you actually need.
 
-| Programming Language | Running | Debugging |
-| :- | :- | :- |
-| c | [gcc], [make] | [gdb] |
-| cpp | [g++], [make] | [gdb] |
-| cs | [mcs], [make] | [gdb] [(1)] |
-| go | [go], [make] | [gdb] [(2)] |
-| haskell | [ghc], [make] | [gdb] [(4)] |
-| java | [javac], [java], [make] | [jdb] |
-| js | [node] | |
-| kotlin | [konanc], [make] | [gdb] [(5)] |
-| pascal | [fpc], [make] | [gdb] [(3)] |
-| perl | [perl] | |
-| python | [python] | |
-| ruby | [ruby] | |
+| Programming Language | Label | Running | Debugging |
+| :- | :- | :- | :- |
+| C | `c` | [gcc], [make] | [gdb] |
+| C++ | `cpp` | [g++], [make] | [gdb] |
+| C# | `cs` | [mcs], [make] | [gdb] [(1)] |
+| Go | `go` | [go], [make] | [gdb] [(2)] |
+| Haskell | `haskell` | [ghc], [make] | [gdb] [(4)] |
+| Java | `java` | [javac], [java], [make] | [jdb] |
+| Javascript | `js` | [node] | |
+| Kotlin | `kotlin` | [konanc], [make] | [gdb] [(5)] |
+| Pascal | `pascal` | [fpc], [make] | [gdb] [(3)] |
+| Perl | `perl` | [perl] | |
+| Python | `python` | [python] | |
+| Ruby | `ruby` | [ruby] | |
 
 Some commands require additional software too:
 
