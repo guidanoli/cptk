@@ -1,18 +1,30 @@
 #!/usr/bin/env bash
 
-# T <command> [<message>]
+# T <command> [<pattern> [<message>]]
 # asserts <command> succeeds
+# and that output matches <pattern>
+# prints <message> with PASS or FAIL tag
 T() {
 	command=$1
 	shift
+	
+	if [ $# -gt 0 ]; then
+		newcommand="($command 2>&1) | grep -q -- \"$1\""
+		shift
+	else
+		newcommand=$command
+	fi
+
 	if [ $# -gt 0 ]; then
 		message=$1
 		shift
 	else
 		message=$command
 	fi
+	
 	printf "[      ] $message"
-	if eval "$command" > /dev/null 2>&1; then
+
+	if eval "$newcommand" >/dev/null 2>&1; then
 		echo -e "\r[ \e[1;32mPASS\e[1;0m ] $message"
 	else
 		echo -e "\r[ \e[1;31mFAIL\e[1;0m ] $message"
@@ -20,8 +32,10 @@ T() {
 	fi 
 }
 
-# F <command> [<message>]
+# F <command> [<pattern> [<message>]]
 # asserts <command> fails
+# and that output matches <pattern>
+# prints <message> with PASS or FAIL tag
 F() {
 	if [ $# -gt 1 ]; then
 		T "! ($1)" "$2"

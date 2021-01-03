@@ -6,7 +6,7 @@ source tests/framework
 run_helloworld() {
 	cptk init "$1"
 	printf "$2\n" > "$(cptk path)"
-	T "cptk run | grep -q 'Hello, World!'" "$1"
+	T "cptk run" "Hello, World!" "$1"
 }
 
 run_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'
