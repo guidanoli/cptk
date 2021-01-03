@@ -23,18 +23,18 @@ Since you'll most likely be working with only a portion of them, the following t
 
 | Programming Language | Running | Debugging |
 | :- | :- | :- |
-| c | [gcc], [make] | :heavy_check_mark: [gdb] |
-| cpp | [g++], [make] | :heavy_check_mark: [gdb] |
-| cs | [mcs], [make] | :heavy_check_mark: [gdb] [(1)] |
-| go | [go], [make] | :heavy_check_mark: [gdb] [(2)] |
-| haskell | [ghc], [make] | :heavy_check_mark: [gdb] [(4)] |
-| java | [javac], [java], [make] | :heavy_check_mark: [jdb] |
-| js | [node] | :heavy_check_mark: |
-| kotlin | [konanc], [make] | :heavy_check_mark: [gdb] [(5)] |
-| pascal | [fpc], [make] | :heavy_check_mark: [gdb] [(3)] |
-| perl | [perl] | :heavy_check_mark: |
-| python | [python] | :heavy_check_mark: |
-| ruby | [ruby] | :heavy_check_mark: |
+| c | [gcc], [make] | [gdb] |
+| cpp | [g++], [make] | [gdb] |
+| cs | [mcs], [make] | [gdb] [(1)] |
+| go | [go], [make] | [gdb] [(2)] |
+| haskell | [ghc], [make] | [gdb] [(4)] |
+| java | [javac], [java], [make] | [jdb] |
+| js | [node] | |
+| kotlin | [konanc], [make] | [gdb] [(5)] |
+| pascal | [fpc], [make] | [gdb] [(3)] |
+| perl | [perl] | |
+| python | [python] | |
+| ruby | [ruby] | |
 
 Some commands require additional software too:
 
