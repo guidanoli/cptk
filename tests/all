@@ -2,6 +2,7 @@
 
 source tests/framework
 
+T tests/is-child
 T tests/is-name
 T tests/errors
 T tests/helloworld

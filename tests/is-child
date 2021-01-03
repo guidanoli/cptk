@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+export testdir=etc/is-child-test-dir
+
+T 'mkdir -p "$testdir"'
+
+F 'libexec/is-child "$testdir" .'
+F 'libexec/is-child "$testdir" "$(basename "$testdir")"'
+F 'libexec/is-child "$testdir" "../$(basename "$testdir")"'
+T 'libexec/is-child "$testdir/.." "$(basename "$testdir")"'
+
+T 'mkdir -p "$testdir/test"'
+
+T 'libexec/is-child "$testdir" test'
+F 'libexec/is-child "$testdir" "../$(basename "$testdir")/test"'
+
+T 'libexec/is-child "$testdir" test -type d'
+F 'libexec/is-child "$testdir" test -type f'
+
+T 'rm -rf "$testdir"'
+
+END
