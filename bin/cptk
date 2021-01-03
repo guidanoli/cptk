@@ -52,22 +52,20 @@ else
 	command=--help
 fi
 
+# Push root directory
+pushd "$programroot" > /dev/null
+
 # Get base directory
-basedir=$programroot/libexec/base
+basedir=libexec/base
 
 # If base command exists and is in the base directory
-if $programroot/libexec/is-child "$basedir" "$command" -type f ; then
-
-	# then push root directory
-	pushd "$programroot" > /dev/null
+if libexec/is-child "$basedir" "$command" -type f ; then
 
 	# source the base command
 	source "$basedir/$command"
 
-	# and pop directory
-	popd > /dev/null
-
 else
+
 	# else exit
-	source "$programroot/libexec/err/unknown-command"
+	source "libexec/err/unknown-command"
 fi
