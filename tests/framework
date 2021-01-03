@@ -11,10 +11,11 @@ T() {
 	else
 		message=$command
 	fi
+	printf "[      ] $message"
 	if eval "$command" > /dev/null 2>&1; then
-		echo -e "[ \e[1;32mPASS\e[1;0m ] $message"
+		echo -e "\r[ \e[1;32mPASS\e[1;0m ] $message"
 	else
-		echo -e "[ \e[1;31mFAIL\e[1;0m ] $message"
+		echo -e "\r[ \e[1;31mFAIL\e[1;0m ] $message"
 		exit 1
 	fi 
 }
@@ -23,8 +24,18 @@ T() {
 # asserts <command> fails
 F() {
 	if [ $# -gt 1 ]; then
-		T "! $1" "$2"
+		T "! ($1)" "$2"
 	else
-		T "! $1"
+		T "! ($1)"
 	fi
 }
+
+# END
+# End test case
+END() {
+	endtime=$(date +%s.%N)
+	runtime=$(echo "$endtime - $starttime" | bc -l)
+	echo -e "[ \e[1;34mTIME\e[1;0m ] $runtime s"
+}
+
+starttime=$(date +%s.%N)

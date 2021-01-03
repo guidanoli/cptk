@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+echo "Error: Unknown program named '$project' for language '$lang'." >&2
+echo "Hint: Run '$programname list' to list all." >&2
+exit 1

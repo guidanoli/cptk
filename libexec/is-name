@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# Summary: Checks if string is a valid file name
+#
+# Usage: libexec/is-name <name>
+
+set -e
+
+[[ $# -eq 1 ]]
+
+name=$1
+shift
+
+[[ ! -z "$name" ]]
+[[ ! "$name" =~ ^\.{1,2}$ ]]
+[[ ! "$name" =~ / ]]

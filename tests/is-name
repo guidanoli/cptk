@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+F 'libexec/is-name'
+
+F 'libexec/is-name ""'
+T 'libexec/is-name "a"'
+T 'libexec/is-name "abc"'
+
+F 'libexec/is-name "."'
+F 'libexec/is-name ".."'
+T 'libexec/is-name "..."'
+
+F 'libexec/is-name "/"'
+F 'libexec/is-name "abc/dce"'
+
+T 'libexec/is-name ".a"'
+T 'libexec/is-name ".abc"'
+
+T 'libexec/is-name "a."'
+T 'libexec/is-name "abc."'
+
+END

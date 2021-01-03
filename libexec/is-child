@@ -12,4 +12,5 @@ parent=$1
 child=$2
 shift 2
 
+libexec/is-name "$child"
 find "$parent" -mindepth 1 -maxdepth 1 "$@" -name "$child" | grep -qz .

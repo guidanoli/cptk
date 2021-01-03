@@ -21,3 +21,5 @@ run_helloworld pascal "program Hello; begin writeln ('Hello, World!'); end."
 run_helloworld perl 'print("Hello, World!\n");'
 run_helloworld python 'print("Hello, World!")'
 run_helloworld ruby 'puts "Hello, World!"'
+
+END

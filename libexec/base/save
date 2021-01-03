@@ -20,17 +20,23 @@ if [[ $# -eq 1 ]]; then
 	# Get projects folder path
 	projectsfolder=etc/projects/$lang
 
-	# Make project directory
-	mkdir -p "$projectsfolder/$project"
-
-	# If project is not in the projects folder
-	if ! libexec/is-child "$projectsfolder" "$project" -type d ; then
-		# then, exit
-		source libexec/err/unknown-project
-	fi
-
 	# Get program path
 	path=$(libexec/base/path)
+	
+	# If program doesn't exist
+	if [ ! -f "$path" ] ; then
+		# then, exit
+		source libexec/err/no-program
+	fi
+
+	# Check if project name is valid
+	if ! libexec/is-name "$project" ; then
+		# then, exit
+		source libexec/err/invalid-project
+	fi
+
+	# Make project directory
+	mkdir -p "$projectsfolder/$project"
 
 	# Copy program to project directory
 	cp -a "$path" "$projectsfolder/$project"
