@@ -30,7 +30,7 @@ Since you'll most likely be working with only a portion of them, the following t
 | haskell | [ghc], [make] | :heavy_check_mark: [gdb] [(4)] |
 | java | [javac], [java], [make] | :heavy_check_mark: [jdb] |
 | js | [node] | :heavy_check_mark: |
-| kotlin | [kotlinc], [java], [make] | :x: |
+| kotlin | [konanc], [make] | :heavy_check_mark: [gdb] [(5)] |
 | pascal | [fpc], [make] | :heavy_check_mark: [gdb] [(3)] |
 | perl | [perl] | :heavy_check_mark: |
 | python | [python] | :heavy_check_mark: |
@@ -71,6 +71,7 @@ After installing all the dependencies, you can run `tests/all`.
 [(2)]: https://golang.org/doc/gdb
 [(3)]: https://www.freepascal.org/docs-html/user/userse54.html#x165-17200010.2
 [(4)]: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/debug-info.html
+[(5)]: https://kotlinlang.org/docs/reference/native/debugging.html
 [bash]: https://www.gnu.org/software/bash/
 [clip.exe]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/clip 
 [fpc]: https://www.freepascal.org/
@@ -82,7 +83,7 @@ After installing all the dependencies, you can run `tests/all`.
 [java]: https://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html
 [javac]: https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html
 [jdb]: https://docs.oracle.com/javase/7/docs/technotes/tools/windows/jdb.htm
-[kotlinc]: https://kotlinlang.org/docs/tutorials/command-line.html
+[konanc]: https://github.com/JetBrains/kotlin-native
 [make]: https://www.gnu.org/software/make/
 [mcs]: https://www.mono-project.com/
 [node]: https://nodejs.org/en/

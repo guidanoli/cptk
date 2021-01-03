@@ -1,10 +1,13 @@
 SOURCEFILE=$(shell ./path)
-BINFILE=$(addsuffix .jar, $(basename ${SOURCEFILE}))
+BINFILE=$(addsuffix .kexe, $(basename ${SOURCEFILE}))
 
 .PHONY: run
 
 run: ${BINFILE}
-	java -jar "$<"
+	"$<"
+
+debug: ${BINFILE}
+	gdb "$<"
 
 ${BINFILE}: ${SOURCEFILE}
-	kotlinc "$<" ${FLAGS} -include-runtime -d "$@"
+	konanc ${FLAGS} -g "$<" -o "$(basename $@)"
