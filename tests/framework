@@ -35,9 +35,9 @@ F() {
 END() {
 	endtime=$(date +%s.%N)
 	runtime=$(echo "$endtime - $starttime" | bc -l)
-	echo -e "[ #### ] Total elapsed time: $runtime s"
+	echo "[ #### ] Total elapsed time: $runtime s"
 }
 
-echo -e "[ #### ] Test script: $0"
+echo "[ #### ] Test script: $0"
 
 starttime=$(date +%s.%N)

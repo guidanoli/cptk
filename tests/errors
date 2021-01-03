@@ -29,14 +29,18 @@ F 'cptk ""'
 F 'cptk .'
 F 'cptk ..'
 F 'cptk base'
+F 'cptk base/..'
 
 F 'cptk init'
 F 'cptk init ""'
 F 'cptk init .'
 F 'cptk init ..'
 F 'cptk init lib'
+F 'cptk init lib/c'
 
-T '! (cptk list | grep "^test$") || cptk remove test 2>/dev/null'
+if cptk list | grep -q ^test$ ; then
+	T 'cptk remove test'
+fi
 
 T 'echo test > etc/test'
 T 'cp etc/test "$(cptk path)"'
@@ -47,11 +51,13 @@ T '[ -f "$(cptk path)" ]'
 T 'diff etc/test "$(cptk path)"'
 T 'cptk save test'
 T 'cptk save test' # override 
+T 'cptk list | grep ^test$'
 T 'rm "$(cptk path)"'
 T 'cptk open test'
 T '[ -f "$(cptk path)" ]'
 T 'diff etc/test "$(cptk path)"'
 T 'cptk remove test'
+F 'cptk list | grep ^test$'
 F 'cptk remove test'
 F 'cptk open test'
 T 'rm etc/test'
