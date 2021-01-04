@@ -3,6 +3,7 @@
 source tests/framework
 
 T tests/set-lang
+T tests/get-lang
 T tests/is-child
 T tests/is-name
 T tests/errors
