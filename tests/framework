@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#set -x
-
 # T <command> [<stderr-pattern> [<stdout-pattern> [<message>]]]
 # asserts <command> succeeds
 # and that stderr matches <stderr-pattern>
@@ -94,16 +92,13 @@ T() {
 	rm "$stdout" "$stderr"
 }
 
-# F <command> [<pattern> [<message>]]
-# asserts <command> fails
-# and that output matches <pattern>
-# prints <message> with PASS or FAIL tag
+# Asserts command fails
+# See function T
 F() {
-	if [ $# -gt 1 ]; then
-		T "! ($1)" "$2"
-	else
-		T "! ($1)"
-	fi
+	command="! ($1)"
+	shift
+
+	T "$command" "$@"
 }
 
 # END
