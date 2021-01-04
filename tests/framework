@@ -1,18 +1,28 @@
 #!/usr/bin/env bash
 
-# T <command> [<pattern> [<message>]]
+#set -x
+
+# T <command> [<stderr-pattern> [<stdout-pattern> [<message>]]]
 # asserts <command> succeeds
-# and that output matches <pattern>
+# and that stderr matches <stderr-pattern>
+# and that stdout matches <stdout-pattern>
 # prints <message> with PASS or FAIL tag
 T() {
 	command=$1
 	shift
-	
+
 	if [ $# -gt 0 ]; then
-		newcommand="($command 2>&1) | grep -q -- \"$1\""
+		stderr_pattern=$1
 		shift
 	else
-		newcommand=$command
+		stderr_pattern=""
+	fi
+
+	if [ $# -gt 0 ]; then
+		stdout_pattern=$1
+		shift
+	else
+		stdout_pattern=""
 	fi
 
 	if [ $# -gt 0 ]; then
@@ -21,15 +31,67 @@ T() {
 	else
 		message=$command
 	fi
-	
+
+	stdout=$(tempfile)
+	stderr=$(tempfile)
+
+	print_fail_message() {
+		echo -e "\r[ \e[1;31mFAIL\e[1;0m ] $message"
+	}
+
+	print_pass_message() {
+		echo -e "\r[ \e[1;32mPASS\e[1;0m ] $message"
+	}
+
+	print_stdout_and_stderr() {
+		[ -s "$stdout" ] && echo -e "\e[1;33mstdout\e[1;0m:" 1>&2 && cat "$stdout" | sed 's/^\(.*\r\)*/\t/' 1>&2
+		[ -s "$stderr" ] && echo -e "\e[1;33mstderr\e[1;0m:" 1>&2 && cat "$stderr" | sed 's/^\(.*\r\)*/\t/' 1>&2
+		rm "$stdout" "$stderr"
+	}
+
 	printf "[      ] $message"
 
-	if eval "$newcommand" >/dev/null 2>&1; then
-		echo -e "\r[ \e[1;32mPASS\e[1;0m ] $message"
-	else
-		echo -e "\r[ \e[1;31mFAIL\e[1;0m ] $message"
+	eval "$command" 1>"$stdout" 2>"$stderr"
+	exitcode=$?
+
+	if [ $exitcode -ne 0 ]; then
+
+		print_fail_message
+
+		echo "Exit code of command '$command' was $exitcode" 1>&2
+
+		print_stdout_and_stderr
+		
 		exit 1
-	fi 
+	fi
+
+	if [ ! -z "$stderr_pattern" ] && ! (cat "$stderr" | grep -q -- "$stderr_pattern") ; then
+
+		print_fail_message
+
+		echo "Standard error of command '$command' doesn't match pattern '$stderr_pattern'" 1>&2
+
+		print_stdout_and_stderr
+		
+		exit 1
+
+	fi
+
+	if [ ! -z "$stdout_pattern" ] && ! (cat "$stdout" | grep -q -- "$stdout_pattern") ; then
+
+		print_fail_message
+
+		echo "Standard output of command '$command' doesn't match pattern '$stdout_pattern'" 1>&2
+
+		print_stdout_and_stderr
+		
+		exit 1
+
+	fi
+
+	print_pass_message
+
+	rm "$stdout" "$stderr"
 }
 
 # F <command> [<pattern> [<message>]]

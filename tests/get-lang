@@ -7,7 +7,7 @@ F 'libexec/get-lang' 'No language is set'
 
 for language in $(ls -1 lib); do
 	T "cptk init $language"
-	T 'libexec/get-lang' "^$language$"
+	T 'libexec/get-lang' '' "^$language$"
 done
 
 END

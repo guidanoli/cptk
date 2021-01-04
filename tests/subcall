@@ -11,7 +11,7 @@ F 'libexec/subcall unknown-command' "Language 'c' doesn't support command 'unkno
 
 for language in $(ls -1 lib); do
 	T "cptk init $language"
-	T 'libexec/subcall path' '^temp/'
+	T 'libexec/subcall path' '' '^temp/'
 done
 
 END
