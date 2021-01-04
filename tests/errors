@@ -2,6 +2,7 @@
 
 source tests/framework
 
+T 'cptk'
 T 'cptk --version'
 T 'cptk --help'
 
