@@ -11,16 +11,20 @@ T() {
 
 	if [ $# -gt 0 ]; then
 		stderr_pattern=$1
+		stderr_file=etc/stderr
 		shift
 	else
 		stderr_pattern=""
+		stderr_file=/dev/null
 	fi
 
 	if [ $# -gt 0 ]; then
 		stdout_pattern=$1
+		stdout_file=etc/stdout
 		shift
 	else
 		stdout_pattern=""
+		stdout_file=/dev/null
 	fi
 
 	if [ $# -gt 0 ]; then
@@ -30,66 +34,42 @@ T() {
 		message=$command
 	fi
 
-	stdout=$(tempfile)
-	stderr=$(tempfile)
-
-	print_fail_message() {
-		echo -e "\r[ \e[1;31mFAIL\e[1;0m ] $message"
-	}
-
-	print_pass_message() {
-		echo -e "\r[ \e[1;32mPASS\e[1;0m ] $message"
-	}
-
-	print_stdout_and_stderr() {
-		[ -s "$stdout" ] && echo -e "\e[1;33mstdout\e[1;0m:" 1>&2 && cat "$stdout" | sed 's/^\(.*\r\)*/\t/' 1>&2
-		[ -s "$stderr" ] && echo -e "\e[1;33mstderr\e[1;0m:" 1>&2 && cat "$stderr" | sed 's/^\(.*\r\)*/\t/' 1>&2
-		rm "$stdout" "$stderr"
-	}
-
 	printf "[      ] $message"
 
-	eval "$command" 1>"$stdout" 2>"$stderr"
+	eval "$command" 1>"$stdout_file" 2>"$stderr_file"
 	exitcode=$?
 
+	print_fail_message() { echo -e "\r[ \e[1;31mFAIL\e[1;0m ] $message" ; }
+
+	print_stdout_and_stderr() {
+		[ -s "$stdout_file" ] && echo -e "\e[1;33mstdout\e[1;0m:" 1>&2 && cat "$stdout_file" | sed 's/^\(.*\r\)*/\t/'
+		[ -s "$stderr_file" ] && echo -e "\e[1;33mstderr\e[1;0m:" 1>&2 && cat "$stderr_file" | sed 's/^\(.*\r\)*/\t/' 1>&2
+	}
+
 	if [ $exitcode -ne 0 ]; then
-
 		print_fail_message
-
-		echo "Exit code of command '$command' was $exitcode" 1>&2
-
+		echo "Exit code of command '$command' was $exitcode"
 		print_stdout_and_stderr
-		
 		exit 1
 	fi
 
-	if [ ! -z "$stderr_pattern" ] && ! (cat "$stderr" | grep -q -- "$stderr_pattern") ; then
-
+	if [ ! -z "$stderr_pattern" ] && ! (cat "$stderr_file" | grep -q -- "$stderr_pattern") ; then
 		print_fail_message
-
-		echo "Standard error of command '$command' doesn't match pattern '$stderr_pattern'" 1>&2
-
+		echo "Standard error of command '$command' doesn't match pattern '$stderr_pattern'"
 		print_stdout_and_stderr
-		
 		exit 1
 
 	fi
 
-	if [ ! -z "$stdout_pattern" ] && ! (cat "$stdout" | grep -q -- "$stdout_pattern") ; then
-
+	if [ ! -z "$stdout_pattern" ] && ! (cat "$stdout_file" | grep -q -- "$stdout_pattern") ; then
 		print_fail_message
-
-		echo "Standard output of command '$command' doesn't match pattern '$stdout_pattern'" 1>&2
-
+		echo "Standard output of command '$command' doesn't match pattern '$stdout_pattern'"
 		print_stdout_and_stderr
-		
 		exit 1
 
 	fi
 
-	print_pass_message
-
-	rm "$stdout" "$stderr"
+	echo -e "\r[ \e[1;32mPASS\e[1;0m ] $message"
 }
 
 # Asserts command fails
@@ -104,6 +84,8 @@ F() {
 # END
 # End test case
 END() {
+	rm -f tests/stderr tests/stdout
+
 	endtime=$(date +%s.%N)
 	runtime=$(echo "$endtime - $starttime" | bc -l)
 	echo "[ #### ] Total elapsed time: $runtime s"
