@@ -9,6 +9,8 @@ run_helloworld() {
 	T 'cptk run' '' 'Hello, World!' "$1"
 }
 
+BEGIN_TEST
+
 run_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'
 run_helloworld cpp '#include <iostream>\nint main() { std::cout << "Hello, World!" << std::endl; }'
 run_helloworld cs 'class Hello { static void Main(string[] args) { System.Console.WriteLine("Hello, World!"); } }'
@@ -22,4 +24,4 @@ run_helloworld perl 'print("Hello, World!\n");'
 run_helloworld python 'print("Hello, World!")'
 run_helloworld ruby 'puts "Hello, World!"'
 
-END
+END_TEST

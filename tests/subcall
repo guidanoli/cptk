@@ -2,6 +2,8 @@
 
 source tests/framework
 
+BEGIN_TEST
+
 T 'rm -f etc/lang'
 F 'libexec/subcall path' 'No language is set'
 
@@ -14,4 +16,4 @@ for language in $(ls -1 lib); do
 	T 'libexec/subcall path' '' '^temp/'
 done
 
-END
+END_TEST

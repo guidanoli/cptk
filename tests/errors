@@ -2,6 +2,8 @@
 
 source tests/framework
 
+BEGIN_TEST
+
 T 'cptk'
 T 'cptk --version'
 T 'cptk --help'
@@ -77,4 +79,4 @@ F 'cptk save ..' 'Invalid program name'
 T 'cptk save ...'
 T 'cptk remove ...'
 
-END
+END_TEST

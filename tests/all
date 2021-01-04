@@ -2,6 +2,8 @@
 
 source tests/framework
 
+BEGIN_TEST
+
 T tests/set-lang
 T tests/get-lang
 T tests/is-child
@@ -10,4 +12,4 @@ T tests/subcall
 T tests/errors
 T tests/helloworld
 
-END
+END_TEST

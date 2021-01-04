@@ -2,6 +2,8 @@
 
 source tests/framework
 
+BEGIN_TEST
+
 F 'libexec/set-lang' 'Missing <language> argument'
 F 'libexec/set-lang ""' 'Unknown language'
 F 'libexec/set-lang "."' 'Unknown language'
@@ -13,4 +15,4 @@ for language in $(ls -1 lib); do
 	T "libexec/set-lang $language"
 done
 
-END
+END_TEST

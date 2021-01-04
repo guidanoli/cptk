@@ -11,7 +11,7 @@ T() {
 
 	if [ $# -gt 0 ]; then
 		stderr_pattern=$1
-		stderr_file=etc/stderr
+		stderr_file=tests/stderr
 		shift
 	else
 		stderr_pattern=""
@@ -20,7 +20,7 @@ T() {
 
 	if [ $# -gt 0 ]; then
 		stdout_pattern=$1
-		stdout_file=etc/stdout
+		stdout_file=tests/stdout
 		shift
 	else
 		stdout_pattern=""
@@ -81,16 +81,17 @@ F() {
 	T "$command" "$@"
 }
 
-# END
-# End test case
-END() {
-	rm -f tests/stderr tests/stdout
+# BEGIN_TEST
+BEGIN_TEST() {
+	echo "[ #### ] Test script: $0"
+	export starttime=$(date +%s.%N)
+}
 
+# END_TEST
+END_TEST() {
 	endtime=$(date +%s.%N)
 	runtime=$(echo "$endtime - $starttime" | bc -l)
 	echo "[ #### ] Total elapsed time: $runtime s"
+
+	rm -f tests/stderr tests/stdout
 }
-
-echo "[ #### ] Test script: $0"
-
-starttime=$(date +%s.%N)
