@@ -4,12 +4,10 @@
 #
 # Usage: libexec/base/--version
 
-version="0.1"
-git_revision=""
-
 if git remote -v 2>/dev/null | grep -q cptk; then
-  git_revision="$(git describe --tags HEAD 2>/dev/null || true)"
-  git_revision="${git_revision#v}"
+	git_revision="$(git describe --tags HEAD 2>/dev/null || true)"
+	git_revision="${git_revision#v}"
+	echo "cptk ${git_revision}"
+else
+	source libexec/err/no-git
 fi
-
-echo "cptk ${git_revision:-$version}"
