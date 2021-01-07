@@ -9,9 +9,11 @@ T() {
 	command=$1
 	shift
 
+	fd_dir=$(mktemp -d)
+
 	if [ $# -gt 0 ]; then
 		stderr_pattern=$1
-		stderr_file=tests/stderr
+		stderr_file=$fd_dir/stderr
 		shift
 	else
 		stderr_pattern=""
@@ -20,7 +22,7 @@ T() {
 
 	if [ $# -gt 0 ]; then
 		stdout_pattern=$1
-		stdout_file=tests/stdout
+		stdout_file=$fd_dir/stdout
 		shift
 	else
 		stdout_pattern=""
@@ -50,6 +52,7 @@ T() {
 		print_fail_message
 		echo "Exit code of command '$command' was $exitcode"
 		print_stdout_and_stderr
+		rm -rf "$fd_dir"
 		exit 1
 	fi
 
@@ -57,6 +60,7 @@ T() {
 		print_fail_message
 		echo "Standard error of command '$command' doesn't match pattern '$stderr_pattern'"
 		print_stdout_and_stderr
+		rm -rf "$fd_dir"
 		exit 1
 
 	fi
@@ -65,11 +69,13 @@ T() {
 		print_fail_message
 		echo "Standard output of command '$command' doesn't match pattern '$stdout_pattern'"
 		print_stdout_and_stderr
+		rm -rf "$fd_dir"
 		exit 1
 
 	fi
 
 	echo -e "\r[ \e[1;32mPASS\e[1;0m ] $message"
+	rm -rf "$fd_dir"
 }
 
 # Asserts command fails
@@ -92,6 +98,4 @@ END_TEST() {
 	endtime=$(date +%s.%N)
 	runtime=$(echo "$endtime - $starttime" | bc -l)
 	echo "[ #### ] Total elapsed time: $runtime s"
-
-	rm -f tests/stderr tests/stdout
 }
