@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Summary: List languages with 'path' command
+#
+# Usage: libexec/ls-langs
+
+find lib -maxdepth 2 -mindepth 2 -type f -name path | \
+	sed 's/[^/]*\/\([^/]*\)\/[^/]*/\1/' | sort

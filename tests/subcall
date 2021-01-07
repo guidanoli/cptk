@@ -11,7 +11,7 @@ T 'cptk init c'
 F 'libexec/subcall' 'Missing <command> argument'
 F 'libexec/subcall unknown-command' "Language 'c' doesn't support command 'unknown-command'"
 
-for language in $(ls -1 lib); do
+for language in `libexec/ls-langs`; do
 	T "cptk init $language"
 	T 'libexec/subcall path' '' '^temp/'
 done

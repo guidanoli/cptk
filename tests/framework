@@ -10,23 +10,21 @@ T() {
 	shift
 
 	fd_dir=$(mktemp -d)
+	stderr_file=$fd_dir/stderr
+	stdout_file=$fd_dir/stdout
 
 	if [ $# -gt 0 ]; then
 		stderr_pattern=$1
-		stderr_file=$fd_dir/stderr
 		shift
 	else
 		stderr_pattern=""
-		stderr_file=/dev/null
 	fi
 
 	if [ $# -gt 0 ]; then
 		stdout_pattern=$1
-		stdout_file=$fd_dir/stdout
 		shift
 	else
 		stdout_pattern=""
-		stdout_file=/dev/null
 	fi
 
 	if [ $# -gt 0 ]; then

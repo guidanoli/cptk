@@ -4,6 +4,7 @@ source tests/framework
 
 BEGIN_TEST
 
+T tests/ls-langs
 T tests/set-lang
 T tests/get-lang
 T tests/is-child
