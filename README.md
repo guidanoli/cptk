@@ -7,14 +7,14 @@ A toolkit for language-agnostic competitive programming, focused on _POSIX_ syst
 ## Motivation
 
 Competitive Programming demands not only knowledge about data structures, algorithms and mathematics, but also about programming languages.
-After all, what value does a good idea have if it cannot be properly executed?
+After all, what value does a good idea have if it cannot be properly implemented?
 
-Some languages are good for low level tasks, others are just easier to quickly hack something together.
-Not far from the real world, competitions tend to challenge their participants with all kinds of problems.
-That's why, even though some languages are preffered for generic problem solving tasks, many other languages are also relevant.
+Some languages are better for low level tasks, others are just easier to quickly hack something together.
+Still, programming competitions tend to challenge participants with all kinds of problems.
+That's why, even though some "swiss-knife" languages are preffered for tackling all sorts of tasks, languages crafted for special types of problems are equally relevant.
 
 The problem is: keeping a polyglot development environment consistent and tidy is oftentimes harder than it may seem.
-What this toolkit promotes is an abstraction for developing with different programming languages at once. You can think of it as the console interface of a very simple integrated development environment.
+What this toolkit promotes is an abstraction for developing with different programming languages at once. You can think of it as a console interface of a very simple integrated development environment.
 
 ## Dependencies
 
@@ -61,7 +61,7 @@ echo 'cptk init cpp' >> ~/.bashrc
 
 ## Usage
 
-The user accesses the toolkit by calling the `cptk` script and passing it any of the available commands.
+The toolkit is accessed by the `cptk` script.
 Run `cptk --help` for usage information.
 
 ## Tests
