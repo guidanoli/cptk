@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Exit on error
+set -e
+
 # T <command> [<stderr-pattern> [<stdout-pattern> [<message>]]]
 # asserts <command> succeeds
 # and that stderr matches <stderr-pattern>
@@ -93,5 +96,3 @@ END_TEST() {
 	local runtime=$(echo "$endtime - $starttime" | bc -l)
 	echo "[ #### ] Total elapsed time: $runtime s"
 }
-
-set -e
