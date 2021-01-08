@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+BEGIN_TEST
+
+T 'true'
+F 'false'
+
+T 'true' '' '' 'Success!'
+F 'false' '' '' 'Failure!'
+
+T 'echo hello'           '' 'hello'
+F 'echo hello && exit 1' '' 'hello'
+
+T 'echo hello >&2'           'hello' ''
+F 'echo hello >&2 && exit 1' 'hello' ''
+
+T 'echo abc && echo cde >&2'           'cde' 'abc'
+F 'echo abc && echo cde >&2 && exit 1' 'cde' 'abc'
+
+T 'T true'
+T 'F false'
+
+F 'T false'
+F 'F true'
+
+F 'T "F true"'
+F 'F "T true"'
+F 'F "F false"'
+F 'T "T false"'
+
+T 'F "F true"'
+T 'T "T true"'
+T 'T "F false"'
+T 'F "T false"'
+
+END_TEST
