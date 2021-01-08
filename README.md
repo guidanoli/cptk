@@ -6,15 +6,15 @@ A toolkit for language-agnostic competitive programming, focused on _POSIX_ syst
 
 ## Motivation
 
-Even though C and C++ dominate the competitive programming ecosystem, it's not hard to spot some submissions using Python, Perl and Java, for instance.
-That's because every language has its pros and cons, so knowing many different languages can not only make you a better programmer but also a better competitor.
+Competitive Programming demands not only knowledge about data structures, algorithms and mathematics, but also about programming languages.
+After all, what value does a good idea have if it cannot be properly executed?
+
+Some languages are good for low level tasks, others are just easier to quickly hack something together.
+Not far from the real world, competitions tend to challenge their participants with all kinds of problems.
+That's why, even though some languages are preffered for generic problem solving tasks, many other languages are also relevant.
 
 The problem is: keeping a polyglot development environment consistent and tidy is oftentimes harder than it may seem.
 What this toolkit promotes is an abstraction for developing with different programming languages at once. You can think of it as the console interface of a very simple integrated development environment.
-
-## Mechanism
-
-The user accesses the toolkit by calling the `cptk` script and passing it any of the available commands, such as `init` for setting the current language.
 
 ## Dependencies
 
@@ -61,6 +61,7 @@ echo 'cptk init cpp' >> ~/.bashrc
 
 ## Usage
 
+The user accesses the toolkit by calling the `cptk` script and passing it any of the available commands.
 Run `cptk --help` for usage information.
 
 ## Tests
