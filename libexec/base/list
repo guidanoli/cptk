@@ -12,6 +12,6 @@ lang=$(libexec/get-lang)
 langprjfolder=etc/projects/$lang
 
 # If folder exists, list all subdirectories
-if [[ -d "$langprjfolder" ]]; then
+if [[ -d $langprjfolder ]]; then
     ls -1 "$langprjfolder"
 fi

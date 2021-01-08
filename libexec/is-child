@@ -6,7 +6,7 @@
 
 set -e
 
-[ $# -ge 2 ]
+[[ $# -ge 2 ]]
 
 parent=$1
 child=$2

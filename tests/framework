@@ -13,21 +13,21 @@ T() {
 	stderr_file=$fd_dir/stderr
 	stdout_file=$fd_dir/stdout
 
-	if [ $# -gt 0 ]; then
+	if [[ $# -gt 0 ]] ; then
 		stderr_pattern=$1
 		shift
 	else
 		stderr_pattern=""
 	fi
 
-	if [ $# -gt 0 ]; then
+	if [[ $# -gt 0 ]] ; then
 		stdout_pattern=$1
 		shift
 	else
 		stdout_pattern=""
 	fi
 
-	if [ $# -gt 0 ]; then
+	if [[ $# -gt 0 ]] ; then
 		message=$1
 		shift
 	else
@@ -42,11 +42,11 @@ T() {
 	print_fail_message() { echo -e "\r[ \e[1;31mFAIL\e[1;0m ] $message" ; }
 
 	print_stdout_and_stderr() {
-		[ -s "$stdout_file" ] && echo -e "\e[1;33mstdout\e[1;0m:" 1>&2 && cat "$stdout_file" | sed 's/^\(.*\r\)*/\t/'
-		[ -s "$stderr_file" ] && echo -e "\e[1;33mstderr\e[1;0m:" 1>&2 && cat "$stderr_file" | sed 's/^\(.*\r\)*/\t/' 1>&2
+		[[ -s $stdout_file ]] && echo -e "\e[1;33mstdout\e[1;0m:" 1>&2 && cat "$stdout_file" | sed 's/^\(.*\r\)*/\t/'
+		[[ -s $stderr_file ]] && echo -e "\e[1;33mstderr\e[1;0m:" 1>&2 && cat "$stderr_file" | sed 's/^\(.*\r\)*/\t/' 1>&2
 	}
 
-	if [ $exitcode -ne 0 ]; then
+	if [[ $exitcode -ne 0 ]]; then
 		print_fail_message
 		echo "Exit code of command '$command' was $exitcode"
 		print_stdout_and_stderr
@@ -54,7 +54,7 @@ T() {
 		exit 1
 	fi
 
-	if [ ! -z "$stderr_pattern" ] && ! (cat "$stderr_file" | grep -q -- "$stderr_pattern") ; then
+	if [[ ! -z $stderr_pattern ]] && ! (cat "$stderr_file" | grep -q -- "$stderr_pattern") ; then
 		print_fail_message
 		echo "Standard error of command '$command' doesn't match pattern '$stderr_pattern'"
 		print_stdout_and_stderr
@@ -63,7 +63,7 @@ T() {
 
 	fi
 
-	if [ ! -z "$stdout_pattern" ] && ! (cat "$stdout_file" | grep -q -- "$stdout_pattern") ; then
+	if [[ ! -z $stdout_pattern ]] && ! (cat "$stdout_file" | grep -q -- "$stdout_pattern") ; then
 		print_fail_message
 		echo "Standard output of command '$command' doesn't match pattern '$stdout_pattern'"
 		print_stdout_and_stderr

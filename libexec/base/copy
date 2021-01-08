@@ -9,7 +9,7 @@ set -e
 path=$(libexec/base/path)
 
 # If program exists
-if [ -f "$path" ] ; then
+if [[ -f $path ]] ; then
 	# If copy command is supported
 	if hascommand copycommand ; then
 		# then copy it

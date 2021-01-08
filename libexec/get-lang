@@ -15,7 +15,7 @@ else
 fi
 
 # If language is not set,
-if [[ -z "$lang" ]]; then
+if [[ -z $lang ]]; then
 	# then exit
 	source libexec/err/no-language
 fi

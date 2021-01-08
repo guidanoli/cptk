@@ -13,7 +13,7 @@ F 'libexec/ls-langs | grep ^unknown-language$'
 T 'rm -r lib/unknown-language'
 F 'libexec/ls-langs | grep ^unknown-language$'
 
-F '[ -d lib/newlang ]'
+F '[[ -d lib/newlang ]]'
 T 'mkdir lib/newlang'
 T 'touch lib/newlang/path'
 T 'libexec/ls-langs | grep ^newlang$'

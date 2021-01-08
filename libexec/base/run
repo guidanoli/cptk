@@ -14,7 +14,7 @@ path=$(libexec/base/path)
 export FLAGS=$@
 
 # If program exists,
-if [[ -f "$path" ]] ; then
+if [[ -f $path ]] ; then
 	# then make subcall
 	libexec/subcall run
 else
