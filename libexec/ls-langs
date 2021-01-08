@@ -5,4 +5,4 @@
 # Usage: libexec/ls-langs
 
 find lib -maxdepth 2 -mindepth 2 -type f -name path | \
-	sed 's/[^/]*\/\([^/]*\)\/[^/]*/\1/' | sort
+	xargs -n1 dirname | xargs -n1 basename | sort
