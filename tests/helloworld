@@ -2,26 +2,40 @@
 
 source tests/framework
 
-# run_helloworld <lang> <program>
-run_helloworld() {
-	cptk init "$1"
-	printf "$2\n" > "$(cptk path)"
-	T 'cptk run' '' 'Hello, World!' "$1"
+# run_helloworld <lang> <program> [<dependencies>]
+run_helloworld()
+{
+	local lang=$1
+	local program=$2
+	shift 2
+
+	for dependency in "$@"
+	do
+		if ! command -v "$dependency" > /dev/null
+		then
+			echo -e "[ \e[1;34mSKIP\e[1;0m ] $lang (missing $dependency)"
+			return
+		fi
+	done
+
+	cptk init "$lang"
+	printf "$program\n" > "$(cptk path)"
+	T 'cptk run' '' 'Hello, World!' "$lang"
 }
 
 BEGIN_TEST
 
-run_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }'
-run_helloworld cpp '#include <iostream>\nint main() { std::cout << "Hello, World!" << std::endl; }'
-run_helloworld cs 'class Hello { static void Main(string[] args) { System.Console.WriteLine("Hello, World!"); } }'
-run_helloworld go 'package main\nimport "fmt"\nfunc main() { fmt.Println("Hello, World!") }'
-run_helloworld haskell 'main = putStrLn "Hello, World!"'
-run_helloworld java 'class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }'
-run_helloworld js 'console.log("Hello, World!");'
-run_helloworld kotlin 'fun main() { println("Hello, World!") }'
-run_helloworld pascal "program Hello; begin writeln ('Hello, World!'); end."
-run_helloworld perl 'print("Hello, World!\n");'
-run_helloworld python 'print("Hello, World!")'
-run_helloworld ruby 'puts "Hello, World!"'
+run_helloworld c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }' gcc make
+run_helloworld cpp '#include <iostream>\nint main() { std::cout << "Hello, World!" << std::endl; }' g++ make
+run_helloworld cs 'class Hello { static void Main(string[] args) { System.Console.WriteLine("Hello, World!"); } }' mcs make
+run_helloworld go 'package main\nimport "fmt"\nfunc main() { fmt.Println("Hello, World!") }' go make
+run_helloworld haskell 'main = putStrLn "Hello, World!"' ghc make
+run_helloworld java 'class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }' javac java make
+run_helloworld js 'console.log("Hello, World!");' node
+run_helloworld kotlin 'fun main() { println("Hello, World!") }' konanc make
+run_helloworld pascal "program Hello; begin writeln ('Hello, World!'); end." fpc make
+run_helloworld perl 'print("Hello, World!\n");' perl
+run_helloworld python 'print("Hello, World!")' python
+run_helloworld ruby 'puts "Hello, World!"' ruby
 
 END_TEST

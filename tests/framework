@@ -84,7 +84,10 @@ T()
 # See function T
 F()
 {
-	T "! ($1)" "${@:2}"
+	local command=$1
+	shift
+
+	T "! ($command)" "$@"
 }
 
 # BEGIN_TEST
