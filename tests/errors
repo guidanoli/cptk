@@ -4,7 +4,20 @@ source tests/framework
 
 BEGIN_TEST
 
-hascommand() { cptk --help | grep -q "^  $1 "; }
+# hascommands [<commands>]
+hascommands()
+{
+	for command in "$@"
+	do
+		if ! cptk --help | grep -q "^  $command "
+		then
+			echo -e "[ \e[1;34mSKIP\e[1;0m ] '$command' not supported"
+			return 1
+		fi		
+	done
+
+	return 0
+}
 
 T 'cptk'
 T 'cptk --version'
@@ -16,17 +29,17 @@ F 'cptk path' 'No language is set'
 F 'cptk run' 'No language is set'
 F 'cptk debug' 'No language is set'
 
-if hascommand edit
+if hascommands edit
 then
 	F 'cptk edit' 'No language is set'
 fi
 
-if hascommand copy
+if hascommands copy
 then
 	F 'cptk copy' 'No language is set'
 fi
 
-if hascommand paste
+if hascommands paste
 then
 	F 'cptk paste' 'No language is set'
 fi
@@ -41,7 +54,7 @@ T 'rm -f "$(cptk path)"'
 F 'cptk run' 'No program'
 F 'cptk debug' 'No program'
 
-if hascommand copy
+if hascommands copy
 then
 	F 'cptk copy' 'No program'
 fi
@@ -69,7 +82,7 @@ fi
 T 'echo test > etc/test'
 T 'cp etc/test "$(cptk path)"'
 
-if hascommand copy && hascommand paste
+if hascommands copy paste
 then
 	T 'cptk copy'
 	T 'rm "$(cptk path)"'
