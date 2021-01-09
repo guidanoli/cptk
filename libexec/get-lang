@@ -7,7 +7,8 @@
 # Obtains current language, if set
 
 # If the language file exists,
-if [[ -f etc/lang ]]; then
+if [[ -f etc/lang ]]
+then
 	# Get its content and save it
 	lang=$(cat etc/lang)
 else
@@ -15,13 +16,15 @@ else
 fi
 
 # If language is not set,
-if [[ -z $lang ]]; then
+if [[ -z $lang ]]
+then
 	# then exit
 	source libexec/err/no-language
 fi
 
 # If language is invalid,
-if ! libexec/is-child lib "$lang" -type d ; then
+if ! libexec/is-child lib "$lang" -type d
+then
 	# then exit
 	source libexec/err/unknown-language
 fi

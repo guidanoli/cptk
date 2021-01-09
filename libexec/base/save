@@ -8,8 +8,8 @@
 set -e
 
 # Check if <project> is present
-if [[ $# -eq 1 ]]; then
-
+if [[ $# -eq 1 ]]
+then
 	# Get project name
 	project=$1
 	shift
@@ -24,13 +24,15 @@ if [[ $# -eq 1 ]]; then
 	path=$(libexec/base/path)
 	
 	# If program doesn't exist
-	if [[ ! -f $path ]] ; then
+	if [[ ! -f $path ]]
+	then
 		# then, exit
 		source libexec/err/no-program
 	fi
 
 	# Check if project name is valid
-	if ! libexec/is-name "$project" ; then
+	if ! libexec/is-name "$project"
+	then
 		# then, exit
 		source libexec/err/invalid-project
 	fi
@@ -41,18 +43,15 @@ if [[ $# -eq 1 ]]; then
 	# Copy program to project directory
 	cp -a "$path" "$projectsfolder/$project"
 
-elif [[ $# -eq 0 ]]; then
-
+elif [[ $# -eq 0 ]]
+then
 	# else, exit
 	argname='<project>'
 	source libexec/err/missing-argument
-
 else
-
 	# Shift <project>
 	shift
 
 	# Unknown argument
 	source libexec/err/unknown-arguments
-
 fi

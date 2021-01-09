@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
+
 echo "Error: No program for language '$lang' has been writen yet." >&2
-if hascommand editcommand ; then
+
+if hascommand editcommand
+then
 	echo "Hint: Write one by running '$programname edit'" >&2
 else
 	echo "Hint: Write to the file pointed by '$programname path'." >&2
 fi
+
 exit 1

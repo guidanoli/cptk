@@ -12,40 +12,50 @@ export programroot=$(dirname "$(dirname "$programpath")")
 hascommand() { command -v "$1" &> /dev/null ; }
 
 # Text editor
-if hascommand vi ; then
+if hascommand vi
+then
 	editcommand() { vi -O "$@" ; }
 fi
 
 # Copy/Paste commands
-if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null
+then
 	# Windows Subsystem for Linux
-	if hascommand clip.exe ; then
+	if hascommand clip.exe
+	then
 		copycommand() { clip.exe < "$1" ; }
 	fi
-	if hascommand powershell.exe ; then
+
+	if hascommand powershell.exe
+	then
 		# For some reason, Powershell prints one extra line, so sed delets it
 		# Also, tr removes carriage returns
 		pastecommand() { powershell.exe -command Get-Clipboard | sed '$d' | tr -d '\r' > "$1" ; }
 	fi
 else
 	# Other systems
-	if hascommand xclip ; then
+	if hascommand xclip
+	then
 		# Systems that use X11
 		copycommand() { xclip -sel -c < "$1" ; }
 		pastecommand() { xclip -sel -c -o > "$1" ; }
 	else
 		# Mac OS
-		if hascommand pbcopy ; then
+		if hascommand pbcopy
+		then
 			copycommand() { pbcopy < "$1" ; }
 		fi
-		if hascommand pbpaste ; then
+
+		if hascommand pbpaste
+		then
 			pastecommand() { pbpaste > "$1" ; }
 		fi
 	fi
 fi
 
 # Get command
-if [[ $# -ge 1 ]]; then
+if [[ $# -ge 1 ]]
+then
 	command=$1
 	shift
 else
@@ -59,7 +69,8 @@ pushd "$programroot" > /dev/null
 basedir=libexec/base
 
 # If base command exists and is in the base directory
-if libexec/is-child "$basedir" "$command" -type f ; then
+if libexec/is-child "$basedir" "$command" -type f
+then
 
 	# source the base command
 	source "$basedir/$command"

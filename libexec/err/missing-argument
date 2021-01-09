@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+
 echo "Error: Missing $argname argument." >&2
+
 exit 1

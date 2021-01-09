@@ -4,7 +4,8 @@
 #
 # Usage: libexec/base/--version
 
-if git remote -v 2>/dev/null | grep -q cptk; then
+if git remote -v 2>/dev/null | grep -q cptk
+then
 	git_revision="$(git describe --tags HEAD 2>/dev/null || true)"
 	git_revision="${git_revision#v}"
 	echo "cptk ${git_revision}"

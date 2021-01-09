@@ -7,31 +7,27 @@
 # <language> is case-insensitive
 
 # Check if <language> is present
-if [[ $# -gt 0 ]]; then
-
+if [[ $# -gt 0 ]]
+then
 	# Save language in lower case
 	lang=${1,,}
 	shift
 
 	# If there is a folder with this name in 'lib'
-	if libexec/is-child lib "$lang" -type d ; then
-
+	if libexec/is-child lib "$lang" -type d
+	then
 		# then set it as the current language
 		mkdir -p etc
 		echo "$lang" > etc/lang
 
 		# and make temporary directory
 		mkdir -p "lib/$lang/temp"
-
 	else
 		# else, exit
 		source libexec/err/unknown-language
 	fi
-
 else
-
 	# else, exit
 	argname='<language>'
 	source libexec/err/missing-argument
-
 fi

@@ -10,8 +10,8 @@
 set -e
 
 # If <command> is present
-if [[ $# -gt 0 ]]; then
-	
+if [[ $# -gt 0 ]]
+then
 	# Save command
 	command=$1
 	shift
@@ -24,8 +24,8 @@ if [[ $# -gt 0 ]]; then
 	langdir=lib/$lang
 
 	# If command is a file in the language directory
-	if libexec/is-child "$langdir" "$command" -type f ; then
-
+	if libexec/is-child "$langdir" "$command" -type f
+	then
 		# then, push current language directory
 		pushd "$langdir" > /dev/null
 
@@ -38,12 +38,8 @@ if [[ $# -gt 0 ]]; then
 		# else, exit
 		source libexec/err/no-language-support
 	fi
-
-
 else
-
 	# else, exit
 	argname='<command>'
 	source libexec/err/missing-argument
-
 fi

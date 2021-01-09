@@ -11,7 +11,8 @@ F 'libexec/set-lang ".."' 'Unknown language'
 F 'libexec/set-lang "/"' 'Unknown language'
 F 'libexec/set-lang "not-a-language"' 'Unknown language'
 
-for language in `libexec/ls-langs`; do
+for language in `libexec/ls-langs`
+do
 	T "libexec/set-lang $language"
 done
 

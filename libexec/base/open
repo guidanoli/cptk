@@ -7,8 +7,8 @@
 # Exit on error
 set -e
 
-if [[ $# -eq 1 ]]; then
-
+if [[ $# -eq 1 ]]
+then
 	# Get project name
 	project=$1
 	shift
@@ -20,7 +20,8 @@ if [[ $# -eq 1 ]]; then
 	projectsfolder=etc/projects/$lang
 
 	# If project is not in the projects folder
-	if ! libexec/is-child "$projectsfolder" "$project" -type d ; then
+	if ! libexec/is-child "$projectsfolder" "$project" -type d
+	then
 		# then, exit
 		source libexec/err/unknown-project
 	fi
@@ -28,18 +29,15 @@ if [[ $# -eq 1 ]]; then
 	# Copy project files to temporary directory
 	cp -a "$projectsfolder/$project/." "lib/$lang/temp"
 
-elif [[ $# -eq 0 ]]; then
-
+elif [[ $# -eq 0 ]]
+then
 	# Exit
 	argname='<project>'
 	source libexec/err/missing-argument
-
 else
-
 	# Shift <project>
 	shift
 
 	# Unknown argument
 	source libexec/err/unknown-arguments
-
 fi

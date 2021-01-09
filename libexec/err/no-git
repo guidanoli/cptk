@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-if hascommand git ; then
+
+if hascommand git
+then
 	echo "Error: Not a git repository." >&2
 else
 	echo "Error: git is not installed." >&2
 fi
+
 exit 1

@@ -12,7 +12,8 @@ path=$(libexec/base/path)
 mkdir -p "$(dirname "$path")"
 
 # If paste command is supported
-if hascommand pastecommand ; then
+if hascommand pastecommand
+then
 	# then, paste to program
 	pastecommand "$path"
 else

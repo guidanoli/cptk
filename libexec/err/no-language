@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+
 echo "Error: No language is set." >&2
 echo "Hint: Run '$programname init <language>' to set one." >&2
 echo "Available languages:" >&2
 libexec/ls-langs | xargs echo >&2
+
 exit 1

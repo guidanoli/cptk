@@ -9,7 +9,8 @@ set -e
 path=$(libexec/base/path)
 
 # If edit command is supported
-if hascommand editcommand ; then
+if hascommand editcommand
+then
 	# then, edit program
 	editcommand "$path"
 else

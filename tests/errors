@@ -16,15 +16,18 @@ F 'cptk path' 'No language is set'
 F 'cptk run' 'No language is set'
 F 'cptk debug' 'No language is set'
 
-if hascommand edit ; then
+if hascommand edit
+then
 	F 'cptk edit' 'No language is set'
 fi
 
-if hascommand copy ; then
+if hascommand copy
+then
 	F 'cptk copy' 'No language is set'
 fi
 
-if hascommand paste ; then
+if hascommand paste
+then
 	F 'cptk paste' 'No language is set'
 fi
 
@@ -38,7 +41,8 @@ T 'rm -f "$(cptk path)"'
 F 'cptk run' 'No program'
 F 'cptk debug' 'No program'
 
-if hascommand copy ; then
+if hascommand copy
+then
 	F 'cptk copy' 'No program'
 fi
 
@@ -57,19 +61,23 @@ F 'cptk init ..' 'Unknown language'
 F 'cptk init lib' 'Unknown language'
 F 'cptk init lib/c' 'Unknown language'
 
-if cptk list | grep -q ^test$ ; then
+if cptk list | grep -q ^test$
+then
 	T 'cptk remove test'
 fi
 
 T 'echo test > etc/test'
 T 'cp etc/test "$(cptk path)"'
-if hascommand copy && hascommand paste ; then
+
+if hascommand copy && hascommand paste
+then
 	T 'cptk copy'
 	T 'rm "$(cptk path)"'
 	T 'cptk paste'
 	T '[[ -f $(cptk path) ]]'
 	T 'diff etc/test "$(cptk path)"'
 fi
+
 T 'cptk save test'
 T 'cptk save test' # override 
 T 'cptk list | grep ^test$'

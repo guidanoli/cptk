@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+
 echo "Error: Language '$lang' doesn't support command '$command'." >&2
+
 exit 1
