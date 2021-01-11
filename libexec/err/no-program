@@ -2,7 +2,7 @@
 
 echo "Error: No program for language '$lang' has been writen yet." >&2
 
-if hascommand editcommand
+if libexec/has-routine edit
 then
 	echo "Hint: Write one by running '$programname edit'" >&2
 else

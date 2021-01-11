@@ -11,15 +11,8 @@ path=$(libexec/base/path)
 # If program exists
 if [[ -f $path ]]
 then
-	# If copy command is supported
-	if hascommand copycommand
-	then
-		# then copy it
-		copycommand "$path"
-	else
-		# else, exit
-		source libexec/err/no-command-support
-	fi
+	# Copy program
+	libexec/call-routine copy "$path"
 else
 	# Get language
 	lang=$(libexec/get-lang)

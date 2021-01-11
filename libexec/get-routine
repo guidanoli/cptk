@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Summary: Get routine name
+#
+# Usage: libexec/get-routine <name>
+
+source libexec/routines
+
+# Exit on failure
+set -e
+
+# If <name> is present
+if [[ $# -gt 0 ]]
+then
+	if hascommand "cptk_$1"
+	then
+		echo "cptk_$1"
+	else
+		routine=$1
+		source libexec/err/unknown-routine
+	fi
+else
+	# else, exit
+	argname='<name>'
+	source libexec/err/missing-argument
+fi

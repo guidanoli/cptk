@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# Summary: Make a call to a routine
+#
+# Usage: libexec/call-routine <name> [<arguments>]
+
+source libexec/routines
+
+# Exit on failure
+set -e
+
+# If <command> is present
+if [[ $# -gt 0 ]]
+then
+	routine=$(libexec/get-routine "$1")
+	shift
+
+	"$routine" "$@"
+else
+	# else, exit
+	argname='<name>'
+	source libexec/err/missing-argument
+fi

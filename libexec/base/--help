@@ -9,13 +9,13 @@ echo ""
 echo "Some useful commands are:"
 echo "  init <language>    set current language"
 echo "  path               print program path"
-hascommand editcommand && \
+libexec/has-routine edit && \
 echo "  edit               edit program"
 echo "  run [<flags>]      run program"
 echo "  debug [<flags>]    debug program"
-hascommand copycommand && \
+libexec/has-routine copy && \
 echo "  copy               copy program"
-hascommand pastecommand && \
+libexec/has-routine paste && \
 echo "  paste              paste program"
 echo "  save <name>        save program"
 echo "  list               list saved programs"

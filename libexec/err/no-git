@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if hascommand git
+if command -v git &> /dev/null
 then
 	echo "Error: Not a git repository." >&2
 else

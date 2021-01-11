@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+BEGIN_TEST
+
+F 'libexec/get-routine' 'Missing <name> argument'
+F 'libexec/get-routine nonexistent-routine' "Unknown routine 'nonexistent-routine'"
+F 'libexec/get-routine ""' "Unknown routine ''"
+
+if libexec/get-routine edit > /dev/null
+then
+	T 'libexec/get-routine edit' '' 'cptk_edit'
+else
+	SKIP 'edit not supported'
+fi
+
+if libexec/get-routine copy > /dev/null
+then
+	T 'libexec/get-routine copy' '' 'cptk_copy'
+else
+	SKIP 'copy not supported'
+fi
+
+if libexec/get-routine paste > /dev/null
+then
+	T 'libexec/get-routine paste' '' 'cptk_paste'
+else
+	SKIP 'paste not supported'
+fi
+
+END_TEST

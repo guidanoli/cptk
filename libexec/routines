@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Check if command exists
+# hascommand <command>
+hascommand() { command -v "$1" &> /dev/null ; }
+
+# Text editor
+if hascommand vi
+then
+	cptk_edit() { vi -O "$@" ; }
+fi
+
+# Copy/Paste routines
+if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null
+then
+	# Windows Subsystem for Linux
+	if hascommand clip.exe
+	then
+		cptk_copy() { clip.exe < "$1" ; }
+	fi
+
+	if hascommand powershell.exe
+	then
+		# For some reason, Powershell prints one extra line, so sed delets it
+		# Also, tr removes carriage returns
+		cptk_paste() { powershell.exe -command Get-Clipboard | sed '$d' | tr -d '\r' > "$1" ; }
+	fi
+else
+	# Other systems
+	if hascommand xclip
+	then
+		# Systems that use X11
+		cptk_copy() { xclip -sel -c < "$1" ; }
+		cptk_paste() { xclip -sel -c -o > "$1" ; }
+	else
+		# Mac OS
+		if hascommand pbcopy
+		then
+			cptk_copy() { pbcopy < "$1" ; }
+		fi
+
+		if hascommand pbpaste
+		then
+			cptk_paste() { pbpaste > "$1" ; }
+		fi
+	fi
+fi

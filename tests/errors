@@ -4,14 +4,14 @@ source tests/framework
 
 BEGIN_TEST
 
-# hascommands [<commands>]
-hascommands()
+# has_routines [<command1> [<command2> ...]]
+has_routines()
 {
-	for command in "$@"
+	for command
 	do
-		if ! cptk --help | grep -q "^  $command "
+		if ! libexec/has-routine "$command"
 		then
-			echo -e "[ \e[1;34mSKIP\e[1;0m ] '$command' not supported"
+			SKIP "'$command' not supported"
 			return 1
 		fi		
 	done
@@ -29,17 +29,17 @@ F 'cptk path' 'No language is set'
 F 'cptk run' 'No language is set'
 F 'cptk debug' 'No language is set'
 
-if hascommands edit
+if has_routines edit
 then
 	F 'cptk edit' 'No language is set'
 fi
 
-if hascommands copy
+if has_routines copy
 then
 	F 'cptk copy' 'No language is set'
 fi
 
-if hascommands paste
+if has_routines paste
 then
 	F 'cptk paste' 'No language is set'
 fi
@@ -54,7 +54,7 @@ T 'rm -f "$(cptk path)"'
 F 'cptk run' 'No program'
 F 'cptk debug' 'No program'
 
-if hascommands copy
+if has_routines copy
 then
 	F 'cptk copy' 'No program'
 fi
@@ -82,7 +82,7 @@ fi
 T 'echo test > etc/test'
 T 'cp etc/test "$(cptk path)"'
 
-if hascommands copy paste
+if has_routines copy paste
 then
 	T 'cptk copy'
 	T 'rm "$(cptk path)"'
@@ -119,3 +119,4 @@ T 'cptk save ...'
 T 'cptk remove ...'
 
 END_TEST
+

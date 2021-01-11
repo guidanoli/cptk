@@ -13,7 +13,7 @@ run_helloworld()
 	do
 		if ! command -v "$dependency" > /dev/null
 		then
-			echo -e "[ \e[1;34mSKIP\e[1;0m ] $lang (missing $dependency)"
+			SKIP "$lang (missing $dependency)"
 			return
 		fi
 	done

@@ -3,8 +3,6 @@
 # Summary: Make a subcall to a language command
 #
 # Usage: libexec/subcall <command> [<options>]
-#
-# Garantees to create temporary folder before subcall.
 
 # Exit on failure
 set -e

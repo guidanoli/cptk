@@ -10,6 +10,9 @@ T tests/set-lang
 T tests/get-lang
 T tests/is-child
 T tests/is-name
+T tests/get-routine
+T tests/has-routine
+T tests/call-routine
 T tests/subcall
 T tests/errors
 T tests/helloworld

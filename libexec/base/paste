@@ -11,12 +11,5 @@ path=$(libexec/base/path)
 # Make sure program can be written
 mkdir -p "$(dirname "$path")"
 
-# If paste command is supported
-if hascommand pastecommand
-then
-	# then, paste to program
-	pastecommand "$path"
-else
-	# else, exit
-	source libexec/err/no-command-support
-fi
+# Paste to program
+libexec/call-routine paste "$path"

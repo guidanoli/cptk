@@ -8,12 +8,5 @@ set -e
 # Get program path
 path=$(libexec/base/path)
 
-# If edit command is supported
-if hascommand editcommand
-then
-	# then, edit program
-	editcommand "$path"
-else
-	# else, exit
-	source libexec/err/no-command-support
-fi
+# Edit program
+libexec/call-routine edit "$path"

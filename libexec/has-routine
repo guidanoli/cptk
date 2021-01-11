@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Summary: Check if routine is available
+#
+# Usage: libexec/has-routine <name>
+
+libexec/get-routine "$@" > /dev/null

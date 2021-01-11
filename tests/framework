@@ -48,7 +48,7 @@ T()
 	teardown()
 	{
 		[[ -s $stdout_file ]] && echo -e "\e[1;33mstdout\e[1;0m:" && cat "$stdout_file" | sed 's/^\(.*\r\)*/\t/'
-		[[ -s $stderr_file ]] && echo -e "\e[1;33mstderr\e[1;0m:" 1>&2 && cat "$stderr_file" | sed 's/^\(.*\r\)*/\t/' 1>&2
+		[[ -s $stderr_file ]] && echo -e "\e[1;33mstderr\e[1;0m:" && cat "$stderr_file" | sed 's/^\(.*\r\)*/\t/'
 		rm -rf "$fd_dir"
 	}
 
@@ -78,6 +78,13 @@ T()
 	
 	echo -e "\r[ \e[1;32mPASS\e[1;0m ] $message"
 	rm -rf "$fd_dir"
+}
+
+# Print skip message
+# SKIP <message>
+SKIP()
+{
+	echo -e "[ \e[1;34mSKIP\e[1;0m ] $1"
 }
 
 # Asserts command fails

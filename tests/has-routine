@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+BEGIN_TEST
+
+F 'libexec/has-routine' 'Missing <name> argument'
+F 'libexec/has-routine nonexistent-routine' "Unknown routine 'nonexistent-routine'"
+F 'libexec/has-routine ""' "Unknown routine ''"
+
+END_TEST

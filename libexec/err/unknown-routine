@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "Error: Unknown routine '$routine'." >&2
+
+exit 1
