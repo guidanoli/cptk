@@ -45,7 +45,7 @@ T()
 
 	print_fail_message() { echo -e "\r[ \e[1;31mFAIL\e[1;0m ] $message" ; }
 
-	teardown()
+	tear_down()
 	{
 		[[ -s $stdout_file ]] && echo -e "\e[1;33mstdout\e[1;0m:" && cat "$stdout_file" | sed 's/^\(.*\r\)*/\t/'
 		[[ -s $stderr_file ]] && echo -e "\e[1;33mstderr\e[1;0m:" && cat "$stderr_file" | sed 's/^\(.*\r\)*/\t/'
@@ -58,21 +58,21 @@ T()
 		then
 			print_fail_message
 			echo "Standard error of command '$command' doesn't match pattern '$stderr_pattern'"
-			teardown
+			tear_down
 			return 1
 		fi
 		if [[ ! -z $stdout_pattern ]] && ! (cat "$stdout_file" | grep -q -- "$stdout_pattern")
 		then
 			print_fail_message
 			echo "Standard output of command '$command' doesn't match pattern '$stdout_pattern'"
-			teardown
+			tear_down
 			return 1
 		fi
 	else
 		local exitcode=$?
 		print_fail_message
 		echo "Exit code of command '$command' was $exitcode"
-		teardown
+		tear_down
 		return 1
 	fi
 	

@@ -15,6 +15,6 @@ T tests/has-routine
 T tests/call-routine
 T tests/subcall
 T tests/errors
-T tests/helloworld
+T tests/hello-world
 
 END_TEST

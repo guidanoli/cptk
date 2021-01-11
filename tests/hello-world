@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+# run_hello_world <lang> <program> [<dependencies>]
+run_hello_world()
+{
+	local lang=$1
+	local program=$2
+	shift 2
+
+	for dependency in "$@"
+	do
+		if ! command -v "$dependency" > /dev/null
+		then
+			SKIP "$lang (missing $dependency)"
+			return
+		fi
+	done
+
+	cptk init "$lang"
+	printf "$program\n" > "$(cptk path)"
+	T 'cptk run' '' 'Hello, World!' "$lang"
+}
+
+BEGIN_TEST
+
+run_hello_world c '#include <stdio.h>\nint main() { printf("Hello, World!\\n"); }' gcc make
+run_hello_world cpp '#include <iostream>\nint main() { std::cout << "Hello, World!" << std::endl; }' g++ make
+run_hello_world cs 'class Hello { static void Main(string[] args) { System.Console.WriteLine("Hello, World!"); } }' mcs make
+run_hello_world go 'package main\nimport "fmt"\nfunc main() { fmt.Println("Hello, World!") }' go make
+run_hello_world haskell 'main = putStrLn "Hello, World!"' ghc make
+run_hello_world java 'class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }' javac java make
+run_hello_world js 'console.log("Hello, World!");' node
+run_hello_world kotlin 'fun main() { println("Hello, World!") }' konanc make
+run_hello_world pascal "program Hello; begin writeln ('Hello, World!'); end." fpc make
+run_hello_world perl 'print("Hello, World!\n");' perl
+run_hello_world python 'print("Hello, World!")' python
+run_hello_world ruby 'puts "Hello, World!"' ruby
+
+END_TEST

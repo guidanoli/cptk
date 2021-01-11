@@ -12,7 +12,7 @@ set -e
 # If <name> is present
 if [[ $# -gt 0 ]]
 then
-	if hascommand "cptk_$1"
+	if has_command "cptk_$1"
 	then
 		echo "cptk_$1"
 	else

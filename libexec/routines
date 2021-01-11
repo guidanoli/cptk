@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # Check if command exists
-# hascommand <command>
-hascommand() { command -v "$1" &> /dev/null ; }
+# has_command <command>
+has_command() { command -v "$1" &> /dev/null ; }
 
 # Text editor
-if hascommand vi
+if has_command vi
 then
 	cptk_edit() { vi -O "$@" ; }
 fi
@@ -14,12 +14,12 @@ fi
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null
 then
 	# Windows Subsystem for Linux
-	if hascommand clip.exe
+	if has_command clip.exe
 	then
 		cptk_copy() { clip.exe < "$1" ; }
 	fi
 
-	if hascommand powershell.exe
+	if has_command powershell.exe
 	then
 		# For some reason, Powershell prints one extra line, so sed delets it
 		# Also, tr removes carriage returns
@@ -27,19 +27,19 @@ then
 	fi
 else
 	# Other systems
-	if hascommand xclip
+	if has_command xclip
 	then
 		# Systems that use X11
 		cptk_copy() { xclip -sel -c < "$1" ; }
 		cptk_paste() { xclip -sel -c -o > "$1" ; }
 	else
 		# Mac OS
-		if hascommand pbcopy
+		if has_command pbcopy
 		then
 			cptk_copy() { pbcopy < "$1" ; }
 		fi
 
-		if hascommand pbpaste
+		if has_command pbpaste
 		then
 			cptk_paste() { pbpaste > "$1" ; }
 		fi
