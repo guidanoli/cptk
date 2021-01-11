@@ -30,5 +30,5 @@ then
 	source "$basedir/$command"
 else
 	# else exit
-	source "libexec/err/unknown-command"
+	source libexec/err/unknown-command
 fi
