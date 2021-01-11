@@ -17,17 +17,14 @@ else
 	command=--help
 fi
 
-# Push root directory
-pushd "$programroot" > /dev/null
-
-# Get base directory
-basedir=libexec/base
+# Change directory to root
+cd "$programroot"
 
 # If base command exists and is in the base directory
-if libexec/is-child "$basedir" "$command" -type f
+if libexec/is-child libexec/base "$command" -type f
 then
 	# source the base command
-	source "$basedir/$command"
+	source "libexec/base/$command"
 else
 	# else exit
 	source libexec/err/unknown-command
