@@ -7,14 +7,16 @@
 # Exit on error
 set -e
 
-if [[ $# -eq 0 ]]
+# If <language> is present
+if [[ $# -gt 0 ]]
 then
+	# Make .cptk directory
+	mkdir -p "$userdir"
+
+	# Set language
+	libexec/set-lang "$1"
+else
+	# exit
 	argname='<language>'
 	source libexec/err/missing-argument
 fi
-
-# Make .cptk directory
-mkdir -p "$userdir"
-
-# Set language
-source libexec/set-lang

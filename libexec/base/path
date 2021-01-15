@@ -12,4 +12,4 @@ lang=$(libexec/get-lang)
 path=$(libexec/subcall path)
 
 # Print source code file path
-echo "$PWD/lib/$lang/$path"
+echo "$userdir/main/$lang/$path"

@@ -18,20 +18,17 @@ then
 	lang=$(libexec/get-lang)
 
 	# Save the language directory
-	# (where all the scripts are)
+	# (where all the language-specific commands are)
 	langdir=lib/$lang
 
 	# If command is a file in the language directory
 	if libexec/is-child "$langdir" "$command" -type f
 	then
-		# then, push current language directory
-		pushd "$langdir" > /dev/null
+		# then, go to current language directory
+		cd "$langdir"
 
 		# run it and pass any additional options
 		"./$command" "$@"
-
-		# and pop directory
-		popd > /dev/null
 	else
 		# else, exit
 		source libexec/err/no-language-support

@@ -7,10 +7,10 @@
 # Obtains current language, if set
 
 # If the language file exists,
-if [[ -f etc/lang ]]
+if [[ -f $userdir/etc/lang ]]
 then
 	# Get its content and save it
-	lang=$(cat etc/lang)
+	lang=$(cat "$userdir/etc/lang")
 else
 	lang=""
 fi
