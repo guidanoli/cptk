@@ -46,16 +46,16 @@ Some commands require additional software too:
 
 ## Setup
 
-1. **Check out this repository where you want it installed**. For the sake of generality, assume it is installed in `$CPTK_ROOT`.
+1. **Check out this repository where you want it installed**.  A good place is in the home directory (but you could install it anywhere else).
 
 ```sh
-git clone https://github.com/guidanoli/cptk.git "$CPTK_ROOT"
+git clone https://github.com/guidanoli/cptk.git ~/.cptk
 ```
 
 2. **Edit your shell profile if you want to access the `cptk` command-line utility**.
 
 ```sh
-echo "export PATH=$PATH:$CPTK_ROOT/bin" >> ~/.bashrc
+echo "export PATH=$PATH:$HOME/.cptk/bin" >> ~/.bashrc
 ```
 
 ## Usage
