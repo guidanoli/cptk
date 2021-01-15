@@ -55,7 +55,7 @@ git clone https://github.com/guidanoli/cptk.git ~/.cptk
 2. **Edit your shell profile if you want to access the `cptk` command-line utility**.
 
 ```sh
-echo "export PATH=$PATH:$HOME/.cptk/bin" >> ~/.bashrc
+echo 'export PATH=$PATH:$HOME/.cptk/bin' >> ~/.bashrc
 ```
 
 ## Usage
