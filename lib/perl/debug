@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-perl -d $FLAGS "$(./path)"
+perl -d $FLAGS "$WD/$(./path)"

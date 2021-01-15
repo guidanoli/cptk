@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-ruby $FLAGS -r debug "$(./path)"
+ruby $FLAGS -r debug "$WD/$(./path)"
