@@ -16,6 +16,9 @@ export FLAGS=$@
 # If source code exists,
 if [[ -f $path ]]
 then
+	# Save working directory
+	export WD=$(dirname "$path")
+
 	# then make subcall
 	libexec/subcall debug
 else

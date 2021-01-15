@@ -1,5 +1,5 @@
-SOURCEFILE=$(shell ./path)
-BINFILE=$(addsuffix .out, $(basename ${SOURCEFILE}))
+SOURCEFILE=$(addprefix ${WD}/, $(shell ./path))
+BINFILE=$(basename ${SOURCEFILE})
 
 .PHONY: run debug 
 

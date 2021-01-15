@@ -16,6 +16,9 @@ export FLAGS=$@
 # If program exists,
 if [[ -f $path ]]
 then
+	# Save working directory
+	export WD=$(dirname "$path")
+
 	# then make subcall
 	libexec/subcall run
 else

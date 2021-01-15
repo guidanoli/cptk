@@ -1,4 +1,4 @@
-SOURCEFILE=$(shell ./path)
+SOURCEFILE=$(addprefix ${WD}/, $(shell ./path))
 BINFILE=$(addsuffix .kexe, $(basename ${SOURCEFILE}))
 
 .PHONY: run
