@@ -4,18 +4,10 @@ source tests/framework
 
 BEGIN_TEST
 
-T tests/self
-T tests/ls-langs
-T tests/set-lang
-T tests/get-lang
-T tests/is-child
-T tests/is-name
-T tests/get-routine
-T tests/has-routine
-T tests/call-routine
-T tests/subcall
-T tests/errors
-T tests/hello-world
-T tests/two-environments
+for testbench in $(find tests -type f | \
+	grep '^tests/[a-zA-Z-]*$' | grep "^$0$" -v | sort)
+do
+	T "$testbench"
+done
 
 END_TEST
