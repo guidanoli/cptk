@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-node $FLAGS $(./path)
+node $FLAGS "$WD/$(./path)"

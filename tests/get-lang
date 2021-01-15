@@ -4,12 +4,11 @@ source tests/framework
 
 BEGIN_TEST
 
-T 'rm -f etc/lang'
 F 'libexec/get-lang' 'No language is set'
 
 for language in `libexec/ls-langs`
 do
-	T "cptk init $language"
+	WRAP T "cptk init $language"
 	T 'libexec/get-lang' '' "^$language$"
 done
 

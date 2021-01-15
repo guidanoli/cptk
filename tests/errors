@@ -19,104 +19,105 @@ has_routines()
 	return 0
 }
 
-T 'cptk'
-T 'cptk --version'
-T 'cptk --help'
+WRAP T 'cptk'
+WRAP T 'cptk --version'
+WRAP T 'cptk --help'
 
-T 'rm -f etc/lang'
-
-F 'cptk path' 'No language is set'
-F 'cptk run' 'No language is set'
-F 'cptk debug' 'No language is set'
+WRAP F 'cptk path' 'No language is set'
+WRAP F 'cptk run' 'No language is set'
+WRAP F 'cptk debug' 'No language is set'
 
 if has_routines edit
 then
-	F 'cptk edit' 'No language is set'
+	WRAP F 'cptk edit' 'No language is set'
 fi
 
 if has_routines copy
 then
-	F 'cptk copy' 'No language is set'
+	WRAP F 'cptk copy' 'No language is set'
 fi
 
 if has_routines paste
 then
-	F 'cptk paste' 'No language is set'
+	WRAP F 'cptk paste' 'No language is set'
 fi
 
-F 'cptk list' 'No language is set'
-F 'cptk open x' 'No language is set'
-F 'cptk save x' 'No language is set'
-F 'cptk remove x' 'No language is set'
+WRAP F 'cptk list' 'No language is set'
+WRAP F 'cptk open x' 'No language is set'
+WRAP F 'cptk save x' 'No language is set'
+WRAP F 'cptk remove x' 'No language is set'
 
-T 'cptk init c'
-T 'rm -f "$(cptk path)"'
-F 'cptk run' 'No program'
-F 'cptk debug' 'No program'
+WRAP T 'cptk init c'
+WRAP T 'rm -f "$(cptk path)"'
+WRAP F 'cptk run' 'No program'
+WRAP F 'cptk debug' 'No program'
 
 if has_routines copy
 then
-	F 'cptk copy' 'No program'
+	WRAP F 'cptk copy' 'No program'
 fi
 
-F 'cptk save x' 'No program'
+WRAP F 'cptk save x' 'No program'
 
-F 'cptk ""' 'Unknown command'
-F 'cptk .' 'Unknown command'
-F 'cptk ..' 'Unknown command'
-F 'cptk base' 'Unknown command'
-F 'cptk base/..' 'Unknown command'
+WRAP F 'cptk ""' 'Unknown command'
+WRAP F 'cptk .' 'Unknown command'
+WRAP F 'cptk ..' 'Unknown command'
+WRAP F 'cptk base' 'Unknown command'
+WRAP F 'cptk base/..' 'Unknown command'
 
-F 'cptk init' 'Missing <language> argument'
-F 'cptk init ""' 'Unknown language'
-F 'cptk init .' 'Unknown language'
-F 'cptk init ..' 'Unknown language'
-F 'cptk init lib' 'Unknown language'
-F 'cptk init lib/c' 'Unknown language'
+WRAP F 'cptk init' 'Missing <language> argument'
+WRAP F 'cptk init ""' 'Unknown language'
+WRAP F 'cptk init .' 'Unknown language'
+WRAP F 'cptk init ..' 'Unknown language'
+WRAP F 'cptk init lib' 'Unknown language'
+WRAP F 'cptk init lib/c' 'Unknown language'
 
-if cptk list | grep -q ^test$
+if WRAP cptk list | grep -q ^test$
 then
-	T 'cptk remove test'
+	WRAP T 'cptk remove test'
 fi
 
-T 'echo test > etc/test'
-T 'cp etc/test "$(cptk path)"'
+export testfile=$(mktemp)
+
+T 'echo test > "$testfile"'
+WRAP T 'cp "$testfile" "$(cptk path)"'
 
 if has_routines copy paste
 then
-	T 'cptk copy'
-	T 'rm "$(cptk path)"'
-	T 'cptk paste'
-	T '[[ -f $(cptk path) ]]'
-	T 'diff etc/test "$(cptk path)"'
+	WRAP T 'cptk copy'
+	WRAP T 'rm "$(cptk path)"'
+	WRAP T 'cptk paste'
+	WRAP T '[[ -f $(cptk path) ]]'
+	WRAP T 'diff "$testfile" "$(cptk path)"'
 fi
 
-T 'cptk save test'
-T 'cptk save test' # override 
-T 'cptk list | grep ^test$'
-T 'rm "$(cptk path)"'
-T 'cptk open test'
-T '[[ -f $(cptk path) ]]'
-T 'diff etc/test "$(cptk path)"'
-T 'cptk remove test'
-F 'cptk list | grep ^test$'
-F 'cptk remove test' 'Unknown program'
-F 'cptk open test' 'Unknown program'
-T 'rm etc/test'
+WRAP T 'cptk save test'
+WRAP T 'cptk save test' # override 
+WRAP T 'cptk list | grep ^test$'
+WRAP T 'rm "$(cptk path)"'
+WRAP T 'cptk open test'
+WRAP T '[[ -f $(cptk path) ]]'
+WRAP T 'diff $testfile"" "$(cptk path)"'
+WRAP T 'cptk remove test'
+WRAP F 'cptk list | grep ^test$'
+WRAP F 'cptk remove test' 'Unknown program'
+WRAP F 'cptk open test' 'Unknown program'
 
-T 'touch $(cptk path)'
-F 'cptk save' 'Missing <project> argument'
-F 'cptk open' 'Missing <project> argument'
-F 'cptk remove' 'Missing <project> argument'
+rm "$testfile"
 
-F 'cptk save algo/assim' 'Invalid program name'
-F 'cptk save algo/' 'Invalid program name'
-F 'cptk save /' 'Invalid program name'
-F 'cptk save ""' 'Invalid program name'
-F 'cptk save .' 'Invalid program name'
-F 'cptk save ..' 'Invalid program name'
-T 'cptk save ...'
-T 'cptk remove ...'
+WRAP T 'touch $(cptk path)'
+WRAP F 'cptk save' 'Missing <project> argument'
+WRAP F 'cptk open' 'Missing <project> argument'
+WRAP F 'cptk remove' 'Missing <project> argument'
+
+WRAP F 'cptk save algo/assim' 'Invalid program name'
+WRAP F 'cptk save algo/' 'Invalid program name'
+WRAP F 'cptk save /' 'Invalid program name'
+WRAP F 'cptk save ""' 'Invalid program name'
+WRAP F 'cptk save .' 'Invalid program name'
+WRAP F 'cptk save ..' 'Invalid program name'
+WRAP T 'cptk save ...'
+WRAP T 'cptk remove ...'
 
 END_TEST
 

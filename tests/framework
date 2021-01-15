@@ -97,10 +97,23 @@ F()
 	T "! ($command)" "$@"
 }
 
+# WRAP [command]
+# Runs command in temporary folder
+WRAP()
+{
+	pushd "$cptktestdir" > /dev/null
+	"$@"
+	popd > /dev/null
+}
+
 # BEGIN_TEST
 BEGIN_TEST()
 {
+	export programname=$(ls -1 bin)
+	export cptktestdir=$(mktemp -d)
+	export userdir=$cptktestdir/.cptk
 	echo "[ #### ] Test script: $0"
+	echo "[ #### ] Test folder: $cptktestdir"
 	export starttime=$(date +%s.%N)
 }
 
@@ -110,4 +123,5 @@ END_TEST()
 	local endtime=$(date +%s.%N)
 	local runtime=$(echo "$endtime - $starttime" | bc -l)
 	echo "[ #### ] Total elapsed time: $runtime s"
+	rm -rf "$cptktestdir"
 }

@@ -4,17 +4,16 @@ source tests/framework
 
 BEGIN_TEST
 
-T 'rm -f etc/lang'
 F 'libexec/subcall path' 'No language is set'
 
-T 'cptk init c'
+WRAP T 'cptk init c'
 F 'libexec/subcall' 'Missing <command> argument'
 F 'libexec/subcall unknown-command' "Language 'c' doesn't support command 'unknown-command'"
 
 for language in `libexec/ls-langs`
 do
-	T "cptk init $language"
-	T 'libexec/subcall path' '' '^temp/'
+	WRAP T "cptk init $language"
+	T 'libexec/subcall path' '' '..*'
 done
 
 END_TEST

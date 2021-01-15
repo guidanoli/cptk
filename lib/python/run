@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-python $FLAGS "$(./path)"
+python $FLAGS "$WD/$(./path)"

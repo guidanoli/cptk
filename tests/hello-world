@@ -18,9 +18,9 @@ run_hello_world()
 		fi
 	done
 
-	cptk init "$lang"
-	printf "$program\n" > "$(cptk path)"
-	T 'cptk run' '' 'Hello, World!' "$lang"
+	WRAP cptk init "$lang"
+	printf "$program\n" > "$(WRAP cptk path)"
+	WRAP T 'cptk run' '' 'Hello, World!' "$lang"
 }
 
 BEGIN_TEST
