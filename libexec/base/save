@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: Save temp folder to project folder
+# Summary: Save main program
 #
 # Usage: libexec/base/save <project>
 
@@ -18,7 +18,7 @@ then
 	lang=$(libexec/get-lang)
 
 	# Get projects folder path
-	projectsfolder=etc/projects/$lang
+	projectsfolder=$userdir/saved/$lang
 
 	# Get program path
 	path=$(libexec/base/path)
@@ -37,11 +37,11 @@ then
 		source libexec/err/invalid-project
 	fi
 
-	# Make project directory
-	mkdir -p "$projectsfolder/$project"
+	# Make projects folder
+	mkdir -p "$projectsfolder"
 
 	# Copy program to project directory
-	cp -a "$path" "$projectsfolder/$project"
+	cp "$path" "$projectsfolder/$project"
 
 elif [[ $# -eq 0 ]]
 then

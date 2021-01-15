@@ -17,17 +17,23 @@ then
 	lang=$(libexec/get-lang)
 
 	# Get projects folder path
-	projectsfolder=etc/projects/$lang
+	projectsfolder=$userdir/saved/$lang
 
 	# If project is not in the projects folder
-	if ! libexec/is-child "$projectsfolder" "$project" -type d
+	if ! libexec/is-child "$projectsfolder" "$project" -type f
 	then
 		# then, exit
 		source libexec/err/unknown-project
 	fi
 
-	# Copy project files to temporary directory
-	cp -a "$projectsfolder/$project/." "lib/$lang/temp"
+	# Get main program path
+	path=$(libexec/base/path)
+
+	# Make sure main program can be written
+	mkdir -p "$(dirname "$path")"
+
+	# Make project file be the main program
+	cp "$projectsfolder/$project" "$path"
 
 elif [[ $# -eq 0 ]]
 then

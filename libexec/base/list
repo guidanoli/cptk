@@ -9,7 +9,7 @@ set -e
 lang=$(libexec/get-lang)
 
 # Get language project folder
-langprjfolder=etc/projects/$lang
+langprjfolder=$userdir/saved/$lang
 
 # If folder exists, list all subdirectories
 if [[ -d $langprjfolder ]]
