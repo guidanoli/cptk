@@ -17,11 +17,11 @@ then
 	if libexec/is-child lib "$lang" -type d
 	then
 		# then set it as the current language
-		mkdir -p etc
-		echo "$lang" > etc/lang
+		mkdir -p "$userdir/etc"
+		echo "$lang" > "$userdir/etc/lang"
 
-		# and make temporary directory
-		mkdir -p "lib/$lang/temp"
+		# and create language main directory
+		mkdir -p "$userdir/main/$lang"
 	else
 		# else, exit
 		source libexec/err/unknown-language

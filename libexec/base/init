@@ -1,7 +1,20 @@
 #!/usr/bin/env bash
 #
-# Summary: sets a language
+# Summary: Creates the .cptk directory and sets a language
 #
 # Usage: libexec/base/init <language>
 
+# Exit on error
+set -e
+
+if [[ $# -eq 0 ]]
+then
+	argname='<language>'
+	source libexec/err/missing-argument
+fi
+
+# Make .cptk directory
+mkdir -p "$userdir"
+
+# Set language
 source libexec/set-lang

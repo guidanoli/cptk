@@ -3,10 +3,12 @@
 # Exit on error
 set -e
 
+# User variables
+export userdir=$PWD/.cptk
+
 # Program variables
 export programpath=$(readlink -f "${BASH_SOURCE[0]}")
 export programname=$(basename "$programpath")
-export programroot=$(dirname "$(dirname "$programpath")")
 
 # Get command
 if [[ $# -ge 1 ]]
@@ -18,7 +20,7 @@ else
 fi
 
 # Change directory to root
-cd "$programroot"
+cd "$(dirname "$(dirname "$programpath")")"
 
 # If base command exists and is in the base directory
 if libexec/is-child libexec/base "$command" -type f
