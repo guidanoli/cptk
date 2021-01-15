@@ -16,5 +16,6 @@ T tests/call-routine
 T tests/subcall
 T tests/errors
 T tests/hello-world
+T tests/two-environments
 
 END_TEST

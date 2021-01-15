@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+export cptktestdir2=$(mktemp -d)
+export userdir2=$cptktestdir2/.cptk
+
+# SWAP
+# swap environment
+SWAP()
+{
+	local cptktestdirtemp=$cptktestdir2
+	export cptktestdir2=$cptktestdir
+	export cptktestdir=$cptktestdirtemp
+	
+	local userdirtemp=$userdir2
+	export userdir2=$userdir
+	export userdir=$userdirtemp
+}
+
+BEGIN_TEST
+
+echo "[ #### ] Test folder #2: $cptktestdir2"
+
+WRAP T 'cptk init c'
+WRAP T 'echo env1 > "$(cptk path)"'
+
+T 'SWAP'
+
+WRAP T 'cptk init c'
+WRAP T 'echo env2 > "$(cptk path)"'
+
+T 'SWAP'
+
+WRAP T 'cat "$(cptk path)"' '' '^env1$'
+
+T 'SWAP'
+
+WRAP T 'cat "$(cptk path)"' '' '^env2$'
+
+END_TEST
+
+rm -rf "$cptktestdir2"
