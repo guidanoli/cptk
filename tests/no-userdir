@@ -4,38 +4,55 @@ source tests/framework
 
 BEGIN_TEST
 
-F '[[ -d .cptk ]]'
+# delete any .cptk
+T 'rm -rf .cptk'
 
 T 'cptk'
 T 'cptk --help'
 T 'cptk --version'
 
+test_failing_commands()
+{
+	F 'cptk path' 'No language is set'
+	F 'cptk run' 'No language is set'
+	F 'cptk debug' 'No language is set'
+
+	if libexec/has-routine copy
+	then
+		F 'cptk copy' 'No language is set'
+	else
+		SKIP 'copy not supported'
+	fi
+
+	if libexec/has-routine paste
+	then
+		F 'cptk paste' 'No language is set'
+	else
+		SKIP 'paste not supported'
+	fi
+
+	F 'cptk save test' 'No language is set'
+	F 'cptk open test' 'No language is set'
+	F 'cptk remove test' 'No language is set'
+	F 'cptk list' 'No language is set'
+}
+
+# without .cptk
+test_failing_commands
+
 T 'touch .cptk'
 T '[[ -f .cptk ]]'
 F 'cptk init c'
+
+# .cptk as a file
+test_failing_commands
+
 T 'rm .cptk'
+T 'mkdir .cptk'
 
-F 'cptk path' 'No language is set'
-F 'cptk run' 'No language is set'
-F 'cptk debug' 'No language is set'
+# .cptk as an empty directory
+test_failing_commands
 
-if libexec/has-routine copy
-then
-	F 'cptk copy' 'No language is set'
-else
-	SKIP 'copy not supported'
-fi
-
-if libexec/has-routine paste
-then
-	F 'cptk paste' 'No language is set'
-else
-	SKIP 'paste not supported'
-fi
-
-F 'cptk save test' 'No language is set'
-F 'cptk open test' 'No language is set'
-F 'cptk remove test' 'No language is set'
-F 'cptk list' 'No language is set'
+T 'rm -r .cptk'
 
 END_TEST
