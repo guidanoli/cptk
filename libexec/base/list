@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: List all saved projects
+# Summary: List all user projects
 
 # Exit on error
 set -e
@@ -9,7 +9,7 @@ set -e
 lang=$(libexec/get-lang)
 
 # Get language project folder
-langprjfolder=$userdir/saved/$lang
+langprjfolder=$userdir/user/$lang
 
 # If folder exists, list all subdirectories
 if [[ -d $langprjfolder ]]

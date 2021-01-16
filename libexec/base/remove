@@ -17,7 +17,7 @@ then
 	lang=$(libexec/get-lang)
 
 	# Get projects folder path
-	projectsfolder=$userdir/saved/$lang
+	projectsfolder=$userdir/user/$lang
 
 	# If project is not in the projects folder
 	if ! libexec/is-child "$projectsfolder" "$project" -type f
